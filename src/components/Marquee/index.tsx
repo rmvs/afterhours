@@ -5,7 +5,7 @@ import { useWindowSize } from "@react-hook/window-size";
 import { v4 as uuidv4 } from 'uuid';
 
 
-export default function Marquee({ children }: any){
+export default function Marquee({ children, padding }: any){
 
     
     // const rect: any = useRef({})
@@ -120,7 +120,7 @@ export default function Marquee({ children }: any){
         }
     }
 
-    // useRafLoop(loop,true)
+    useRafLoop(loop,true)
 
     return (
         <div style={{position: 'relative', overflow: 'hidden'}} onMouseOver={() => {

@@ -19,6 +19,7 @@ export const SlideContainer = styled.div`
     transform: rotate(0.277deg);
     align-items: center;
     gap: 69.93px;
+    margin-left: -5%;
 `
 
 

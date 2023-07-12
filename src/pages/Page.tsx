@@ -12,6 +12,8 @@ import AfterHoursStamp from "components/Stamp"
 import Trivia from "components/Trivia"
 import React from "react"
 
+import { useWindowSize } from "@react-hook/window-size";
+
 
 export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
 
@@ -53,6 +55,15 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
             label: 'Reviews'
         },                        
     ];
+
+    const [ width, height ] = useWindowSize()
+
+    const SlideUnitSection = (props: any) => (
+        <>
+            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
+            <Logo inverted width={'109.13px'} height={'52.86px'} />
+        </>
+    )
 
     return (
         <Layout>
@@ -114,30 +125,9 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
                 <Trivia />
                 <AfterHoursSlideStrapContainer>
                     <SlideContainer>
-                        <>
-                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
-                            <Logo inverted width={'109.13px'} height={'52.86px'} />
-                        </>
-                        <>
-                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
-                            <Logo inverted width={'109.13px'} height={'52.86px'} />
-                        </>
-                        <>
-                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
-                            <Logo inverted width={'109.13px'} height={'52.86px'} />
-                        </>
-                        <>
-                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
-                            <Logo inverted width={'109.13px'} height={'52.86px'} />
-                        </>
-                        <>
-                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
-                            <Logo inverted width={'109.13px'} height={'52.86px'} />
-                        </>
-                        <>
-                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
-                            <Logo inverted width={'109.13px'} height={'52.86px'} />
-                        </>
+                        {
+                            Array.from({ length: Math.ceil(width/344.44)}).map((value,index) => <React.Fragment key={index}><SlideUnitSection /></React.Fragment>)
+                        }
                     </SlideContainer>                    
                 </AfterHoursSlideStrapContainer>                
             </Content>
