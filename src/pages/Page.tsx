@@ -1,5 +1,6 @@
 // import { Menu } from "antd";
 import { Eyelash } from "Icons"
+import { AfterHoursSlideStrapContainer, SlideContainer } from "components/AfterHoursSlideStrap"
 import Benefits from "components/Benefits"
 import { MobileButton } from "components/Button"
 import { Layout, StyledHeader, Content } from "components/Header"
@@ -7,6 +8,8 @@ import {Logo} from 'components/Logo'
 import Marquee from "components/Marquee"
 import { Menu, TopFrame, TopFrameBlock, TopFrameContainer, TopFrameLabel } from "components/Nav"
 import { ProductDescription } from "components/Product"
+import AfterHoursStamp from "components/Stamp"
+import Trivia from "components/Trivia"
 import React from "react"
 
 
@@ -107,7 +110,36 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
                 />
             </StyledHeader>
             <Content>
-                <ProductDescription />                
+                <ProductDescription />
+                <Trivia />
+                <AfterHoursSlideStrapContainer>
+                    <SlideContainer>
+                        <>
+                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
+                            <Logo inverted width={'109.13px'} height={'52.86px'} />
+                        </>
+                        <>
+                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
+                            <Logo inverted width={'109.13px'} height={'52.86px'} />
+                        </>
+                        <>
+                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
+                            <Logo inverted width={'109.13px'} height={'52.86px'} />
+                        </>
+                        <>
+                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
+                            <Logo inverted width={'109.13px'} height={'52.86px'} />
+                        </>
+                        <>
+                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
+                            <Logo inverted width={'109.13px'} height={'52.86px'} />
+                        </>
+                        <>
+                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
+                            <Logo inverted width={'109.13px'} height={'52.86px'} />
+                        </>
+                    </SlideContainer>                    
+                </AfterHoursSlideStrapContainer>                
             </Content>
         </Layout>
     )

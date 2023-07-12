@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Layout as AntdLayout } from "antd";
+import { Layout } from "antd";
 
-const { Header, Content } = AntdLayout
+const { Header, Content: AntdContent } = Layout
 
 const StyledHeader = styled(Header)`
     background: var(--cream);
@@ -17,11 +17,12 @@ const StyledHeader = styled(Header)`
         padding: 15px 0px;
         justify-content: flex-start;
     }
-`;
+`
 
-const Layout = styled(AntdLayout)`
-    
-`;
+
+const Content = styled(AntdContent)`
+    background: linear-gradient(149deg, #FFFBF8 0%, rgba(210, 240, 242, 0.00) 97.40%);
+`
 
 // overflow: hidden;
 

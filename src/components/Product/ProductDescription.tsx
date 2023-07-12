@@ -290,7 +290,7 @@ export default function ProductDescription(props: React.PropsWithChildren){
                             We all deserve a peaceful sleep. When light intrudes your sleep –  
                             a sleep mask works to block out light – but it can also obstruct your comfort.
                     </ProductInformationDescription> */}
-                    <AfterHoursStamp />
+                    <AfterHoursStamp position="absolute" />
                     <Collapse items={collapseItems} activeKeys={collapseItems.map(({ key }) => key)} />
                     {/* <TryNowButton>
                         <Icon src={"icons/stars.svg"} width="24px" height="24px" />

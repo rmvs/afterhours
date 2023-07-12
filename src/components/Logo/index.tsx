@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import SVG from 'react-inlinesvg'
 
 const AfterHoursLogoSVG = styled(SVG)`
-    width: 109.134px;
-    height: 52.857px;
+    width: ${ props => props.width || '109.13px'};
+    height: ${ props => props.width || '52.86px' };
     flex-shrink: 0;
     @media(max-width: 480px){
         width: 25%;
@@ -13,6 +13,6 @@ const AfterHoursLogoSVG = styled(SVG)`
 `
 
 
-const Logo = (props: any) => <AfterHoursLogoSVG src="logo.svg" />
+const Logo = ({ inverted, width, height }: { inverted?: boolean, width?: string, height?: string }) => <AfterHoursLogoSVG src={inverted ? "logo-inverted.svg" : "logo.svg"} width={width} height={height} />
 
 export { Logo }
