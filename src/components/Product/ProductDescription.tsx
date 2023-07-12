@@ -28,6 +28,8 @@ const ProductHero = styled(Row)`
   padding-right: 218px;
   gap: 9px;*/
 
+  gap: 130px;
+
   padding-bottom: 160px;
 
   @media(max-width: 480px) {
@@ -47,7 +49,7 @@ const ProductIntroduction = styled.div`
 const Typography = styled.div`
     color: var(--main-blue);
     font-family: Roc Grotesk;
-    font-size: 55px;
+    font-size: 50px;
     font-style: normal;
     font-weight: lighter;
     line-height: 60px;
@@ -158,7 +160,7 @@ const ProductInformationDescription = styled.div`
     font-weight: 500;
     line-height: 20px;
 
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 `
 
 const HighlightText = styled.span`
@@ -247,9 +249,11 @@ export default function ProductDescription(props: React.PropsWithChildren){
     
 
     return (
-        <Container>            
-            <ProductHero gutter={[96,0]} justify={"center"}>
-                <Col xs={24} md={8}>
+        <Container>                 
+            {/* 96     */}
+            <ProductHero justify={"center"}>                   
+                <Col xs={24} md={8} flex={"auto"}>
+                    <AfterHoursStamp position="absolute" />
                     <Carousel cards={cards} />
                 </Col>
                 <Col xs={24} md={8}>                    
@@ -289,8 +293,7 @@ export default function ProductDescription(props: React.PropsWithChildren){
                     <ProductInformationDescription>
                             We all deserve a peaceful sleep. When light intrudes your sleep –  
                             a sleep mask works to block out light – but it can also obstruct your comfort.
-                    </ProductInformationDescription> */}
-                    <AfterHoursStamp position="absolute" />
+                    </ProductInformationDescription> */}                    
                     <Collapse items={collapseItems} activeKeys={collapseItems.map(({ key }) => key)} />
                     {/* <TryNowButton>
                         <Icon src={"icons/stars.svg"} width="24px" height="24px" />

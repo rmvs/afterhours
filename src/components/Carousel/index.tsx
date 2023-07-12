@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import SVG from 'react-inlinesvg'
 import { useEffect, useRef, useState } from "react";
 
-const Pages = styled(AntdCarousel)`
+const Pages = styled(AntdCarousel)` 
+    /*& > * {
+        height: 100% !important;
+    }*/
+    padding-bottom: 10px; 
 `
 
 const SlickList = styled.ul`
@@ -16,6 +20,7 @@ const SlickList = styled.ul`
 const Container = styled.div`
     /*width: 677px;
     height: 887px;*/
+    height: 100%;
     @media (max-width: 480px) {
         width: 100%;
         height: 100%;

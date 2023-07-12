@@ -5,8 +5,8 @@ const StampContainer = styled.div<{ position?: string }>`
     position: ${ props => props.position || 'relative' };
     ${ props => props.position === 'absolute' ?
        `
-        top: 25%;
-        left: -20%;
+        top: 37%;
+        left: 89%;
        ` : ``
      }
     z-index: 999;
