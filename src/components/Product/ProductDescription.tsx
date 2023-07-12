@@ -49,7 +49,7 @@ const ProductIntroduction = styled.div`
 const Typography = styled.div`
     color: var(--main-blue);
     font-family: Roc Grotesk;
-    font-size: 50px;
+    font-size: 55px;
     font-style: normal;
     font-weight: lighter;
     line-height: 60px;
