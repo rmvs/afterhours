@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.1e09f83f.css",
-    "main.js": "/static/js/main.5f237201.js",
-    "static/js/787.f0a1df11.chunk.js": "/static/js/787.f0a1df11.chunk.js",
-    "static/media/roc-grotesc-bold.otf": "/static/media/roc-grotesc-bold.2fde9191827b5af3655a.otf",
-    "static/media/rock-grotesk-light.otf": "/static/media/rock-grotesk-light.21840e9280b213e613ab.otf",
-    "static/media/roc-grotesk-400.otf": "/static/media/roc-grotesk-400.6c7a84c606cc216ca4da.otf",
-    "index.html": "/index.html",
-    "main.1e09f83f.css.map": "/static/css/main.1e09f83f.css.map",
-    "main.5f237201.js.map": "/static/js/main.5f237201.js.map",
-    "787.f0a1df11.chunk.js.map": "/static/js/787.f0a1df11.chunk.js.map"
+    "main.css": "/afterhours/static/css/main.40f354e3.css",
+    "main.js": "/afterhours/static/js/main.9841b1a9.js",
+    "static/js/787.f0a1df11.chunk.js": "/afterhours/static/js/787.f0a1df11.chunk.js",
+    "static/media/roc-grotesc-bold.otf": "/afterhours/static/media/roc-grotesc-bold.2fde9191827b5af3655a.otf",
+    "static/media/rock-grotesk-light.otf": "/afterhours/static/media/rock-grotesk-light.21840e9280b213e613ab.otf",
+    "static/media/roc-grotesk-400.otf": "/afterhours/static/media/roc-grotesk-400.6c7a84c606cc216ca4da.otf",
+    "index.html": "/afterhours/index.html",
+    "main.40f354e3.css.map": "/afterhours/static/css/main.40f354e3.css.map",
+    "main.9841b1a9.js.map": "/afterhours/static/js/main.9841b1a9.js.map",
+    "787.f0a1df11.chunk.js.map": "/afterhours/static/js/787.f0a1df11.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e09f83f.css",
-    "static/js/main.5f237201.js"
+    "static/css/main.40f354e3.css",
+    "static/js/main.9841b1a9.js"
   ]
 }
