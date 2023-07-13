@@ -25,10 +25,11 @@ export default function Marquee({ children, padding }: any){
     const [ threshold, setThreshold ] = useState<number>()
 
     useEffect(() => {
-        if(childrenMarquee.length > 0 && childrenMarquee[childrenMarquee.length - 1].ref && !threshold){
+        if(childrenMarquee.length > 0 && childrenMarquee[childrenMarquee.length - 1].ref && childrenMarquee.length < Math.ceil(width/childrenMarquee[childrenMarquee.length - 1].ref.current.getBoundingClientRect().width) + 1){
             const _threshold = Math.ceil(width/childrenMarquee[childrenMarquee.length - 1].ref.current.getBoundingClientRect().width)
-            setThreshold(_threshold)
+            //setThreshold(_threshold)
             createNewMarquee(_threshold)
+            //setThreshold(undefined)
         }
     },[width, childrenMarquee])
 
