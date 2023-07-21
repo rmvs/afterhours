@@ -10,7 +10,7 @@ import { Menu, TopFrame, TopFrameBlock, TopFrameContainer, TopFrameLabel } from 
 import { ProductDescription } from "components/Product"
 import AfterHoursStamp from "components/Stamp"
 import Trivia from "components/Trivia"
-import React, { createRef, useEffect, useRef } from "react"
+import React, { createRef, useEffect, useRef, useState } from "react"
 
 import { useWindowSize } from "@react-hook/window-size";
 import Slide from "components/Slide"
@@ -19,13 +19,24 @@ import ProductIntro from "./ProductIntro"
 import ProductDetails from "./ProductDetails"
 import BannerAdvertisement from "./BannerAdvertisement"
 import FAQ from "./FAQ"
+import ContactUs from "components/ContactUs"
 
 
 export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
 
     const frameLabels = ['100% Light Blocking','100% Silk','No Straps','No Fuss','Rest Easy',];
 
-    const scrollToView = (elementId: string) => document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' })
+    const [ contactUsOpen, setContactUsOpen ] = useState(false)
+
+    const scrollToView = (elementId: string) => {
+        document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' })
+        // setTimeout(() => {
+        //     window.scrollTo({
+        //         top: window.scrollY - 1,
+        //         behavior: 'smooth'
+        //     })
+        // },300)
+    }
 
     const menuItems = [
         {
@@ -40,7 +51,8 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
         },
         {
             key: 3,
-            label: 'Contact us'
+            label: 'Contact Us',
+            onClick: (ev: any) => setContactUsOpen(prev => !prev)
         },
         {
             key: 4,
@@ -49,11 +61,16 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
         },
         {
             key: 5,
+            label: 'Comparison',
+            onClick: (ev: any) => scrollToView('comparison')
+        },
+        {
+            key: 6,
             label: 'FAQs',
             onClick: (ev: any) => scrollToView('faq')
         },
         {
-            key: 6,
+            key: 7,
             label: 'Reviews'
         },                        
     ];
@@ -71,6 +88,7 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
     
     return (
         <Layout>
+            <ContactUs open={contactUsOpen} setClose={setContactUsOpen} />
             <TopFrame>
                 <Marquee>
                     <TopFrameContainer> 

@@ -237,7 +237,7 @@ export default function FAQ(props: React.PropsWithChildren){
 
     return (
         <FAQContainer>
-            <FAQComparision justify={"center"}>
+            <FAQComparision id="comparison" justify={"center"}>
                 <FAQComparisionContent className="left" span={6}>
                     <Typography className="faq-header" fontSize="29.363px" $fontFamily="Laviossa" >Others</Typography>
                     <AdvantageListContainer>

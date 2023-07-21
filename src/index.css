@@ -114,3 +114,8 @@ body {
   background: #FFF;
 }
 
+.ant-modal-mask {
+  backdrop-filter: blur(10px);
+  background: transparent;
+}
+
