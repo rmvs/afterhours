@@ -282,7 +282,7 @@ export default function FAQ(props: React.PropsWithChildren){
                 </FAQComparisionContent>
             </FAQComparision>
             <ShopNowContainer>
-                <Button icon={<><Icon color={"#164CA4"} src={"icons/stars.svg"} width="24px" height="24px" /></>} type="primary">Shop Now</Button>
+                <Button icon={<><Icon color={"#164CA4"} src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
             </ShopNowContainer>
             {/* <MultiColumnList dataSource={data} renderItem={(item: any, index: any) => <Item>dfdf</Item>} /> */}
             {/* {

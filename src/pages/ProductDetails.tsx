@@ -25,10 +25,11 @@ const ProductDetailsContainer = styled.div`
 
 const ShopNowButton = styled(Button)`
     position: absolute;
-    top: 60%;
-    left: 50%;
+    top: 77%;
+    left: 46.4%;
     padding: 32px 32px 32px 16px;
     margin-inline-end: 0px;
+    background: #164CA4;
 `
 
 export default function ProductDetails(props: React.PropsWithChildren){
@@ -47,8 +48,8 @@ export default function ProductDetails(props: React.PropsWithChildren){
                     afterhours
                 </Typography>
             </ProductTitle> */}
-            <img id="bust" src="img/product-bust.png" alt="bust" />
-            <ShopNowButton type="primary" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>
+            <img id="bust" src="img/product-anatomy.png" alt="bust" />
+            <ShopNowButton icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>
         </ProductDetailsContainer>
     )
 }
