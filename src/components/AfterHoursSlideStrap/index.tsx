@@ -12,14 +12,20 @@ export const AfterHoursSlideStrapContainer = styled.div`
     margin-left: -1px;
 `
 
-export const SlideContainer = styled.div`
-    padding-top: 25px;
-    padding-bottom: 25px;
-    display: inline-flex;
-    transform: rotate(0.277deg);
-    align-items: center;
-    gap: 69.93px;
-    margin-left: -5%;
+export const SlideContainer = styled.div<{$rotate?: string}>`
+    div.motion-container {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: inline-flex;        
+        align-items: center;
+        /*gap: 69.93px;*/
+        gap: 50px;
+        /*width:auto;*/
+        clear:both;
+        width: fit-content;
+    }    
+    transform: ${ props => props.$rotate };
+    /*margin-left: -5%;*/
 `
 
 

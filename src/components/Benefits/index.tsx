@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 const BenefitsSection = styled(Row)`
     padding-bottom: 115px;
+    gap: 30px;
 `
 
 export default function Benefits(props: React.PropsWithChildren){
@@ -30,9 +31,9 @@ export default function Benefits(props: React.PropsWithChildren){
     //             </Block>
     //         )) }
     //     </BenefitsSection>
-
+    // gutter={[30,2]}
     return (
-      <BenefitsSection gutter={[30,2]} justify={"center"}>
+      <BenefitsSection justify={"center"}>
         {benefits.map((value, index) => (
           <Col key={index}>
             <Block key={index} type="primary" hasIcon>

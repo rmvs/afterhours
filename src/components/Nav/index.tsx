@@ -26,9 +26,15 @@ const TopFrame = styled.div`
     align-items: flex-start;
     flex-shrink: 0;
     background: var(--main-blue);
+    overflow: hidden;
 `
 
-const TopFrameContainer = styled.div`
+const PaddingContainer = styled("div")`
+    padding-left: 40px;
+`
+
+// styled.div
+const TopFrameContainer = styled((( { children, ...props  }: any ) => <PaddingContainer {...props} >{ children }</PaddingContainer>))`
     display: flex;
     align-items: center;
     gap: 40px;

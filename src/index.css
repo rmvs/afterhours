@@ -6,6 +6,13 @@
   --gradiant-2: linear-gradient(149deg, #FFFBF8 0%, rgba(210, 240, 242, 0.00) 97.40%);
   --gradiant-hero: linear-gradient(160.76deg, #FFFBF8 40.44%, rgba(210, 240, 242, 0) 75.47%);
   --black-90: #1B1B1B;
+  --accent: #fafafa;
+}
+
+@font-face {
+  font-family: 'Laviossa';
+  src: url(/public/fonts/laviossa-medium.otf);
+  /*src: url(/public/fonts/roc_grotesk/rocgrotesk-regular.otf);*/
 }
 
 @font-face {
@@ -43,9 +50,9 @@ body {
 /* overflow-x: hidden; */
 html,
 body {
-  overscroll-behavior-x: none;
-  height: 100%;
-  overflow-x: hidden;
+  /* overscroll-behavior-x: none; */
+  height: 100%;  
+  /* overflow-x: hidden; */
 }
 
 /* body{
@@ -97,3 +104,13 @@ body {
 /*.slick-slider > * {
   height: 100%;
 }*/
+
+.slide-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.ant-layout {
+  background: #FFF;
+}
+
