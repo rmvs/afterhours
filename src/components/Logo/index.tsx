@@ -13,6 +13,6 @@ const AfterHoursLogoSVG = styled(SVG)`
 `
 
 
-const Logo = ({ inverted, width, height }: { inverted?: boolean, width?: string, height?: string }) => <AfterHoursLogoSVG src={inverted ? "logo-inverted.svg" : "logo.svg"} width={width} height={height} />
+const Logo = ({ inverted, width, height, ref }: { inverted?: boolean, width?: string, height?: string, ref?: any }) => <AfterHoursLogoSVG ref={ref} src={inverted ? "logo-inverted.svg" : "logo.svg"} width={width} height={height} />
 
 export { Logo }

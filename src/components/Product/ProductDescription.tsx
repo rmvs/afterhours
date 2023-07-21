@@ -201,6 +201,10 @@ export default function ProductDescription(props: React.PropsWithChildren){
             src: 'img/carousel/2.png',
             href: '#'
         }
+        ,{
+            src: 'img/carousel/4.png',
+            href: '#'
+        }
     ]
 
 
@@ -249,7 +253,7 @@ export default function ProductDescription(props: React.PropsWithChildren){
     
 
     return (
-        <Container>                 
+        <Container id="product-description">                 
             {/* 96     */}
             <ProductHero justify={"center"}>                   
                 <Col xs={24} md={8} flex={"auto"}>

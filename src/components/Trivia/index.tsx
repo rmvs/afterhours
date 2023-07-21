@@ -26,7 +26,7 @@ const EyelashContainer = styled.div`
 
 export default function Trivia(props: React.PropsWithChildren){
     return (
-        <Container>
+        <Container id="did-you-know">
             <Row gutter={[100,1]} justify={"center"}>
                 <Col span={6}>
                     <Typography>
