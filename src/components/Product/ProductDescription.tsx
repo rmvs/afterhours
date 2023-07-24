@@ -6,6 +6,8 @@ import Collapse from 'components/Collapse';
 import Button from 'components/Button/Button';
 import Benefits from 'components/Benefits';
 import AfterHoursStamp from 'components/Stamp';
+import Typography from 'components/Typography';
+import { ConfigProvider } from 'antd';
 
 const Container = styled.div`
     /*background-image: linear-gradient(160.76deg, #FFFBF8 40.44%, rgba(210, 240, 242, 0) 75.47%),
@@ -44,37 +46,37 @@ const ProductIntroduction = styled.div`
     flex-direction: column;
     flex-shrink: 0;
     margin-right: -48px;
+    gap: 15px;
 `
 
-const Typography = styled.div`
-    color: var(--main-blue);
-    font-family: Roc Grotesk;
-    font-size: 55px;
-    font-style: normal;
-    font-weight: lighter;
-    line-height: 60px;
-    letter-spacing: -1.65px;
-    @media(max-width: 480px){
-        font-size: 20px;
-    }
-
-`
+// const Typography = styled.div`
+//     color: var(--main-blue);
+//     font-family: Roc Grotesk;
+//     font-size: 55px;
+//     font-style: normal;
+//     font-weight: lighter;
+//     line-height: 60px;
+//     letter-spacing: -1.65px;
+//     @media(max-width: 480px){
+//         font-size: 20px;
+//     }
+// `
 
 const ProductHighlight = styled.span`
-    border-radius: 100px;
+    border-radius: 50px;
     border: 1px solid #164CA4;
     width: 300px;
     height: auto;
     flex-shrink: 0;
-    font-weight: bold;
-    padding: 0px 10px;
+    // font-weight: bold;
+    padding: 5px 10px;
 `
 
 const BolderText = styled.span` 
     font-family: Roc Grotesk Bold;
 `
 
-const Review = styled.div`
+export const Review = styled.div<{$hover?: boolean}>`
     display: flex;
     /*width: 116.391px;
     height: 21.764px;*/
@@ -85,10 +87,14 @@ const Review = styled.div`
         cursor: pointer;
     }*/
 
-    svg:hover {
-        path {
-            fill: #164CA4;
-        }
+    ${ props => props.$hover ?
+        `
+            svg:hover {
+                path {
+                    fill: #164CA4;
+                }
+            }
+        ` : ``
     }
 `
 
@@ -261,49 +267,36 @@ export default function ProductDescription(props: React.PropsWithChildren){
                     <Carousel cards={cards} />
                 </Col>
                 <Col xs={24} md={8}>                    
-                    <ProductIntroduction>
-                        <Typography>
-                            <BolderText>Finally</BolderText>, a sleep mask with no strings attached.                             
-                        </Typography>
-                        <Typography>
-                            Introducing <ProductHighlight>afterhours,</ProductHighlight> the first strapless sleep mask.
-                        </Typography>
-                    </ProductIntroduction>
-                    <ReviewContainer>
-                        <Review>
-                            { Array.from({ length: 5 }).map((value,index) => <Star key={index} />) }
-                        </Review>
-                        <SatisfactionLabel>
-                            100% satisfaction guarantee
-                        </SatisfactionLabel>
-                    </ReviewContainer>
-                    <PriceContainer>
-                        <Price strike={true}>
-                            $29
-                        </Price>
-                        <Price bigger={true}>
-                            $1                            
-                        </Price>                        
-                    </PriceContainer>
-                    <Quantity>
-                            9
-                    </Quantity>
-                    {/* <ProductInformationHeader>
-                        <Moon />
-                        <ProductInformationLabel>
-                            Product Information
-                        </ProductInformationLabel>
-                    </ProductInformationHeader>
-                    <ProductInformationDescription>
-                            We all deserve a peaceful sleep. When light intrudes your sleep –  
-                            a sleep mask works to block out light – but it can also obstruct your comfort.
-                    </ProductInformationDescription> */}                    
-                    <Collapse items={collapseItems} activeKeys={collapseItems.map(({ key }) => key)} />
-                    {/* <TryNowButton>
-                        <Icon src={"icons/stars.svg"} width="24px" height="24px" />
-                        <TryNowButtonInnerText>Try Now</TryNowButtonInnerText>                        
-                    </TryNowButton> */}
-                    <Button type="primary" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Try Now</Button>
+                    <div style={{height: '100%',display: 'flex',flexDirection: 'column'}}>
+                        <ProductIntroduction>
+                            <Typography fontSize="55px" lineheight="60px" letterSpacing="-1.65px">
+                                <BolderText>Finally</BolderText>, a sleep mask with no strings attached.                             
+                            </Typography>
+                            <Typography fontSize="24px" lineheight="25px" letterSpacing="0px">
+                                <ProductHighlight>Introducing <BolderText>afterhours</BolderText>, the first strapless sleep mask.</ProductHighlight>
+                            </Typography>
+                        </ProductIntroduction>
+                        <ReviewContainer>
+                            <Review $hover>
+                                { Array.from({ length: 5 }).map((value,index) => <Star key={index} />) }
+                            </Review>
+                            <SatisfactionLabel>
+                                100% satisfaction guarantee
+                            </SatisfactionLabel>
+                        </ReviewContainer>
+                        <PriceContainer>
+                            <Price strike={true}>
+                                $29
+                            </Price>
+                            <Price bigger={true}>
+                                $19                          
+                            </Price>                        
+                        </PriceContainer>
+                        <Collapse items={collapseItems} activeKeys={collapseItems.map(({ key }) => key)} />
+                        <div style={{height: '100%',display: 'flex',alignItems: 'flex-end'}}>
+                            <Button type="primary" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Try Now</Button>
+                        </div>
+                    </div>
                 </Col>
             </ProductHero>
             <Benefits />

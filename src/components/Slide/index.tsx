@@ -51,10 +51,10 @@ export default function Slide({ children }: React.PropsWithChildren){
                 ids = {...ids, [id] : 0}
                 return <ElementContainer id={id} ref={createRef() as any}>{ children } </ElementContainer>
             })])
-            setXCoords({ ...ids })
-            setGap(parseInt(getComputedStyle(node).gap?.replace("px","") || "0"))
-            setStart(true)            
+            setXCoords({ ...ids })                                             
         }
+        setGap(parseInt(getComputedStyle(node).gap?.replace("px","") || "0"))
+        setStart(true); 
 
     }
 
@@ -67,11 +67,24 @@ export default function Slide({ children }: React.PropsWithChildren){
     // },[])
 
     useEffect(() => {
-        if(childrenSlide.length === 0){
-            const id = uuidv4()           
-            setChildrenSlide([<ElementContainer id={id} ref={createRef() as any}>{ children }</ElementContainer>])
-            const temp = { [id]: 0 }
-            setXCoords((prev: any) => ({ ...temp }))
+        if(childrenSlide.length === 0){  
+            const ids: any = {}
+            let id = undefined;
+            if((children as any).map){
+                const els = (children as any[])?.map((value: any,index: any) => {
+                    id = uuidv4()
+                    ids[id] = 0
+                    return <ElementContainer id={id} ref={createRef() as any}>{ value }</ElementContainer>;
+                })
+                setChildrenSlide(els)
+            }else{
+                id = uuidv4()
+                ids[id] = 0
+                setChildrenSlide([<ElementContainer id={id} ref={createRef() as any}>{ children }</ElementContainer>])
+            }            
+            
+            // const temp = { [id]: 0 }
+            setXCoords((prev: any) => ({ ...ids }))
         }else {
             setTimeout(() => {
                 createChild()

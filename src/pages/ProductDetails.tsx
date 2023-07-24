@@ -9,6 +9,8 @@ const ProductDetailsContainer = styled.div`
     display: flex;
     justify-content: center;
     position: relative;
+    padding-top: 307.8px;
+    background: #FFF;
 `
 
 // const ProductType = styled.div`
@@ -24,12 +26,24 @@ const ProductDetailsContainer = styled.div`
 // `
 
 const ShopNowButton = styled(Button)`
-    position: absolute;
-    top: 77%;
-    left: 46.4%;
+    // position: absolute;
+    // top: 77%;
+    // left: 46.4%;
     padding: 32px 32px 32px 16px;
     margin-inline-end: 0px;
     background: #164CA4;
+    margin-top: 650px;
+    margin-left: 491px;
+`
+
+const ProductBanner = styled.div`
+    background-image: url('img/product-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    // box-sizing: border-box;
+    background-position: center;
+    height: 836px;
+    width: 1127px;
 `
 
 export default function ProductDetails(props: React.PropsWithChildren){
@@ -48,8 +62,10 @@ export default function ProductDetails(props: React.PropsWithChildren){
                     afterhours
                 </Typography>
             </ProductTitle> */}
-            <img id="bust" src="img/product-anatomy.png" alt="bust" />
-            <ShopNowButton icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>
+            {/* <img id="bust" src="img/product-anatomy.png" alt="bust" /> */}
+            <ProductBanner>
+                <ShopNowButton icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>                
+            </ProductBanner>            
         </ProductDetailsContainer>
     )
 }

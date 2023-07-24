@@ -20,6 +20,10 @@ import ProductDetails from "./ProductDetails"
 import BannerAdvertisement from "./BannerAdvertisement"
 import FAQ from "./FAQ"
 import ContactUs from "components/ContactUs"
+import Reviews from "./Reviews"
+import Testimonies from "./Testimonials"
+import Footer from "components/Footer"
+import Contact from "components/Contact"
 
 
 export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
@@ -134,7 +138,11 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
                 <ProductVideo slideContainerRef={slideContainerRef} />
                 <ProductDetails /> 
                 <BannerAdvertisement paddingTop={"200px"} src="img/banner1.png" />
-                <FAQ />                
+                <FAQ />
+                <Reviews />
+                <Testimonies />
+                <Contact />
+                <Footer />           
             </Content>
         </Layout>
     )

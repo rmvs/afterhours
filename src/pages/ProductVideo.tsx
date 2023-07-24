@@ -136,9 +136,6 @@ export default function ProductVideo({ children, slideContainerRef  }: React.Pro
 
     const { scrollYProgress } = useScroll({ target: descriptionContainer })
     const y = useParallax(scrollYProgress, 500)
-
-    console.log(scrollYProgress, y)
-
     
     
     useEffect(() => {

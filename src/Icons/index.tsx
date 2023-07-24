@@ -27,21 +27,22 @@ const ArrowSVG = styled(SVG)`
 
 interface IconProps {
     src: string,
-    width: string,
-    height: string,
+    width?: string,
+    height?: string,
     color?: string
     strokeWidth?: string
 }
 
 export const Icon = styled(SVG)<IconProps>`
   width: ${props => props.width};
-  height: ${props => props.height};
+  height: ${props => props.height };
   display: ${props => props.display || 'inherit'};  
   flex-shrink: 0;
 
   path {
-    stroke: ${props => props.color || '--var(#164CA4)'};
-    stroke-width: ${ props => props.strokeWidth || 1 }
+    stroke: ${props => props.color};
+    stroke-width: ${ props => props.strokeWidth || 1 };
+    fill: ${ props => props.fill };
   }
 `
 

@@ -119,3 +119,12 @@ body {
   background: transparent;
 }
 
+/* .ant-collapse-content-active {
+  display: block !important;
+  visibility: visible;
+} */
+
+/* .ant-collapse-content-hidden {
+  visibility: hidden;  
+  display: block !important;
+} */
