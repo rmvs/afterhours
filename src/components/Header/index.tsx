@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Layout } from "antd";
+import { Layout as DefaultLayout } from "antd";
 
-const { Header, Content: AntdContent } = Layout
+const { Header, Content: AntdContent } = DefaultLayout
 
 const StyledHeader = styled(Header)`
     background: var(--cream);
@@ -15,8 +15,16 @@ const StyledHeader = styled(Header)`
 
     @media(max-width:480px){
         padding: 15px 0px;
-        justify-content: flex-start;
+        justify-content: flex-start;        
     }
+    
+    @media(min-width: 1024px){
+        gap: 473px !important;
+    }
+`
+
+const Layout = styled(DefaultLayout)`
+    
 `
 
 

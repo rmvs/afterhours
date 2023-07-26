@@ -11,6 +11,25 @@ const ProductDetailsContainer = styled.div`
     position: relative;
     padding-top: 307.8px;
     background: #FFF;
+
+    .shop-now-container {
+        display: none;
+    }
+
+    @media(max-width: 480px){
+        padding-top: 79px;
+        .shop-now-container {
+            display: inherit;
+        }
+        .shop-button {
+            display: none;
+        }
+
+        flex-direction: column;
+        align-items: center;
+        gap: 61px;
+    }
+    
 `
 
 // const ProductType = styled.div`
@@ -34,6 +53,15 @@ const ShopNowButton = styled(Button)`
     background: #164CA4;
     margin-top: 650px;
     margin-left: 491px;
+
+    @media(max-width: 480px){
+        margin: 0;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 16px;
+        padding-right: 32px;
+        border-radius: 16px;
+    }
 `
 
 const ProductBanner = styled.div`
@@ -44,11 +72,17 @@ const ProductBanner = styled.div`
     background-position: center;
     height: 836px;
     width: 1127px;
+
+    @media(max-width: 480px){
+        background-image: url('img/product-anatomy-mobile.png');
+        height: 943px;
+        width: 300px
+    }
 `
 
-export default function ProductDetails(props: React.PropsWithChildren){
+export default function ProductDetails({ openModal }: React.PropsWithChildren<{openModal: any}>){
     return (
-        <ProductDetailsContainer>
+        <ProductDetailsContainer className="product-details-section">
             {/* <ProductType>
                 <div>
                     <Icon src="icons/moon.svg" width="21px" height="21px" />
@@ -64,8 +98,11 @@ export default function ProductDetails(props: React.PropsWithChildren){
             </ProductTitle> */}
             {/* <img id="bust" src="img/product-anatomy.png" alt="bust" /> */}
             <ProductBanner>
-                <ShopNowButton icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>                
-            </ProductBanner>            
+                <ShopNowButton onClick={openModal} className="shop-button" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>                
+            </ProductBanner>
+            <div className="shop-now-container">
+                <ShopNowButton onClick={openModal} className="shop-button-mobile" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton> 
+            </div> 
         </ProductDetailsContainer>
     )
 }

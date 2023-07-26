@@ -234,8 +234,8 @@ export default function Reviews(props: React.PropsWithChildren){
             {/* style={{overflow: 'hidden'}} */}
                 <ReviewSectionContainer>
                     <ReviewsSection>
-                        <SlideContainer>
-                            <Slide>
+                        {/* <SlideContainer>
+                            <Slide> */}
                                 {
                                     REVIEWS.map(({ name, isVerified, avatar, stars, date, review },index) => (
                                         <Box key={index} $color={index % 2 === 0 ? '#D2EEF9' :'#FAF1E8'}>
@@ -275,8 +275,8 @@ export default function Reviews(props: React.PropsWithChildren){
                                         </Box>
                                     ))
                                 }
-                            </Slide>
-                        </SlideContainer>
+                            {/* </Slide>
+                        </SlideContainer> */}
                     </ReviewsSection>
                 </ReviewSectionContainer>
             {/* </BoxContainer> */}

@@ -5,10 +5,10 @@ import Slide from "components/Slide"
 import AfterHoursStamp from "components/Stamp";
 import { Logo } from "components/Logo";
 
-export default function ProductIntro({ children, slideContainerRef }: React.PropsWithChildren< { slideContainerRef?: React.RefObject<HTMLDivElement> } >){
+export default function ProductIntro({ children, slideContainerRef, openModal }: React.PropsWithChildren< { slideContainerRef?: React.RefObject<HTMLDivElement>, openModal: any } >){
     return (
         <>
-            <ProductDescription />
+            <ProductDescription openModal={openModal}  />
             <Trivia />
             <AfterHoursSlideStrapContainer>
             <SlideContainer ref={slideContainerRef} $rotate="rotate(0.277deg)" id="slide-container">

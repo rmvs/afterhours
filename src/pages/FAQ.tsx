@@ -177,20 +177,21 @@ const FAQTitle = styled.div`
 const FAQGrid = styled(Row)`
     // padding-top: 250px;
     padding-bottom: 250px;
-    padding-left: 298px;
-    padding-right: 298px;
+    // padding-left: 298px;
+    // padding-right: 298px;
 
     .first {
         display: flex;
         flex-direction: column;
+        align-self: end;
     }
 `
 
 const FAQTitleSection = styled(Row)`
     padding-top: 250px;
     // padding-bottom: 250px;
-    padding-left: 298px;
-    padding-right: 298px;
+    // padding-left: 298px;
+    // padding-right: 298px;
 
 `
 
@@ -402,7 +403,7 @@ const FAQTexts = [
 ]
 
 
-export default function FAQ(props: React.PropsWithChildren){
+export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: any }>){
  
     const productProps = ['Strap free','100% Light Blocking','Stays in place','Conforms to your face'];
 
@@ -480,7 +481,7 @@ export default function FAQ(props: React.PropsWithChildren){
                     </FAQComparisionContent>
                 </FAQComparision>
                 <ShopNowContainer>
-                    <Button icon={<><Icon color={"#164CA4"} src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
+                    <Button icon={<><Icon color={"#164CA4"} src={"icons/stars.svg"} width="24px" height="24px" /></>} onClick={openModal}>Shop Now</Button>
                 </ShopNowContainer>
                 {/* <MultiColumnList dataSource={data} renderItem={(item: any, index: any) => <Item>dfdf</Item>} /> */}
                 {/* {
@@ -488,8 +489,8 @@ export default function FAQ(props: React.PropsWithChildren){
                         } */}
                 {/* <div style={{overflow: 'hidden'}}> */}
                 {/* gutter={16} */}
-                    <FAQTitleSection>
-                        <AntdCol>
+                    <FAQTitleSection gutter={32} justify={"center"}>
+                        <AntdCol span={12}>
                             <>
                                 <FAQList>
                                     <FAQListItem className="faq-list-item-header" id="faq">
@@ -511,8 +512,8 @@ export default function FAQ(props: React.PropsWithChildren){
                             </>                    
                         </AntdCol>
                     </FAQTitleSection>
-                    <FAQGrid gutter={16}>
-                        <Col span={12} className="first">                        
+                    <FAQGrid gutter={32} justify={"center"}>
+                        <Col span={6} className="first">                        
                             {/* <FAQList>
                                 <FAQListItem className="faq-list-item-header" id="faq">
                                     <div>
@@ -551,7 +552,7 @@ export default function FAQ(props: React.PropsWithChildren){
                                 expandIcon={({ isActive }: any) => <Icon src={`icons/${ !isActive ? 'plus-signal' : 'minus-signal' }.svg`} color="rgba(108, 108, 108, 0.60)" width="21px" height="21px" />}
                             />
                         </Col>
-                        <Col span={12}>
+                        <Col span={6}>
                             {/* <FAQList>
                                 {
                                     FAQTexts.slice(5).map((value,index) => (

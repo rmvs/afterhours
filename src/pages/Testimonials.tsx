@@ -89,7 +89,7 @@ const ShopNow = styled.div`
     align-items: center;
 `
 
-export default function Testimonies(props: React.PropsWithChildren){
+export default function Testimonies({ openModal }: React.PropsWithChildren<{ openModal: any }>){
 
     const reviewPredicate = (review: any) => review.name.startsWith('Ryan')
     const [ index, setIndex ] = useState(REVIEWS.findIndex(reviewPredicate))
@@ -160,7 +160,7 @@ export default function Testimonies(props: React.PropsWithChildren){
                 <ShopNow>
                     {/* <Button>Shop Now</Button> */}
                     <div>
-                        <Button color="#164CA4" icon={<><Icon src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
+                        <Button onClick={openModal} color="#164CA4" icon={<><Icon src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
                     </div>
                     <div>
                         <Typography fontSize="16px" $type="Light" letterSpacing="0px" color="#6C6C6C">100% Happiness Guaranteed</Typography>

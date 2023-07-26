@@ -1,5 +1,5 @@
 import { Row, Col} from "antd";
-import { useEffect, useRef, useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import React from 'react'
 import { Eyelash } from "Icons";
@@ -13,13 +13,22 @@ const ProductContainer = styled.div`
     background: #FFF;
     // margin-bottom: 300px;
     position: relative;
-    scroll-snap-type: y mandatory;
+    // scroll-snap-type: y mandatory;
+
+    @media(max-width: 480px){
+      padding: 73px 19px 0 19px;
+    }
 `
 
 const ProductVideoSection = styled(Row)`
     gap: 99px;
     margin-left: 258px;
     margin-right: 258px;
+
+    @media(max-width: 480px){
+      margin: inherit;
+      gap: 47px;
+    }
 `
 
 const Video = styled(Col)`
@@ -31,30 +40,38 @@ const Video = styled(Col)`
 `
 
 const VideoDescription = styled(Col)`
-    display: flex;
-    align-items: center;
-    -webkit-box-reflect: below -50px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+  display: flex;
+  align-items: center;
+  // overflow-y: scroll;
+
+  // scroll-snap-align: center;
+  // perspective: 250px;
 `
 
 const VideoDescriptionContainer = styled.div`
-    height: 293.54px;
-    overflow-y: scroll; 
+    // height: 293.54px;
+    // overflow-y: scroll; 
     border-radius: 0px 27.081px 27.081px 27.081px;
-    border: 1.354px solid var(--main-blue);
+    border: 1.354px solid var(--main-blue);    
+    // max-width: 616px;
 
-    &::-webkit-scrollbar {
-      height: 0.5em;
-      width: 0.5em;
-      background: transparent;
-    }
+    // &::-webkit-scrollbar {
+    //   height: 0.5em;
+    //   width: 0.5em;
+    //   background: transparent;
+    // }
     
-    &::-webkit-scrollbar-thumb {
-      background: transparent;
-      -webkit-border-radius: 1ex;
-    }
+    // &::-webkit-scrollbar-thumb {
+    //   background: transparent;
+    //   -webkit-border-radius: 1ex;
+    // }
     
-    &::-webkit-scrollbar-corner {
-      background: transparent;
+    // &::-webkit-scrollbar-corner {
+    //   background: transparent;
+    // }
+
+    @media(max-width: 480px){
+      // height: 100%;
     }
 `
 
@@ -76,7 +93,7 @@ const VideoDescriptionItem = styled.div<{ $description?: boolean, $icon?: boolea
 const DescriptionSection = styled.section`
 
     // width: 616.084px;
-    padding: 60px;
+    padding: 40px;
     align-items: center;
     // gap: 21.665px;
     gap: 40.621px;
@@ -85,13 +102,70 @@ const DescriptionSection = styled.section`
     justify-content: center;
     align-items: center;
     position: relative;
-    scroll-snap-align: center;
-    perspective: 500px;
+    // scroll-snap-align: center;
+    // perspective: 500px;
+
+    /* */
+    // @media(max-width: 480px){
+    //   padding: 15px;
+    //   width: 284px;
+    //   height: 323px;
+    //   flex-direction: column;
+    //   padding: 30px;
+    //   gap: 20px;
+    // }
+    /* */
+`
+
+const MotionSection = styled.div`
+  max-height: 255px;
+  display: flex;
+  flex-direction: column;
+  // gap: 15px;
+  gap: 100vh;
+  // align-items: center;
+  // -webkit-box-reflect: below -50px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+
+  /** */
+  // @media(max-width: 480px){
+  //   display: inline-flex;
+  //   align-items: flex-start;
+  //   flex-direction: row;
+  // }
+/** */
+  overflow: hidden;
+  position: relative;
 `
 
 
+const Benefit =  ({ title, text }: any) => {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref });
+  const y = useParallax(scrollYProgress, 500);
+  return (
+    <VideoDescriptionContainer ref={ref}>
+      <DescriptionSection className="description-section">
+          <VideoDescriptionItem $icon>
+            <div>
+                <Eyelash width="58px" height="58px" />
+            </div>
+          </VideoDescriptionItem>
+          <VideoDescriptionItem id="desc" $description>                     
+                
+                <Typography fontSize="32px" lineheight="40px" fontWeight="700" $type="Bold" >
+                    {title}
+                </Typography>
+                <Typography fontSize="20px" letterSpacing="0" color="#6C6C6C" lineheight="24px" fontWeight="350" $type="Light">
+                    {text}
+                </Typography>
+          </VideoDescriptionItem>                  
+      </DescriptionSection>
+    </VideoDescriptionContainer>
+  )  
+}
 
-export default function ProductVideo({ children, slideContainerRef  }: React.PropsWithChildren<{ slideContainerRef?: React.RefObject<HTMLDivElement> }>){
+
+export default function ProductVideo({ children, slideContainerRef}: React.PropsWithChildren<{ slideContainerRef?: React.RefObject<HTMLDivElement>}>){
 
     const videoRef = useRef<HTMLVideoElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
@@ -153,7 +227,7 @@ export default function ProductVideo({ children, slideContainerRef  }: React.Pro
     return (
       <ProductContainer id={"product-container"} ref={containerRef}>
         <ProductVideoSection justify={"center"}>
-          <Video span={10}>
+          <Video xs={24} md={10}>
             <video
               muted
               loop
@@ -170,8 +244,8 @@ export default function ProductVideo({ children, slideContainerRef  }: React.Pro
               play
             </button>
           </Video>
-          <VideoDescription span={10}>
-            <VideoDescriptionContainer className="description-container">
+          <VideoDescription xs={24} md={7}>
+            {/* <VideoDescriptionContainer className="description-container">
                 {
                   descriptionsBoxes.map(({ title, text }, index) => (
                     <DescriptionSection className="description-section"key={index}>
@@ -180,10 +254,8 @@ export default function ProductVideo({ children, slideContainerRef  }: React.Pro
                             <Eyelash width="58px" height="58px" />
                         </div>
                       </VideoDescriptionItem>
-                      <VideoDescriptionItem id="desc" $description>                      
-                            {/* <div className="description-container" ref={descriptionContainer}>                        
-                                
-                            </div> */}
+                      <VideoDescriptionItem id="desc" $description>                     
+                            
                             <Typography fontSize="32px" lineheight="40px" fontWeight="700" $type="Bold" >
                                 {title}
                             </Typography>
@@ -194,7 +266,34 @@ export default function ProductVideo({ children, slideContainerRef  }: React.Pro
                     </DescriptionSection>
                   ))
                 }
-            </VideoDescriptionContainer>
+            </VideoDescriptionContainer> */}            
+            <MotionSection className="motion-section">
+              {
+                descriptionsBoxes.map(({title, text}, index) => (
+                  <React.Fragment key={index}>
+                      <Benefit title={title} text={text} />
+                  </React.Fragment>
+                  // <VideoDescriptionContainer>
+                  //     <DescriptionSection className="description-section"key={index}>
+                  //         <VideoDescriptionItem $icon>
+                  //           <div>
+                  //               <Eyelash width="58px" height="58px" />
+                  //           </div>
+                  //         </VideoDescriptionItem>
+                  //         <VideoDescriptionItem id="desc" $description>                     
+                                
+                  //               <Typography fontSize="32px" lineheight="40px" fontWeight="700" $type="Bold" >
+                  //                   {title}
+                  //               </Typography>
+                  //               <Typography fontSize="20px" letterSpacing="0" color="#6C6C6C" lineheight="24px" fontWeight="350" $type="Light">
+                  //                   {text}
+                  //               </Typography>
+                  //         </VideoDescriptionItem>                  
+                  //     </DescriptionSection>
+                  // </VideoDescriptionContainer>
+                ))
+              }
+            </MotionSection>
           </VideoDescription>
         </ProductVideoSection>
       </ProductContainer>

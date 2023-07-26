@@ -23,6 +23,16 @@ const Container = styled.div`
     // height: 200vh;
     background: rgb(255,251,248);
     background: linear-gradient(169deg, rgba(255,251,248,1) 39%, rgba(210,238,249,0.891281512605042) 61%, rgba(255,251,248,1) 82%);    
+    
+    @media (max-width: 480px){
+        .product-information {
+            // font-size: 40px;
+            // line-height: 40px;
+            // letter-spacing: -1.2px;
+            // padding-left: 43px;
+            // padding-right: 43px;
+        }
+    }    
 `
 const ProductHero = styled(Row)`
   padding-top: 141px;
@@ -35,7 +45,26 @@ const ProductHero = styled(Row)`
   padding-bottom: 160px;
 
   @media(max-width: 480px) {
-    padding: 0;
+    padding-top: 10px;
+    padding-left: 43px;
+    padding-right: 43px;
+
+    .product-information {
+        margin-right: 0px;
+    }
+
+    .product-information-text{
+        font-size: 35px;
+        line-height: 40px;
+        letter-spacing: -1.2px;        
+    }
+    .product-information-text-description {
+        font-size: 16px;
+        line-height: 18px;        
+    }
+
+    gap: 30px;
+
   }
 `
 
@@ -47,6 +76,21 @@ const ProductIntroduction = styled.div`
     flex-shrink: 0;
     margin-right: -48px;
     gap: 15px;
+
+    .product-highlight {
+        border-radius: 50px;
+        border: 1px solid #164CA4;
+        // width: 300px;
+        width: fit-content;
+        height: auto;
+        flex-shrink: 0;
+        // font-weight: bold;
+        padding: 5px 10px;
+        @media(max-width: 480px){
+            border-radius: 10px !important;
+        }
+    }
+    
 `
 
 // const Typography = styled.div`
@@ -103,6 +147,18 @@ const ReviewContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+
+    @media(max-width: 480px){
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        
+        :nth-child(2) {
+            border-left: none;
+            padding-left: 0;
+        }
+    }
 `
 
 const SatisfactionLabel = styled.div`
@@ -193,10 +249,17 @@ const TryNowButtonInnerText = styled.div`
     line-height: 32px;
 `
 
+const ShopNowButtonContainer = styled.div`
+    position: absolute;
+    top: 65%;
+
+    @media(max-width: 480px){
+        top: 100%;
+    }
+`
 
 
-
-export default function ProductDescription(props: React.PropsWithChildren){
+export default function ProductDescription({ children, openModal }: React.PropsWithChildren<{openModal: any}>){
 
     const cards = [
         {
@@ -261,22 +324,22 @@ export default function ProductDescription(props: React.PropsWithChildren){
     return (
         <Container id="product-description">                 
             {/* 96     */}
-            <ProductHero justify={"center"}>                   
-                <Col xs={24} md={8} flex={"auto"}>
-                    <AfterHoursStamp position="absolute" />
+            <ProductHero className="product-hero" justify={"center"}>                   
+                <Col xs={24} md={8} flex={"auto"}>                    
                     <Carousel cards={cards} />
                 </Col>
                 <Col xs={24} md={8}>                    
-                    <div style={{height: '100%',display: 'flex',flexDirection: 'column'}}>
-                        <ProductIntroduction>
-                            <Typography fontSize="55px" lineheight="60px" letterSpacing="-1.65px">
+                    {/* <div style={{height: '100%',display: 'flex',flexDirection: 'column'}}> */}
+                        <ProductIntroduction className="product-information">
+                            <Typography className="product-information-text" fontSize="55px" lineheight="60px" letterSpacing="-1.65px">
                                 <BolderText>Finally</BolderText>, a sleep mask with no strings attached.                             
                             </Typography>
-                            <Typography fontSize="24px" lineheight="25px" letterSpacing="0px">
-                                <ProductHighlight>Introducing <BolderText>afterhours</BolderText>, the first strapless sleep mask.</ProductHighlight>
+                            <Typography className="product-information-text-description product-highlight" fontSize="24px" lineheight="25px" letterSpacing="0px">
+                                {/* <ProductHighlight>Introducing <BolderText>afterhours</BolderText>, the first strapless sleep mask.</ProductHighlight> */}
+                                Introducing <BolderText>afterhours</BolderText>, the first strapless sleep mask.
                             </Typography>
                         </ProductIntroduction>
-                        <ReviewContainer>
+                        <ReviewContainer className="reviewContainer">
                             <Review $hover>
                                 { Array.from({ length: 5 }).map((value,index) => <Star key={index} />) }
                             </Review>
@@ -293,10 +356,10 @@ export default function ProductDescription(props: React.PropsWithChildren){
                             </Price>                        
                         </PriceContainer>
                         <Collapse items={collapseItems} activeKeys={collapseItems.map(({ key }) => key)} />
-                        <div style={{height: '100%',display: 'flex',alignItems: 'flex-end'}}>
-                            <Button type="primary" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Try Now</Button>
-                        </div>
-                    </div>
+                        <ShopNowButtonContainer>
+                            <Button type="primary" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />} onClick={openModal}>Try Now</Button>
+                        </ShopNowButtonContainer>
+                    {/* </div> */}
                 </Col>
             </ProductHero>
             <Benefits />

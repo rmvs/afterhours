@@ -14,8 +14,9 @@ const StampContainer = styled.div<{ position?: string }>`
     max-height: 100%;
 
     @media(max-width: 480px){
-        top: -9%;
-        left: 75%;        
+        bottom: 0px;
+        left: 80%;
+        top: unset;       
     }
 `
 

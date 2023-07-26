@@ -134,15 +134,15 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
                     </Slide>
                 </SlideContainer> 
                 </AfterHoursSlideStrapContainer> */}
-                <ProductIntro slideContainerRef={slideContainerRef} />
+                <ProductIntro openModal={setContactUsOpen} slideContainerRef={slideContainerRef} />
                 <ProductVideo slideContainerRef={slideContainerRef} />
-                <ProductDetails /> 
+                <ProductDetails openModal={setContactUsOpen} /> 
                 <BannerAdvertisement paddingTop={"200px"} src="img/banner1.png" />
-                <FAQ />
+                <FAQ openModal={setContactUsOpen} />
                 <Reviews />
-                <Testimonies />
+                <Testimonies openModal={setContactUsOpen} />
                 <Contact />
-                <Footer />           
+                <Footer openModal={setContactUsOpen} />           
             </Content>
         </Layout>
     )

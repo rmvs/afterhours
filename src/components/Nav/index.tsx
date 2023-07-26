@@ -67,7 +67,7 @@ const Menu: typeof AntMenu = styled(AntMenu)`
     gap: 16px;
 
     @media (min-width: 1025px){
-        padding-left: 573px;
+        // padding-left: 573px;
     };
     @media (max-width: 767px){
         display: none;

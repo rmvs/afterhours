@@ -7,6 +7,21 @@ import styled from "styled-components";
 const BenefitsSection = styled(Row)`
     padding-bottom: 115px;
     gap: 30px;
+
+    @media(max-width: 480px){
+      overflow-x: scroll;
+      display: inline-flex;
+      align-items: flex-start;
+      flex-flow: nowrap;
+      padding-bottom: 0px;
+    }
+`
+
+const BenefitsContainer = styled.div`
+  @media(max-width: 480px){
+    overflow-x: scroll;
+    margin-bottom: 115px;
+  }
 `
 
 export default function Benefits(props: React.PropsWithChildren){
@@ -33,21 +48,23 @@ export default function Benefits(props: React.PropsWithChildren){
     //     </BenefitsSection>
     // gutter={[30,2]}
     return (
-      <BenefitsSection justify={"center"}>
-        {benefits.map((value, index) => (
-          <Col key={index}>
-            <Block key={index} type="primary" hasIcon>
-              <Icon
-                src={"icons/stars.svg"}
-                width={"47px"}
-                height={"47px"}
-                color={"#164CA4"}
-                strokeWidth={"1"}
-              />
-              <div>{value}</div>
-            </Block>
-          </Col>
-        ))}
-      </BenefitsSection>
+      <BenefitsContainer>
+          <BenefitsSection justify={"center"}>
+          {benefits.map((value, index) => (
+            <Col key={index}>
+              <Block key={index} type="primary" hasIcon>
+                <Icon
+                  src={"icons/stars.svg"}
+                  width={"47px"}
+                  height={"47px"}
+                  color={"#164CA4"}
+                  strokeWidth={"1"}
+                />
+                <div>{value}</div>
+              </Block>
+            </Col>
+          ))}
+        </BenefitsSection>
+      </BenefitsContainer>
     );
 }

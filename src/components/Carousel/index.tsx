@@ -2,12 +2,16 @@ import { Carousel as AntdCarousel } from "antd";
 import styled from 'styled-components'
 import SVG from 'react-inlinesvg'
 import { useEffect, useRef, useState } from "react";
+import AfterHoursStamp from "components/Stamp";
 
 const Pages = styled(AntdCarousel)` 
     /*& > * {
         height: 100% !important;
     }*/
     padding-bottom: 10px; 
+    @media(max-width: 480px){
+        padding-bottom: 0px;
+    }
 `
 
 const SlickList = styled.ul`
@@ -15,6 +19,11 @@ const SlickList = styled.ul`
     justify-content: center;
     gap: 9px;
     padding: 0px 9px;
+
+    @media(max-width: 480px){
+        margin-top: -5%;
+        position:relative;
+    }
 `
 
 const Container = styled.div`
@@ -24,7 +33,7 @@ const Container = styled.div`
     @media (max-width: 480px) {
         width: 100%;
         height: 100%;
-        padding: 10px;
+        // padding: 10px;
     }
 `
 
@@ -41,6 +50,10 @@ const CarouselThumbnail = styled.img`
     border-radius: 40px;
     width: 100%;
     height: auto;
+
+    @media(max-width: 480px){
+        border-radius: 16.911px;
+    }
 `
 
 // background: url(${ props => props.src }) lightgray -252.833px 0px / 174.692% 100% no-repeat;
@@ -81,11 +94,19 @@ export default function Carousel({ cards }: React.PropsWithChildren<CarouselProp
             sliderRef.current?.goTo(page)
         }
     },[ page ])
+
+
+    const afterChange = (currentSlide: number) => {
+        if(currentSlide !== page){
+            setPage(currentSlide)
+        }
+    }
     
 
     return (
         <Container>
-            <Pages ref={ sliderRef as any} dots={false}>
+            <AfterHoursStamp position="absolute" />
+            <Pages ref={ sliderRef as any} dots={false} afterChange={afterChange}>                
                 {
                     cards.map(({ src, href },key) => (
                     <ContentCarousel key={key}>
@@ -93,7 +114,7 @@ export default function Carousel({ cards }: React.PropsWithChildren<CarouselProp
                     </ContentCarousel>))
                 }            
             </Pages>
-            <SlickList>
+            <SlickList className="carousel-dots">
                 { cards.map((value,key) => (<Dot key={key} src={"icons/dot.svg"} selected={key === page} onClick={() => setPage(key)}  />)) }
             </SlickList>
         </Container>

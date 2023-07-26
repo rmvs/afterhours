@@ -77,7 +77,7 @@ const WhiteLogo = styled(Icon)`
     
 `
 
-export default function Footer(props: React.PropsWithChildren){
+export default function Footer({ openModal }: React.PropsWithChildren<{openModal: any}>){
     return (
         <FooterContainer>
             <FooterBanner>
@@ -85,7 +85,7 @@ export default function Footer(props: React.PropsWithChildren){
                     <InfoBar><Typography fontSize="40px" letterSpacing="0px" lineheight="48px" $type="Bold">Stays in place all night,</Typography></InfoBar>
                     <InfoBar><Typography fontSize="40px" letterSpacing="0px" lineheight="48px" $type="Bold">easy to remove in the</Typography></InfoBar>
                     <InfoBar><Typography fontSize="40px" letterSpacing="0px" lineheight="48px" $type="Bold">morning light.</Typography></InfoBar> 
-                    <Button color="#D2EEF9" icon={<><Icon src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
+                    <Button onClick={openModal} color="#D2EEF9" icon={<><Icon src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
                 </Bars>
                 <WhiteLogo src="icons/white-logo.svg" />                
             </FooterBanner>
