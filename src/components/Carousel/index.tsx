@@ -104,19 +104,21 @@ export default function Carousel({ cards }: React.PropsWithChildren<CarouselProp
     
 
     return (
-        <Container>
-            <AfterHoursStamp position="absolute" />
-            <Pages ref={ sliderRef as any} dots={false} afterChange={afterChange}>                
-                {
-                    cards.map(({ src, href },key) => (
-                    <ContentCarousel key={key}>
-                        <CarouselThumbnail src={src} />                        
-                    </ContentCarousel>))
-                }            
-            </Pages>
-            <SlickList className="carousel-dots">
-                { cards.map((value,key) => (<Dot key={key} src={"icons/dot.svg"} selected={key === page} onClick={() => setPage(key)}  />)) }
-            </SlickList>
-        </Container>
+        <>
+            <AfterHoursStamp position="absolute" />  
+            <Container> 
+                <Pages ref={ sliderRef as any} dots={false} afterChange={afterChange}>
+                    {
+                        cards.map(({ src, href },key) => (
+                        <ContentCarousel key={key}>
+                            <CarouselThumbnail src={src} />                        
+                        </ContentCarousel>))
+                    }            
+                </Pages>
+                <SlickList className="carousel-dots">
+                    { cards.map((value,key) => (<Dot key={key} src={"icons/dot.svg"} selected={key === page} onClick={() => setPage(key)}  />)) }
+                </SlickList>
+            </Container>
+        </>
     )
 }

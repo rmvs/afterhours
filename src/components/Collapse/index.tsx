@@ -11,6 +11,8 @@ import styled from "styled-components";
 const StyledCollapse = styled(AntdCollapse)`
     margin-top: 30px;
 
+    height: 100%;
+
     .ant-collapse-header {
         border-radius: 0px !important;
         border-bottom: solid 1px #164CA4;

@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 const FooterContainer = styled.div`
     background: #164CA4;
+    overflow:hidden;
 `
 
 const FooterBanner = styled.div`

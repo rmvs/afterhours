@@ -222,7 +222,7 @@ const ProductInformationDescription = styled.div`
     font-weight: 500;
     line-height: 20px;
 
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
 `
 
 const HighlightText = styled.span`
@@ -250,11 +250,22 @@ const TryNowButtonInnerText = styled.div`
 `
 
 const ShopNowButtonContainer = styled.div`
-    position: absolute;
-    top: 65%;
+    // position: absolute;
+    // top: 65%;
 
-    @media(max-width: 480px){
-        top: 100%;
+    // @media(max-width: 500px){
+    //     top: 100%;
+    // }
+
+    // @media(max-width: 480px){
+    //     top: 100%;
+    // }
+    display: flex;
+    align-items: baseline;
+    height: 100%;
+
+    @media (max-height: 1200px){
+        align-items: end;
     }
 `
 
@@ -319,6 +330,16 @@ export default function ProductDescription({ children, openModal }: React.PropsW
             )
         }
     ]
+
+    const productIntroductionStyle: any = {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1px'
+    }
+
+    const collapseStyle: any = {
+        height: '100%'
+    }
     
 
     return (
@@ -328,7 +349,7 @@ export default function ProductDescription({ children, openModal }: React.PropsW
                 <Col xs={24} md={8} flex={"auto"}>                    
                     <Carousel cards={cards} />
                 </Col>
-                <Col xs={24} md={8}>                    
+                <Col style={productIntroductionStyle} xs={24} md={8}>                    
                     {/* <div style={{height: '100%',display: 'flex',flexDirection: 'column'}}> */}
                         <ProductIntroduction className="product-information">
                             <Typography className="product-information-text" fontSize="55px" lineheight="60px" letterSpacing="-1.65px">

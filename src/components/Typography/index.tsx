@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import { Typography as DefaultTypography } from "antd";
+
+
 const Typography = styled.div<{ 
     fontSize?: string, 
     lineheight?: string, 
@@ -16,6 +19,8 @@ const Typography = styled.div<{
     line-height: ${ props => !props.lineheight ? '55px' : props.lineheight };
     letter-spacing: ${ props => props.letterSpacing ? props.letterSpacing : '-1.65px' };
     text-transform: ${ props => props.$textTransform ? props.$textTransform : 'inherit' }
+
+
 `
 
 export default Typography

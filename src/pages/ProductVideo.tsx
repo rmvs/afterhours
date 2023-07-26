@@ -9,7 +9,7 @@ import useParallax from "utils/parallax";
 
 const ProductContainer = styled.div`
     padding-top: 270.77px;
-    padding-bottom: 300px;
+    // padding-bottom: 300px;
     background: #FFF;
     // margin-bottom: 300px;
     position: relative;

@@ -18,7 +18,7 @@ const StyledHeader = styled(Header)`
         justify-content: flex-start;        
     }
     
-    @media(min-width: 1024px){
+    @media screen and (min-width: 1024px){
         gap: 473px !important;
     }
 `

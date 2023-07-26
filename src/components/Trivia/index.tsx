@@ -5,12 +5,14 @@ import Typography from "components/Typography";
 import styled from "styled-components";
 
 const Container = styled.div`
-    padding: 74px 258px 137px 258px;
+    // padding: 74px 258px 137px 258px;
+    padding-bottom: 137px;
     background: rgba(255,251,248,1);
 
     .ant-row {
-        gap: 50px;
-    }
+        // gap: 50px;
+        gap: 2.5em;
+    }    
 
     @media(max-width: 480px){
         padding: 0 39px 70px 39px;
@@ -25,11 +27,16 @@ const Container = styled.div`
 
 const TextBlock = styled.div`
     display: inline-flex;
-    padding: 40px;
+    // padding: 40px;
+    padding: 2.5em;
     flex-direction: column;
     align-items: flex-start;
     gap: 21px;
     flex-shrink: 0;
+
+    @media (max-width: 767px) {
+        padding: 0px
+    }
 
     @media(max-width: 480px){
         padding: 28px;
@@ -69,12 +76,12 @@ export default function Trivia(props: React.PropsWithChildren){
     return (
         <Container id="did-you-know">
             <Row justify={"center"}>
-                <Col className="trivia-header-section" xs={24} md={4}>
+                <Col className="trivia-header-section" xs={24} sm={8} md={8} lg={3}>
                     <Typography>
                         Did you know?
                     </Typography>
                 </Col>
-                <Col xs={24} md={6}>
+                <Col xs={24} sm={8} md={8} lg={5}>
                     <Block background={'#FAF1E8'} borderless borderRadius={'50px'} width="auto" block>
                         <TextBlock>
                             <EyelashContainer>
@@ -90,7 +97,7 @@ export default function Trivia(props: React.PropsWithChildren){
                         </TextBlock>                       
                     </Block>
                 </Col>
-                <Col xs={24} md={6}>
+                <Col xs={24} sm={8} md={8} lg={5}>
                     <Block background={'#D2EEF9'} borderless borderRadius={'50px'} width="auto" block>
                      <TextBlock>
                         <div>
@@ -99,7 +106,8 @@ export default function Trivia(props: React.PropsWithChildren){
                                 <Icon src="icons/eyelash-big.svg" width="188.744px" height="102.097px" />
                             </EyelashContainer>
                         </div>
-                        <Typography className="trivia-description" fontSize={'24px'} lineheight="35px" letterSpacing="0px">
+                        {/* 24px 35px */}
+                        <Typography className="trivia-description" fontSize={'1.5000em'} lineheight="35px" letterSpacing="0px">
                             Light Exposure = a Nightmare for Your Sleep Patterns Exposure to light in the evenings (natural or artificial)  has the potential to impact the natural process of falling asleep. 
                             A sleep mask that blocks out light is the answer.
                         </Typography>

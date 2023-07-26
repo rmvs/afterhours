@@ -44,6 +44,7 @@ const NotifyButton = styled(Button)`
     border: 2.133px solid var(--main-blue, #164CA4);
     background: var(--main-blue, #164CA4);
     display: flex;
+    align-items: baseline !important;
     // padding: 0px 15px !important;
     span {
         color: var(--cream);
@@ -80,7 +81,7 @@ export default function ContactUs({ open, setClose }: React.PropsWithChildren<{ 
                         <div>
                             <Space.Compact style={{ width: '100%' }}>
                                 <Input placeholder="Your Email" size="large"  />
-                                <NotifyButton size="large" icon={<Icon src={"icons/stars.svg"} width="17px" height="17px" />}>Notify Me</NotifyButton>
+                                <NotifyButton onClick={() => setClose((prev: any) => !prev)} size="large" icon={<Icon src={"icons/stars.svg"} width="17px" height="17px" />}>Notify Me</NotifyButton>
                             </Space.Compact>
                         </div>                  
                     </NotifyMe>                

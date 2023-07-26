@@ -115,11 +115,13 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
                 <Logo />
                 {/* <Nav/> */}
                 <MobileButton items={menuItems} />
-                <Menu
-                    mode="horizontal"
-                    defaultSelectedKeys={['1']}                
-                    items={menuItems}
-                />
+                {/* <div style={{display: 'flex'}}> */}
+                    <Menu
+                        mode="horizontal"
+                        defaultSelectedKeys={['1']}                
+                        items={menuItems}
+                    />
+                {/* </div> */}
             </StyledHeader>
             <Content>
                 {/* <ProductDescription />
