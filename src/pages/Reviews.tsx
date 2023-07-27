@@ -6,6 +6,7 @@ import Typography from "components/Typography";
 import styled from "styled-components";
 import { REVIEWS } from '../constants/index'
 import React from "react";
+import { Carousel } from "antd";
 
 const ReviewContainer = styled.div`
 
@@ -216,10 +217,9 @@ export const LastReview = ({ date }: React.PropsWithChildren<{ date: number }>) 
 
 export default function Reviews(props: React.PropsWithChildren){
 
-    const now = new Date();
-
     return (
-        <ReviewContainer id="review">
+        <>
+            <ReviewContainer id="review">
             <DreamsLabelContainer>
                 <DreamsLabel>
                     <Review $hover>
@@ -274,11 +274,11 @@ export default function Reviews(props: React.PropsWithChildren){
                                             </BoxContent>
                                         </Box>
                                     ))
-                                }
+                                }                                
                             {/* </Slide>
                         </SlideContainer> */}
                     </ReviewsSection>
-                </ReviewSectionContainer>
+                </ReviewSectionContainer>                
             {/* </BoxContainer> */}
             {/* <SlideContainer>
                 <Slide>
@@ -288,5 +288,11 @@ export default function Reviews(props: React.PropsWithChildren){
                 </Slide>
             </SlideContainer> */}
         </ReviewContainer>
+        {/* <Carousel style={{height: '160px', lineHeight: '160px'}}>
+            <div><h1>1</h1></div>
+            <div><h1>2</h1></div>
+            <div><h1>3</h1></div>
+        </Carousel> */}
+        </>
     )
 }

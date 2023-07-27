@@ -35,6 +35,21 @@ const Container = styled.div`
         height: 100%;
         // padding: 10px;
     }
+
+    .ant-carousel, .slick-slider, .slick-list, .slick-track, .slick-slide, .slick-slide * {
+        /*height: 100%;*/
+        max-height: 100%;
+        overflow: hidden !important;
+      }
+      
+      .slick-slide * > img {
+        max-height: 100%;
+        max-width: 100%;
+      }
+      
+      .slick-slider > * {
+        height: 100%;
+      }
 `
 
 
@@ -45,7 +60,7 @@ const ContentCarousel = styled.div`
     text-align: center;
 `
 
-const CarouselThumbnail = styled.img`    
+export const CarouselThumbnail = styled.img`    
     flex-shrink: 0;
     border-radius: 40px;
     width: 100%;
@@ -78,10 +93,7 @@ const Dot = styled(SVG)<{ selected?: boolean }>`
 `
 
 interface CarouselProps {
-    cards: {
-        src: string,
-        href: string
-    }[]
+    cards: any
 }
 
 export default function Carousel({ cards }: React.PropsWithChildren<CarouselProps>){
@@ -97,26 +109,27 @@ export default function Carousel({ cards }: React.PropsWithChildren<CarouselProp
 
 
     const afterChange = (currentSlide: number) => {
-        if(currentSlide !== page){
-            setPage(currentSlide)
-        }
+        console.log('changing')
+        // if(currentSlide !== page){
+        //     setPage(currentSlide)
+        // }
     }
     
 
     return (
-        <>
-            <AfterHoursStamp position="absolute" />  
+        <>             
             <Container> 
                 <Pages ref={ sliderRef as any} dots={false} afterChange={afterChange}>
                     {
-                        cards.map(({ src, href },key) => (
-                        <ContentCarousel key={key}>
-                            <CarouselThumbnail src={src} />                        
-                        </ContentCarousel>))
+                        cards.map((child: any,key: number) => (
+                            <ContentCarousel key={key}>
+                                { child }
+                            </ContentCarousel>
+                        ))
                     }            
                 </Pages>
                 <SlickList className="carousel-dots">
-                    { cards.map((value,key) => (<Dot key={key} src={"icons/dot.svg"} selected={key === page} onClick={() => setPage(key)}  />)) }
+                    { cards.map((value: any,key: number) => (<Dot key={key} src={"icons/dot.svg"} selected={key === page} onClick={() => setPage(key)}  />)) }
                 </SlickList>
             </Container>
         </>

@@ -88,22 +88,8 @@ body {
 
 .ant-popover .ant-popover-inner, .ant-popover .ant-popover-arrow:before {
   background-color: var(--cream);
-}
+}  
 
-.ant-carousel, .slick-slider, .slick-list, .slick-track, .slick-slide, .slick-slide * {
-  /*height: 100%;*/
-  max-height: 100%;
-  overflow: hidden !important;
-}
-
-.slick-slide * > img {
-  max-height: 100%;
-  max-width: 100%;
-}
-
-/*.slick-slider > * {
-  height: 100%;
-}*/
 
 .slide-container {
   overflow: hidden;
@@ -128,3 +114,11 @@ body {
   visibility: hidden;  
   display: block !important;
 } */
+
+
+.footer-banner::after {
+  /* 767/1920 */
+  padding-top: 40%;      
+  display: block;
+  content: '';
+} 

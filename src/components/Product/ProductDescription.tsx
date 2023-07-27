@@ -1,4 +1,4 @@
-import Carousel from 'components/Carousel'
+import Carousel, { CarouselThumbnail } from 'components/Carousel'
 import styled from 'styled-components'
 import { Col, Row } from 'antd';
 import { Icon, Moon, Star } from 'Icons';
@@ -32,7 +32,8 @@ const Container = styled.div`
             // padding-left: 43px;
             // padding-right: 43px;
         }
-    }    
+    }
+
 `
 const ProductHero = styled(Row)`
   padding-top: 141px;
@@ -272,19 +273,25 @@ const ShopNowButtonContainer = styled.div`
 
 export default function ProductDescription({ children, openModal }: React.PropsWithChildren<{openModal: any}>){
 
+    // const cards = [
+    //     {
+    //         src: 'img/carousel/1.png',
+    //         href: '#'
+    //     },
+    //     {
+    //         src: 'img/carousel/2.png',
+    //         href: '#'
+    //     }
+    //     ,{
+    //         src: 'img/carousel/4.png',
+    //         href: '#'
+    //     }
+    // ]
+
     const cards = [
-        {
-            src: 'img/carousel/1.png',
-            href: '#'
-        },
-        {
-            src: 'img/carousel/2.png',
-            href: '#'
-        }
-        ,{
-            src: 'img/carousel/4.png',
-            href: '#'
-        }
+        <CarouselThumbnail src={'img/carousel/1.png'} />,
+        <CarouselThumbnail src={'img/carousel/2.png'} />,
+        <CarouselThumbnail src={'img/carousel/4.png'} />,
     ]
 
 
@@ -346,7 +353,8 @@ export default function ProductDescription({ children, openModal }: React.PropsW
         <Container id="product-description">                 
             {/* 96     */}
             <ProductHero className="product-hero" justify={"center"}>                   
-                <Col xs={24} md={8} flex={"auto"}>                    
+                <Col xs={24} md={8} flex={"auto"}>
+                    <AfterHoursStamp position="absolute" />                     
                     <Carousel cards={cards} />
                 </Col>
                 <Col style={productIntroductionStyle} xs={24} md={8}>                    

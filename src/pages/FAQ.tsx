@@ -13,6 +13,7 @@ const FAQContainer = styled.div`
     padding-top: 333px;
     background: linear-gradient(169deg, rgba(255,251,248,1) 25%, rgba(210,238,249,0.891281512605042) 49%, rgba(255,251,248,1) 70%);
     overflow: hidden;
+    // padding-bottom: 250px;
 `
 
 const FAQComparision = styled(Row)`
@@ -176,7 +177,7 @@ const FAQTitle = styled.div`
 
 const FAQGrid = styled(Row)`
     // padding-top: 250px;
-    padding-bottom: 250px;
+    // padding-bottom: 250px;
     // padding-left: 298px;
     // padding-right: 298px;
 
@@ -261,8 +262,15 @@ const FAQListLink = styled.a`
 `
 
 const SlideContainer = styled(DefaultSlideContainer)`
-    // padding-top: 159.44px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     overflow: hidden;   
+`
+
+const SlideSection = styled.div`
+    overflow: hidden;
+    padding-top: 160px;
+    // height: 500px;
 `
 
 
@@ -437,7 +445,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
         <>
             <FAQContainer>
                 <FAQComparision id="comparison" justify={"center"}>
-                    <FAQComparisionContent className="left" span={6}>
+                    <FAQComparisionContent className="left" span={5}>
                         <Typography className="faq-header" fontSize="29.363px" $fontFamily="Laviossa" >Others</Typography>
                         <AdvantageListContainer>
                             <AdvantageList
@@ -455,7 +463,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                             />
                         </AdvantageListContainer>
                     </FAQComparisionContent>
-                    <FAQComparisionContent className="right" span={6}>
+                    <FAQComparisionContent className="right" span={5}>
                         <div className="faq-header">
                             <Icon src="icons/white-logo.svg" width="192px" height="192px" style={{position: 'absolute', right: '-11%',top: '-16%'}} />
                         <Icon src={"logo.svg"} width="150px" height={"100%"}  />
@@ -576,18 +584,19 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                             />
                         </Col>                    
                     </FAQGrid>
-                {/* </div> */}                
+                {/* </div> */}          
+                <SlideSection>
+                    <SlideContainer $rotate="rotate(1.594deg)">
+                            <Slide>
+                                <>
+                                    <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" />
+                                    <Logo width={'109.13px'} height={'52.86px'} />
+                                </>
+                            </Slide>
+                    </SlideContainer>
+                </SlideSection>      
             </FAQContainer>
-            <div style={{overflow: 'hidden'}}>
-                <SlideContainer $rotate="rotate(1.594deg)">
-                        <Slide>
-                            <>
-                                <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" />
-                                <Logo width={'109.13px'} height={'52.86px'} />
-                            </>
-                        </Slide>
-                </SlideContainer>
-            </div>
+            {/* style={{overflow: 'hidden'}} */}            
         </>
     )
 }

@@ -118,11 +118,12 @@ const DescriptionSection = styled.section`
 `
 
 const MotionSection = styled.div`
-  max-height: 255px;
+  // max-height: 255px;
+  max-height: 300px !important;
   display: flex;
   flex-direction: column;
   // gap: 15px;
-  gap: 100vh;
+  // gap: 100vh;
   // align-items: center;
   // -webkit-box-reflect: below -50px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
 
@@ -269,7 +270,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
             </VideoDescriptionContainer> */}            
             <MotionSection className="motion-section">
               {
-                descriptionsBoxes.map(({title, text}, index) => (
+                descriptionsBoxes.slice(0,1).map(({title, text}, index) => (
                   <React.Fragment key={index}>
                       <Benefit title={title} text={text} />
                   </React.Fragment>
