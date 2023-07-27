@@ -122,3 +122,18 @@ body {
   display: block;
   content: '';
 } 
+
+.animation-slide-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  overflow: hidden; 
+  flex-direction: column;
+}
+
+.inner-container {
+  width: 32.8125rem; 
+  height: 18.75rem;
+  overflow: hidden; 
+}

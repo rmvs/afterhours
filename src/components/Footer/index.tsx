@@ -9,7 +9,7 @@ const FooterContainer = styled.div`
 `
 
 const FooterBanner = styled.div`
-    border-radius: 8px;
+    // border-radius: 8px;
     // background: url('img/banner-afterhours-footer.png'), lightgray 50% / cover no-repeat;
     // background-image: url('img/banner-afterhours-footer.png');
     // background-size: cover;
@@ -128,7 +128,7 @@ export default function Footer({ openModal }: React.PropsWithChildren<{openModal
                 </Bars>
                 <WhiteLogo src="icons/white-logo.svg" />                 */}
             </FooterBanner>
-            {/* <FooterContainer>
+            <FooterContainer>
                 <FooterHero> 
                     <CopyRightSection>
                         <div>
@@ -139,7 +139,7 @@ export default function Footer({ openModal }: React.PropsWithChildren<{openModal
                         </div>
                     </CopyRightSection>
                 </FooterHero>                                                 
-            </FooterContainer>             */}
+            </FooterContainer>            
         </>
     )
 }

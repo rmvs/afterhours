@@ -6,7 +6,8 @@ import Typography from "components/Typography";
 import styled from "styled-components";
 import { REVIEWS } from '../constants/index'
 import React from "react";
-import { Carousel } from "antd";
+import Carousel from "components/Carousel";
+import TweetSlide from "components/TweetSlide";
 
 const ReviewContainer = styled.div`
 
@@ -65,7 +66,7 @@ export const BoxHeader = styled.div`
 `
 
 
-const BoxContentAvatar  = styled.div<{ $hasAvatar?: boolean }>`
+export const BoxContentAvatar  = styled.div<{ $hasAvatar?: boolean }>`
     ${ props => props.$hasAvatar ?
      `
         border-radius: 12px;
@@ -215,7 +216,52 @@ export const LastReview = ({ date }: React.PropsWithChildren<{ date: number }>) 
     )
 }
 
+{/* <BoxContainer>                 */}
+{/* style={{overflow: 'hidden'}} */}
+{/* <SlideContainer>
+                            <Slide> */}
+{/* </Slide>
+                        </SlideContainer> */}
+                        
 export default function Reviews(props: React.PropsWithChildren){
+
+    const cards = REVIEWS.map(({ name, isVerified, avatar, stars, date, review },index) => (
+        <Box key={index} $color={index % 2 === 0 ? '#D2EEF9' :'#FAF1E8'}>
+            <BoxContent>
+                <BoxHeader>
+                    <BoxContentUserInfo>
+                        <Typography fontSize="14px" lineheight="24px" $type="Bold" letterSpacing="0px">{ name }</Typography>
+                        <ReviewerTag>
+                            {
+                                isVerified && (
+                                    <>
+                                        <img src="icons/check.png" alt="Verified reviewer" />
+                                        <Typography fontSize="12px" letterSpacing="0px" lineheight="16px" $type="Light">Verified Reviewer</Typography>
+                                    </>
+                                )
+                            }
+                        </ReviewerTag>
+                    </BoxContentUserInfo>
+                    <BoxContentAvatar $hasAvatar={!avatar}>
+                        {
+                            avatar ? <img src="avatar/avatar-1.png" alt={`avatar-${name}`} /> : (<Typography color="#FFF" fontSize="24px" letterSpacing="0px" lineheight="28px">SL</Typography>)
+                        }
+                    </BoxContentAvatar>
+                </BoxHeader>
+                <ReviewDescription>
+                    <ReviewInfo>
+                        <Review>
+                            { Array.from({ length: stars!! }).map((value,index) => (<Star key={index} />)) }                                 
+                        </Review>
+                        <LastReview date={date} />
+                    </ReviewInfo>
+                    <Typography className="review" fontSize="16px" lineheight="20px" letterSpacing="0px" $type="Light" color="#6C6C6C">
+                        {review}
+                    </Typography>
+                </ReviewDescription>
+            </BoxContent>
+        </Box>
+    ))
 
     return (
         <>
@@ -229,14 +275,11 @@ export default function Reviews(props: React.PropsWithChildren){
                         The best of dreams
                     </Typography>
                 </DreamsLabel>
-            </DreamsLabelContainer>
-            {/* <BoxContainer>                 */}
-            {/* style={{overflow: 'hidden'}} */}
-                <ReviewSectionContainer>
-                    <ReviewsSection>
-                        {/* <SlideContainer>
-                            <Slide> */}
-                                {
+            </DreamsLabelContainer> 
+            <TweetSlide />
+                {/* <ReviewSectionContainer>
+                    <ReviewsSection> 
+                    {
                                     REVIEWS.map(({ name, isVerified, avatar, stars, date, review },index) => (
                                         <Box key={index} $color={index % 2 === 0 ? '#D2EEF9' :'#FAF1E8'}>
                                             <BoxContent>
@@ -274,11 +317,9 @@ export default function Reviews(props: React.PropsWithChildren){
                                             </BoxContent>
                                         </Box>
                                     ))
-                                }                                
-                            {/* </Slide>
-                        </SlideContainer> */}
+                                }
                     </ReviewsSection>
-                </ReviewSectionContainer>                
+                </ReviewSectionContainer>                 */}
             {/* </BoxContainer> */}
             {/* <SlideContainer>
                 <Slide>

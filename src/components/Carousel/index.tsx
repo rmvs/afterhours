@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SVG from 'react-inlinesvg'
 import { useEffect, useRef, useState } from "react";
 import AfterHoursStamp from "components/Stamp";
+import SlickList from "components/SlickList";
 
 const Pages = styled(AntdCarousel)` 
     /*& > * {
@@ -14,17 +15,17 @@ const Pages = styled(AntdCarousel)`
     }
 `
 
-const SlickList = styled.ul`
-    display: flex;
-    justify-content: center;
-    gap: 9px;
-    padding: 0px 9px;
+// const SlickList = styled.ul`
+//     display: flex;
+//     justify-content: center;
+//     gap: 9px;
+//     padding: 0px 9px;
 
-    @media(max-width: 480px){
-        margin-top: -5%;
-        position:relative;
-    }
-`
+//     @media(max-width: 480px){
+//         margin-top: -5%;
+//         position:relative;
+//     }
+// `
 
 const Container = styled.div`
     /*width: 677px;
@@ -113,8 +114,7 @@ export default function Carousel({ cards }: React.PropsWithChildren<CarouselProp
         // if(currentSlide !== page){
         //     setPage(currentSlide)
         // }
-    }
-    
+    }    
 
     return (
         <>             
@@ -128,9 +128,9 @@ export default function Carousel({ cards }: React.PropsWithChildren<CarouselProp
                         ))
                     }            
                 </Pages>
-                <SlickList className="carousel-dots">
-                    { cards.map((value: any,key: number) => (<Dot key={key} src={"icons/dot.svg"} selected={key === page} onClick={() => setPage(key)}  />)) }
-                </SlickList>
+                <SlickList length={cards.length} page={page} setPage={setPage} />
+                    {/* { cards.map((value: any,key: number) => (<Dot key={key} src={"icons/dot.svg"} selected={key === page} onClick={() => setPage(key)}  />)) }
+                </SlickList> */}
             </Container>
         </>
     )
