@@ -10,7 +10,8 @@ const StyledHeader = styled(Header)`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    // gap: 16px;
+    gap: 120rem;
     overflow: hidden;
 
     @media(max-width:480px){
@@ -18,9 +19,10 @@ const StyledHeader = styled(Header)`
         justify-content: flex-start;        
     }
     
-    @media screen and (min-width: 1024px){
-        gap: 473px !important;
-    }
+    // @media screen and (min-width: 1024px){
+    //     // gap: 473px !important;
+    //     gap: 29.5625;
+    // }
 `
 
 const Layout = styled(DefaultLayout)`

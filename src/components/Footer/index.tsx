@@ -67,17 +67,23 @@ const Bars = styled.div`
     box-sizing: border-box;
     flex-direction: column;
     display: inline-flex;
-    position: absolute;
-    top: 50%;
-    left: 22%;
+
+    // position: absolute;
+    // top: 50%;
+    // left: 22%;
+    
+    position: relative;
+    padding-top: 19.25rem;
 `
 
 const InfoBar = styled.div`
     border-radius: 100px;
     background: var(--cream);
     width: fit-content;
-    padding-left: 10px;
-    padding-right: 15px;
+    // padding-left: 10px;
+    padding-left:1.31rem;
+    // padding-right: 15px;
+    padding-right:2.37rem;
 `
 
 const WhiteLogo = styled(Icon)`
@@ -103,19 +109,15 @@ const BannerContent = styled.div`
     // margin-top: 5%;
 `
 
-const Wrapper = styled.div`
-
-`
-
 export default function Footer({ openModal }: React.PropsWithChildren<{openModal: any}>){
     return (
         <>
             <FooterBanner className="footer-banner">
                 <BannerContent>
                     <Bars className="bars">
-                        <InfoBar><Typography fontSize="40px" letterSpacing="0px" lineheight="48px" $type="Bold">Stays in place all night,</Typography></InfoBar>
-                        <InfoBar><Typography fontSize="40px" letterSpacing="0px" lineheight="48px" $type="Bold">easy to remove in the</Typography></InfoBar>
-                        <InfoBar><Typography fontSize="40px" letterSpacing="0px" lineheight="48px" $type="Bold">morning light.</Typography></InfoBar> 
+                        <InfoBar><Typography fontSize="2.5rem" letterSpacing="0px" lineheight="3rem" $type="Bold">Stays in place all night,</Typography></InfoBar>
+                        <InfoBar><Typography fontSize="2.5rem" letterSpacing="0px" lineheight="3rem" $type="Bold">easy to remove in the</Typography></InfoBar>
+                        <InfoBar><Typography fontSize="2.5rem" letterSpacing="0px" lineheight="3rem" $type="Bold">morning light.</Typography></InfoBar> 
                         <Button onClick={openModal} color="#D2EEF9" icon={<><Icon src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
                     </Bars>
                     <WhiteLogo src="icons/white-logo.svg" /> 

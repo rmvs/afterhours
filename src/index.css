@@ -45,6 +45,7 @@
 body {
   margin: 0;
   background: #FFF;
+  font-size: 16px !important;
   
 }
 /* overflow-x: hidden; */
@@ -136,4 +137,8 @@ body {
   width: 32.8125rem; 
   height: 18.75rem;
   overflow: hidden; 
+}
+
+@-ms-viewport{
+  width: device-width;
 }
