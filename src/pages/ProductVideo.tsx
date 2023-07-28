@@ -92,9 +92,10 @@ const VideoDescriptionItem = styled.div<{ $description?: boolean, $icon?: boolea
       ` : '' }
     ${ props => props.$icon ?
       `
-      display: flex;
-      flex-direction: column;
+      display: inline-flex;
+      // flex-direction: column;
       height: 100%;
+      align-self: baseline;
       ` : ''
     }
 `
@@ -181,11 +182,18 @@ const VideoContainer = styled.div`
     // backface-visibility: hidden;
     // z-index: 100;
     // display: flex;
-    width: 844px;
-    height: 475px;
+    // width: 844px;
+    // height: 475px;
     top: 0;
     left:0;
     margin: 0;
+
+    video {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+
 `
 
 
@@ -251,8 +259,8 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
         const videoNode = document.getElementById('video-container')
         const video = new ScrollMagic.Scene({
           triggerElement: '#product-video-section',
-          duration: document.getElementById('product-video-section')?.getBoundingClientRect().height!! - document.getElementById('video-container')?.getBoundingClientRect().height!! - Math.ceil(document.getElementById('video-container')?.getBoundingClientRect().height!! * 0.5) - 90 - 25,
-          offset: 475,
+          duration: document.getElementById('product-video-section')?.getBoundingClientRect().height!! - document.getElementById('video-container')?.getBoundingClientRect().height!! - Math.ceil(document.getElementById('video-container')?.getBoundingClientRect().height!! * 0.5) - 90,
+          offset: document.getElementById('mask-video')?.getBoundingClientRect()?.height!!,
         }).setPin('#video-container')
           .addTo(controller)
           .on('progress',(ev) => {
@@ -295,19 +303,22 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
     //     restDelta: 0.001
     //   });
 
+    // width={"844px"}
+    //                   height={"475px"}
+
     return (
       <ProductContainer id={"product-container"} ref={containerRef}>
         <ProductVideoSection justify={"center"}>          
-          <Video id="product-video-section" xs={24} md={10}>
+          <Video id="product-video-section" xs={24} lg={10}>
               <VideoContainer id="video-container">
                 <video
                     id="mask-video"
-                      muted
-                      loop
-                      width={"844px"}
-                      height={"475px"}
-                      src="videos/product-animation.mp4"
-                      ref={videoRef}
+                    width={'844px'}
+                    height={'475px'}
+                    muted
+                    loop                      
+                    src="videos/product-animation.mp4"
+                    ref={videoRef}
                 />
                 <button
                   ref={btnVideo}
@@ -319,7 +330,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
                 </button> 
               </VideoContainer>
           </Video>
-          <VideoDescription xs={24} md={7}>
+          <VideoDescription xs={24} lg={7}>
             {/* <VideoDescriptionContainer className="description-container">
                 {
                   descriptionsBoxes.map(({ title, text }, index) => (

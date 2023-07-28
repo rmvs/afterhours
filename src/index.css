@@ -121,7 +121,7 @@ body {
   /* 767/1920 */
   padding-top: 40%;      
   display: block;
-  content: '';
+  content: '';  
 } 
 
 .animation-slide-container {
@@ -141,4 +141,39 @@ body {
 
 @-ms-viewport{
   width: device-width;
+}
+
+.scrollmagic-pin-spacer > video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+@media(max-width: 480px){
+  .ant-layout {
+    overflow-x: hidden;
+  }
+
+  .footer-banner::after {
+    /* 767/1920 */
+    padding-top: 55%;      
+    display: block;
+    content: '';  
+  } 
+
+  .animation-slide-container {
+    gap: 1.5rem;
+  }
+
+  .inner-container {
+    width: 20.625rem;
+    /* height: 20.0625rem;     */
+  }
+
+  .review {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 1.25rem;
+  }
 }

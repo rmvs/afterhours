@@ -8,6 +8,7 @@ import { REVIEWS } from '../constants/index'
 import React from "react";
 import Carousel from "components/Carousel";
 import TweetSlide from "components/TweetSlide";
+import { Col, Row } from "antd";
 
 const ReviewContainer = styled.div`
 
@@ -18,13 +19,21 @@ const DreamsLabel = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 30px;
+
+    @media (max-width: 480px){
+        :nth-child(2){
+            font-size: 2.5rem;
+            line-height: 2.5rem;
+            letter-spacing: -0.075rem;
+        }
+    }
 `
 
 const DreamsLabelContainer = styled.div`
     display: flex;
     justify-content: center;
     padding-top: 154px;
-    padding-bottom: 104px;
+    padding-bottom: 104px;    
 `
 
 const ReviewsSection = styled.div`
@@ -54,6 +63,10 @@ export const BoxContent = styled.div`
     align-items: flex-start;
     gap: 20px;
     // padding: 50px;
+
+    @media(max-width: 480px){
+        width: 100%;
+    }
 `
 
 export const BoxHeader = styled.div`
@@ -115,6 +128,15 @@ export const ReviewDescription = styled.div`
         -webkit-box-orient: vertical;
         // max-width: 425px;
         // max-height: 80px;
+    }
+    
+    @media(max-width: 480px){
+        .review {
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 350;
+            line-height: 1.25rem;
+        }
     }
 
 `

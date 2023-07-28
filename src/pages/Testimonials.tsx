@@ -37,7 +37,12 @@ const OptionsContainer = styled.div`
 const Options = styled.div`
     display: inline-flex;
     flex-direction: column;
-    gap: 100px;
+    // gap: 100px;
+    gap: 6.25rem;
+
+    @media (max-width: 480px){
+        gap: 2rem;
+    }
 `
 
 const OptionsControls = styled.div`
@@ -59,6 +64,10 @@ const Box = styled(DefaultBox)`
     padding: 57px;
     height: 508px;
     flex-direction: inherit;
+
+    @media (max-width: 480px){
+        padding: 1.94rem;
+    }
 `
 
 const BoxContent = styled(DefaultBoxContent)`
@@ -108,7 +117,7 @@ export default function Testimonies({ openModal }: React.PropsWithChildren<{ ope
     return (
         <TestimoniesContainer>
             <Row justify={"center"}>
-                <Col span={8}>
+                <Col xs={20} sm={12} md={12} lg={6}>
                   <OptionsContainer>
                     <SleepMaskLabel>
                         <Icon src="icons/moon.svg" width="21px" height="21px" />
@@ -123,7 +132,7 @@ export default function Testimonies({ openModal }: React.PropsWithChildren<{ ope
                     </Options>                     
                   </OptionsContainer>             
                 </Col>
-                <Col span={8}>
+                <Col xs={20} sm={12} md={12} lg={6}>
                     <Box $color="#FFFBF8">
                         <BoxContent>
                             <BoxHeader>
@@ -156,17 +165,21 @@ export default function Testimonies({ openModal }: React.PropsWithChildren<{ ope
                     </Box>                
                 </Col>                
             </Row>
-            <ShopNowSection>
-                <ShopNow>
-                    {/* <Button>Shop Now</Button> */}
-                    <div>
-                        <Button onClick={openModal} color="#164CA4" icon={<><Icon src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
-                    </div>
-                    <div>
-                        <Typography fontSize="16px" $type="Light" letterSpacing="0px" color="#6C6C6C">100% Happiness Guaranteed</Typography>
-                    </div>
-                </ShopNow>
-            </ShopNowSection>
+            <Row justify={"center"}>
+                <Col xs={22} sm={12} md={6} lg={5}>
+                    <ShopNowSection>
+                        <ShopNow>
+                            {/* <Button>Shop Now</Button> */}
+                            <div>
+                                <Button onClick={openModal} color="#164CA4" icon={<><Icon src={"icons/stars.svg"} width="24px" height="24px" /></>}>Shop Now</Button>
+                            </div>
+                            <div>
+                                <Typography fontSize="16px" $type="Light" letterSpacing="0px" color="#6C6C6C">100% Happiness Guaranteed</Typography>
+                            </div>
+                        </ShopNow>
+                    </ShopNowSection>
+                </Col>
+            </Row>            
         </TestimoniesContainer>
     )
 }

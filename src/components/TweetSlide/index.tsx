@@ -44,7 +44,7 @@ export default function TweetSlide(props: React.PropsWithChildren){
 
     // style={{maxWidth: '32.8125rem'}}
     const cards = REVIEWS.map(({ name, isVerified, avatar, stars, date, review },index: number) => (
-        <Box key={index} $color={index % 2 === 0 ? '#D2EEF9' :'#FAF1E8'}>
+        <Box key={index} $color={index % 2 === 0 ? '#D2EEF9' :'#FAF1E8'} style={{padding: '1.88rem'}}>
             <BoxContent>
                 <BoxHeader>
                     <BoxContentUserInfo>
@@ -95,7 +95,7 @@ export default function TweetSlide(props: React.PropsWithChildren){
                     drag={"x"} 
                     variants={variants}
                     transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        x: { type: "tween", stiffness: 300, damping: 30 },
                         opacity: { duration: 0.2 }
                     }}
                     onDragEnd={(e, { offset, velocity }) => {

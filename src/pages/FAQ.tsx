@@ -7,6 +7,7 @@ import { SlideContainer as DefaultSlideContainer } from "components/AfterHoursSl
 import Slide from "components/Slide";
 import AfterHoursStamp from "components/Stamp";
 import { Logo } from "components/Logo";
+import { useWindowSize } from "@react-hook/window-size";
 
 const FAQContainer = styled.div`
     // background: rgb(255,251,248);
@@ -67,7 +68,29 @@ const AdvantageListContainer = styled.div`
     // flex-direction: column;
     // align-items: flex-start;
     // gap: 25px;
-    padding: 70px;
+    // padding: 70px;
+    padding: 4.375rem;
+    @media (max-width: 480px){
+        padding: 0.72rem;
+    }
+
+    @media(max-width: 575px){
+        padding: 1.5rem;
+    }
+
+    @media (min-width: 576px) and (max-width: 767px) {
+        padding: 0.72rem;
+      }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        padding: 0.72rem;
+    }
+
+    @media (min-width: 992px) and max(max-width: 1200px) {
+        padding: 0.72rem;
+    }
+
+
 `
 
 // const iconSVG = (
@@ -184,8 +207,31 @@ const FAQGrid = styled(Row)`
     .first {
         display: flex;
         flex-direction: column;
-        // align-self: end;
+        align-self: end;
     }
+
+    .more-link-button{
+        display: none;
+        transition: opacity 0.4s ease 0s;
+    }
+
+    .collapse-benefits-second {
+        transition: opacity 0.4s ease 0s;
+    }
+
+    @media (max-width: 480px){
+        .collapse-benefits-second {
+            display: none;
+        }
+        .more-link-button {
+            display: flex;
+            margin-top: 3.12rem;
+            justify-content: center;
+            width: 100%;
+            text-decoration-line: underline;
+        }
+    }
+    
 `
 
 const FAQTitleSection = styled(Row)`
@@ -439,13 +485,19 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
     //     'How do you clean the sleep mask?'
     // ]
 
+    const [width, height] = useWindowSize()
+
+    const expandCollapse = (collapseName: string) => {
+        (document.querySelector(collapseName) as HTMLElement).style.display = 'block';
+        (document.querySelector('.more-link-button') as HTMLElement).style.display = 'none';
+    }
 
 
     return (
         <>
             <FAQContainer>
                 <FAQComparision id="comparison" justify={"center"}>
-                    <FAQComparisionContent className="left" span={5}>
+                    <FAQComparisionContent className="left" xs={12} sm={12} md={12} lg={4}>
                         <Typography className="faq-header" fontSize="29.363px" $fontFamily="Laviossa" >Others</Typography>
                         <AdvantageListContainer>
                             <AdvantageList
@@ -463,10 +515,10 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                             />
                         </AdvantageListContainer>
                     </FAQComparisionContent>
-                    <FAQComparisionContent className="right" span={5}>
+                    <FAQComparisionContent className="right" xs={12} sm={12} md={12} lg={4}>
                         <div className="faq-header">
-                            <Icon src="icons/white-logo.svg" width="192px" height="192px" style={{position: 'absolute', right: '-11%',top: '-16%'}} />
-                        <Icon src={"logo.svg"} width="150px" height={"100%"}  />
+                            <Icon src="icons/white-logo.svg" width="12rem" height="12rem" style={{position: 'absolute', right: '-11%',top: '-16%'}} />
+                        <Icon src={"logo.svg"} width="100%" height={"100%"}  />
                         </div>
                         <AdvantageListContainer>
                             {/* <div>asdasd</div>
@@ -498,7 +550,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                 {/* <div style={{overflow: 'hidden'}}> */}
                 {/* gutter={16} */}
                     <FAQTitleSection gutter={32} justify={"center"}>
-                        <AntdCol span={12}>
+                        <AntdCol xs={20} sm={20} md={12} lg={12}>
                             <>
                                 <FAQList>
                                     <FAQListItem className="faq-list-item-header" id="faq">
@@ -521,7 +573,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                         </AntdCol>
                     </FAQTitleSection>
                     <FAQGrid gutter={32} justify={"center"}>
-                        <Col span={6} className="first">                        
+                        <Col xs={20} sm={20} md={8} lg={6} className="first">                        
                             {/* <FAQList>
                                 <FAQListItem className="faq-list-item-header" id="faq">
                                     <div>
@@ -560,7 +612,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                                 expandIcon={({ isActive }: any) => <Icon src={`icons/${ !isActive ? 'plus-signal' : 'minus-signal' }.svg`} color="rgba(108, 108, 108, 0.60)" width="21px" height="21px" />}
                             />
                         </Col>
-                        <Col span={6}>
+                        <Col  xs={20} sm={20} md={8} lg={6} className="second">
                             {/* <FAQList>
                                 {
                                     FAQTexts.slice(5).map((value,index) => (
@@ -575,6 +627,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                                 }
                             </FAQList> */}
                             <Collapse
+                                className="collapse-benefits-second"
                                 defaultActiveKey={[]}
                                 ghost
                                 expandIconPosition={'end'}
@@ -582,6 +635,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                                 items={FAQTexts.slice(6,FAQTexts.length)}
                                 expandIcon={({ isActive }: any) => <Icon src={`icons/${ !isActive ? 'plus-signal' : 'minus-signal' }.svg`} color="rgba(108, 108, 108, 0.60)" width="21px" height="21px" />}
                             />
+                            <Typography className="more-link-button" fontSize="1.5rem" $type="Bold" lineheight="2rem" onClick={() => expandCollapse('.collapse-benefits-second')}>more</Typography>
                         </Col>                    
                     </FAQGrid>
                 {/* </div> */}          

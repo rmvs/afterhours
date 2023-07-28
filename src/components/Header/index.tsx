@@ -16,7 +16,8 @@ const StyledHeader = styled(Header)`
 
     @media(max-width:480px){
         padding: 15px 0px;
-        justify-content: flex-start;        
+        justify-content: flex-start;
+        gap: 0rem;        
     }
     
     // @media screen and (min-width: 1024px){
