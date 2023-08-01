@@ -7,8 +7,8 @@ import styled from "styled-components"
 
 const ProductDetailsContainer = styled.div`
     // text-align: center;
-    display: flex;
-    justify-content: center;
+    // display: inline-flex;
+    // justify-content: center;
     position: relative;
     padding-top: 307.8px;
     padding-bottom: 308px;
@@ -20,16 +20,20 @@ const ProductDetailsContainer = styled.div`
 
     @media(max-width: 480px){
         padding-top: 79px;
-        .shop-now-container {
-            display: inherit;
-        }
+        padding-bottom: 92.43px;        
         .shop-button {
             display: none;
         }
 
         flex-direction: column;
-        align-items: center;
-        gap: 61px;
+        align-items: center;        
+    }
+
+    @media(max-width: 575px){
+        .shop-now-container {
+            display: inherit;
+            padding-top: 61px;
+        }        
     }
     
 `
@@ -53,8 +57,8 @@ const ShopNowButton = styled(Button)`
     padding: 32px 32px 32px 16px;
     margin-inline-end: 0px;
     background: #164CA4;
-    margin-top: 650px;
-    margin-left: 491px;
+    // margin-top: 650px;
+    // margin-left: 491px;
 
     @media(max-width: 480px){
         margin: 0;
@@ -66,20 +70,42 @@ const ShopNowButton = styled(Button)`
     }
 `
 
-const ProductBanner = styled.div`
-    background-image: url('img/product-banner.png');
-    // background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    // box-sizing: border-box;
-    background-position: center;
-    // height: 836px;
-    // width: 1127px;
+// const ProductBanner = styled.div`
+//     // background-image: url('img/product-banner.png');
+//     // // background-size: cover;
+//     // background-size: contain;
+//     // background-repeat: no-repeat;
+//     // // box-sizing: border-box;
+//     // background-position: center;
+//     // max-height: 836px;
+//     // max-width: 1127px;
 
-    @media(max-width: 480px){
-        background-image: url('img/product-anatomy-mobile.png');
-        height: 943px;
-        width: 300px
+//     display: none;    
+
+//     @media(max-width: 575px){
+//         background-image: url('img/product-anatomy-mobile.png');
+//         height: 943px;
+//         width: 300px;
+//         display: block;
+//     }
+// `
+
+
+
+const ProductBanner = styled.img`
+    width: 100%;
+    height: auto;
+    @media(max-width: 767px){
+        display: none;
+    }
+`
+
+const ProductBannerMobile = styled.img`
+    width: 100%;
+    height: auto;
+    display: none;
+    @media(max-width: 767px){
+        display: inherit;
     }
 `
 
@@ -107,16 +133,24 @@ export default function ProductDetails({ openModal }: React.PropsWithChildren<{o
                 <ShopNowButton onClick={openModal} className="shop-button-mobile" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton> 
             </div>  */}
             <Row justify={"center"}>
-                <Col xs={20} sm={24} md={24} lg={24} xl={24} xxl={24}>
+                <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
                     {/* <ProductBanner>
                         <ShopNowButton onClick={openModal} className="shop-button" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>                
                     </ProductBanner> */}
-                        <img src="img/product-banner.png" alt="Product Afterhours" style={{ width: '100%', height: 'auto' }} />
-                    <div className="shop-now-container">
+                        {/* <img src="img/product-banner.png" alt="Product Afterhours" style={{ width: '100%', height: 'auto' }} />                     */}
+                        {/* <ProductBannerDesktop src="img/product-banner.png" alt="Product Afterhours" /> */}
+                        <ProductBanner src="img/product-banner.png" alt="Product Afterhours" />
+                        <ProductBannerMobile src="img/product-anatomy-mobile.png" alt="Product Afterhours" />
+                </Col>
+            </Row>
+            <Row className="shop-now-container" justify={"center"}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
+                    <div style={{width: '100%',textAlign: 'center'}}>
                         <ShopNowButton onClick={openModal} className="shop-button-mobile" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton> 
                     </div>
                 </Col>
             </Row>
+            {/* shop-now-container */}
             {/* <Row justify={"center"}>
                 <Col>
                     <div className="shop-now-container">

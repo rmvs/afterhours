@@ -87,6 +87,11 @@ const FAQComparisionContent = styled(AntdCol)`
             // margin-top: -3.5%
             top: -6rem;
             right: -3.5rem;
+
+            @media(max-width: 480px){ 
+                top: calc(-4.4375rem * 0.2);
+                left: calc(-4.4375rem * 0.5);
+            }
         }
     }    
 
@@ -95,6 +100,10 @@ const FAQComparisionContent = styled(AntdCol)`
             padding: 1rem 2.5rem !important;
         }
         grid-gap: 0.9375rem !important;
+
+        .ant-list-item-meta {
+            align-items: center !important;
+        }
     }   
     
 `
@@ -551,7 +560,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
         <>
             <FAQContainer>
             <FAQComparision id="comparison" justify={"center"}>                    
-                <FAQComparisionContent className="left" xs={12} sm={10} md={8} lg={8} xl={8} xxl={4}>
+                <FAQComparisionContent className="left" xs={11} sm={10} md={8} lg={8} xl={8} xxl={4}>
                     <Typography className="faq-header" fontSize="29.363px" $fontFamily="Laviossa" >Others</Typography>
                     <AdvantageListContainer>
                         <AdvantageList
@@ -569,7 +578,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                         />
                     </AdvantageListContainer>
                 </FAQComparisionContent>
-                <FAQComparisionContent className="right" xs={12} sm={10} md={8} lg={8} xl={8} xxl={4}>
+                <FAQComparisionContent className="right" xs={11} sm={10} md={8} lg={8} xl={8} xxl={4}>
                     <div className="faq-header">                            
                         <Icon src={"logo.svg"} width="100%" height={"100%"}  />
                         <Icon className="logo-stamp" src="icons/white-logo.svg" width="12rem" height="12rem" />

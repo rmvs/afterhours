@@ -10,6 +10,7 @@ import useParallax from "utils/parallax";
 import ScrollMagic from 'scrollmagic';
 import { useWindowSize } from "@react-hook/window-size";
 import BenefitsParallax from "components/BenefitsParallax";
+import { GenericSlide } from "components/TweetSlide";
 
 const { useBreakpoint } = Grid;
 
@@ -24,6 +25,12 @@ const ProductContainer = styled.div`
     @media(max-width: 480px){
       // padding: 73px 19px 0 19px;
       display: none;
+    }
+
+    @media(max-width: 766px) {
+      .motion-section {
+        display: none;
+      }
     }
 `
 
@@ -248,6 +255,30 @@ const MotionSection = styled.div`
 
     .reflect-card {
       -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4));
+    }
+`
+
+const BenefitsSlide = styled.div`
+    display: none;
+    
+    @media(max-width: 766px){
+      display: inherit;
+
+      .description-section {
+        padding: 1rem;
+        gap: 10px;
+      }
+      .trivia-title {
+        font-size: 20px;
+        letter-spacing: 0px;
+      }
+      .trivia-text {
+        font-size: 0.8rem;
+        line-height: 1rem;
+      }
+      .inner-container {
+        height: 199px !important;
+      }
     }
 `
 
@@ -496,33 +527,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
                     </button>
                 </div>
           </Video>
-          <VideoDescription id="product-cards" xs={18} sm={18} md={10} lg={10} xl={8} xxl={7}>
-            {/* <div style={{display: 'block'}}>
-              <BenefitsParallax benefits={descriptionsBoxes.map(({ title, text },index) => ( <Benefit id={`benefit-${index}`} title={title} text={text} opacity={1} />))}  />
-            </div> */}
-            {/* <VideoDescriptionContainer className="description-container">
-                {
-                  descriptionsBoxes.map(({ title, text }, index) => (
-                    <DescriptionSection className="description-section"key={index}>
-                      <VideoDescriptionItem $icon>
-                        <div>
-                            <Eyelash width="58px" height="58px" />
-                        </div>
-                      </VideoDescriptionItem>
-                      <VideoDescriptionItem id="desc" $description>                     
-                            
-                            <Typography fontSize="32px" lineheight="40px" fontWeight="700" $type="Bold" >
-                                {title}
-                            </Typography>
-                            <Typography fontSize="20px" letterSpacing="0" color="#6C6C6C" lineheight="24px" fontWeight="350" $type="Light">
-                                {text}
-                            </Typography>
-                      </VideoDescriptionItem>                  
-                    </DescriptionSection>
-                  ))
-                }
-            </VideoDescriptionContainer> */}   
-            {/* index === 0 ? 1 : 0.05          */}
+          <VideoDescription id="product-cards" xs={18} sm={18} md={10} lg={10} xl={8} xxl={7}>            
             <MotionSection className="motion-section">
               {
                 descriptionsBoxes.map(({title, text}, index) => (
@@ -532,22 +537,11 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
                 ))
               }
             </MotionSection>
+            <BenefitsSlide>
+              <GenericSlide xs={20} sm={20} md={20} cards={descriptionsBoxes.map(({ title, text }, index) => <Benefit id={`benefit-${index}`} title={title} text={text}  />)} />
+            </BenefitsSlide>
           </VideoDescription>
         </ProductVideoSection>
       </ProductContainer>
     );
 }
-
-
-// {
-//   descriptionsBoxes.map(({ title, text },index) => (
-//       <React.Fragment key={index}>
-//           <Typography fontSize="32px" lineheight="40px" fontWeight="700" $type="Bold" >
-//               {title}
-//           </Typography>
-//           <Typography fontSize="20px" letterSpacing="0" color="#6C6C6C" lineheight="24px" fontWeight="350" $type="Light">
-//               {text}
-//           </Typography>                           
-//       </React.Fragment>
-//   ))
-// }
