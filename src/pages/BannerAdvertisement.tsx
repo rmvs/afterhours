@@ -40,8 +40,6 @@ const ParallaxImage = ({ imageSrc }: any) => {
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0", "70%"]);
 
-  backgroundY.onChange((value) => console.log(value))
-
   return (
     <>
       <div ref={ref} style={{width: '100%',height:'100vh',overflow:'hidden',position:'relative',placeItems: 'center'}}>      
