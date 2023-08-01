@@ -271,7 +271,7 @@ const BenefitsSlide = styled.div`
       }
 
       .description-section {
-        padding: 0.4rem;
+        padding: 1rem;
         gap: 5px;
       }
 
@@ -291,12 +291,12 @@ const BenefitsSlide = styled.div`
       .inner-container {
         // height: 200px !important;
         // max-height: 279.8px;
-        max-height: 215.4px;
+        // max-height: 215.4px;
         width: 100%;
       }
 
       .animation-slide-container {
-        gap: 1rem;
+        gap: 2rem;
       }
     }
 
