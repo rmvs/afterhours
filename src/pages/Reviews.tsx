@@ -27,6 +27,9 @@ const DreamsLabel = styled.div`
             letter-spacing: -0.075rem;
         }
     }
+    :nth-child(2){
+        text-align: center;
+    }
 `
 
 const DreamsLabelContainer = styled.div`
@@ -58,7 +61,7 @@ export const Box = styled.div<{ $color: string }>`
 
 export const BoxContent = styled.div`
     display: flex;
-    width: 425px;
+    // width: 425px;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
@@ -288,74 +291,22 @@ export default function Reviews(props: React.PropsWithChildren){
     return (
         <>
             <ReviewContainer id="review">
-            <DreamsLabelContainer>
-                <DreamsLabel>
-                    <Review $hover>
-                        { Array.from({ length: 5 }).map((value,index) => (<Star key={index} />)) }                
-                    </Review>
-                    <Typography fontSize="55px" lineheight="55px" letterSpacing="-1.65px">
-                        The best of dreams
-                    </Typography>
-                </DreamsLabel>
-            </DreamsLabelContainer> 
+                <Row justify={"center"}>
+                    <Col xs={18} sm={18} md={18} lg={18}>
+                        <DreamsLabelContainer>
+                            <DreamsLabel>
+                                <Review $hover>
+                                    { Array.from({ length: 5 }).map((value,index) => (<Star key={index} />)) }                
+                                </Review>
+                                <Typography className="dreams-label" fontSize="55px" lineheight="55px" letterSpacing="-1.65px">
+                                    The best of dreams
+                                </Typography>
+                            </DreamsLabel>
+                        </DreamsLabelContainer> 
+                    </Col>
+                </Row>
             <TweetSlide />
-                {/* <ReviewSectionContainer>
-                    <ReviewsSection> 
-                    {
-                                    REVIEWS.map(({ name, isVerified, avatar, stars, date, review },index) => (
-                                        <Box key={index} $color={index % 2 === 0 ? '#D2EEF9' :'#FAF1E8'}>
-                                            <BoxContent>
-                                                <BoxHeader>
-                                                    <BoxContentUserInfo>
-                                                        <Typography fontSize="14px" lineheight="24px" $type="Bold" letterSpacing="0px">{ name }</Typography>
-                                                        <ReviewerTag>
-                                                            {
-                                                                isVerified && (
-                                                                    <>
-                                                                        <img src="icons/check.png" alt="Verified reviewer" />
-                                                                        <Typography fontSize="12px" letterSpacing="0px" lineheight="16px" $type="Light">Verified Reviewer</Typography>
-                                                                    </>
-                                                                )
-                                                            }
-                                                        </ReviewerTag>
-                                                    </BoxContentUserInfo>
-                                                    <BoxContentAvatar $hasAvatar={!avatar}>
-                                                        {
-                                                            avatar ? <img src="avatar/avatar-1.png" alt={`avatar-${name}`} /> : (<Typography color="#FFF" fontSize="24px" letterSpacing="0px" lineheight="28px">SL</Typography>)
-                                                        }
-                                                    </BoxContentAvatar>
-                                                </BoxHeader>
-                                                <ReviewDescription>
-                                                    <ReviewInfo>
-                                                        <Review>
-                                                            { Array.from({ length: stars!! }).map((value,index) => (<Star key={index} />)) }                                 
-                                                        </Review>
-                                                        <LastReview date={date} />
-                                                    </ReviewInfo>
-                                                    <Typography className="review" fontSize="16px" lineheight="20px" letterSpacing="0px" $type="Light" color="#6C6C6C">
-                                                        {review}
-                                                    </Typography>
-                                                </ReviewDescription>
-                                            </BoxContent>
-                                        </Box>
-                                    ))
-                                }
-                    </ReviewsSection>
-                </ReviewSectionContainer>                 */}
-            {/* </BoxContainer> */}
-            {/* <SlideContainer>
-                <Slide>
-                    <>
-                        
-                    </>                    
-                </Slide>
-            </SlideContainer> */}
         </ReviewContainer>
-        {/* <Carousel style={{height: '160px', lineHeight: '160px'}}>
-            <div><h1>1</h1></div>
-            <div><h1>2</h1></div>
-            <div><h1>3</h1></div>
-        </Carousel> */}
         </>
     )
 }

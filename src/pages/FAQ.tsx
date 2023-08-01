@@ -43,7 +43,26 @@ const FAQComparision = styled(Row)`
         display: flex;
         justify-content: center;
     }
+    
+
+    @media(max-width: 480px){
+        .right > .faq-header {
+            height: 87px;
+        }
+
+        .left{
+            border-right: none;
+        }
+
+        .logo-stamp {
+            width: 4.4375rem;
+            height: 4.4375rem;
+            margin-top: -10%;
+        }
+    }
 `
+
+// position: 'absolute', right: '-11%',top: '-16%'
 
 const FAQComparisionContent = styled(AntdCol)`
     border-radius: 15.971px;    
@@ -59,7 +78,24 @@ const FAQComparisionContent = styled(AntdCol)`
         border-radius: 15.971px; 
         text-align: center;
         max-height: 175px;
+
+        .logo-stamp {
+            position: absolute;
+            // left: -80%;
+            z-index: 99;
+            // margin-left: 30%;
+            // margin-top: -3.5%
+            top: -6rem;
+            right: -3.5rem;
+        }
     }    
+
+    @media(max-width: 480px){
+        .faq-header {
+            padding: 1rem 2.5rem !important;
+        }
+        grid-gap: 0.9375rem !important;
+    }   
     
 `
 
@@ -70,12 +106,13 @@ const AdvantageListContainer = styled.div`
     // gap: 25px;
     // padding: 70px;
     padding: 4.375rem;
-    @media (max-width: 480px){
-        padding: 0.72rem;
-    }
+    // @media (max-width: 480px){
+    //     padding: 0.72rem;
+    // }
 
     @media(max-width: 575px){
-        padding: 1.5rem;
+        // padding: 1.5rem;
+        padding: 0.72rem;
     }
 
     @media (min-width: 576px) and (max-width: 767px) {
@@ -88,6 +125,10 @@ const AdvantageListContainer = styled.div`
 
     @media (min-width: 992px) and max(max-width: 1200px) {
         padding: 0.72rem;
+    }
+
+    @media(min-width: 1600px) {
+        padding: 2rem; 
     }
 
 
@@ -154,6 +195,19 @@ const AdvantageList= styled(List)`
         font-style: normal !important;
         font-weight: 350 !important;
         line-height: 26.618px !important;  /* 125% */
+    }
+
+    @media(max-width: 480px){
+        .ant-list-item-meta-title {
+            font-family: Roc Grotesk Light !important;
+            font-size: 1rem !important;
+            font-style: normal !important;
+            font-weight: 350 !important;
+            line-height: 1rem !important;
+        }
+        .ant-list-item-meta-avatar {
+            margin-inline-end: 0.625rem !important;
+        }
     }
 `
 
@@ -491,55 +545,55 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
         (document.querySelector(collapseName) as HTMLElement).style.display = 'block';
         (document.querySelector('.more-link-button') as HTMLElement).style.display = 'none';
     }
-
-
+    // xs={24} sm={18} md={18} lg={12} xl={12} xxl={4}
+    // xs={10} sm={12} md={12} lg={4}
     return (
         <>
             <FAQContainer>
-                <FAQComparision id="comparison" justify={"center"}>
-                    <FAQComparisionContent className="left" xs={12} sm={12} md={12} lg={4}>
-                        <Typography className="faq-header" fontSize="29.363px" $fontFamily="Laviossa" >Others</Typography>
-                        <AdvantageListContainer>
-                            <AdvantageList
-                                itemLayout="horizontal"
-                                bordered={false}
-                                dataSource={otherCons}
-                                renderItem={(text: any, index: any) => (
-                                <List.Item>
-                                    <List.Item.Meta
-                                    avatar={<><Icon src="icons/cons-mark.svg" width="32px" height="32px" /></>}
-                                    title={text}                               
-                                    />
-                                </List.Item>
-                                )}
-                            />
-                        </AdvantageListContainer>
-                    </FAQComparisionContent>
-                    <FAQComparisionContent className="right" xs={12} sm={12} md={12} lg={4}>
-                        <div className="faq-header">
-                            <Icon src="icons/white-logo.svg" width="12rem" height="12rem" style={{position: 'absolute', right: '-11%',top: '-16%'}} />
+            <FAQComparision id="comparison" justify={"center"}>                    
+                <FAQComparisionContent className="left" xs={12} sm={10} md={8} lg={8} xl={8} xxl={4}>
+                    <Typography className="faq-header" fontSize="29.363px" $fontFamily="Laviossa" >Others</Typography>
+                    <AdvantageListContainer>
+                        <AdvantageList
+                            itemLayout="horizontal"
+                            bordered={false}
+                            dataSource={otherCons}
+                            renderItem={(text: any, index: any) => (
+                            <List.Item>
+                                <List.Item.Meta
+                                avatar={<><Icon src="icons/cons-mark.svg" width="32px" height="32px" /></>}
+                                title={text}                               
+                                />
+                            </List.Item>
+                            )}
+                        />
+                    </AdvantageListContainer>
+                </FAQComparisionContent>
+                <FAQComparisionContent className="right" xs={12} sm={10} md={8} lg={8} xl={8} xxl={4}>
+                    <div className="faq-header">                            
                         <Icon src={"logo.svg"} width="100%" height={"100%"}  />
-                        </div>
-                        <AdvantageListContainer>
-                            {/* <div>asdasd</div>
-                            <div>asdasd</div>
-                            <div>asdasd</div> */}
-                            <AdvantageList
-                                itemLayout="horizontal"
-                                bordered={false}
-                                dataSource={productProps}
-                                renderItem={(text: any, index: any) => (
-                                <List.Item>
-                                    <List.Item.Meta
-                                    avatar={<><Icon src="icons/star2.svg" width="32px" height="32px" /></>}
-                                    title={text}                               
-                                    />
-                                </List.Item>
-                                )}
-                            />
-                        </AdvantageListContainer>                    
-                    </FAQComparisionContent>
-                </FAQComparision>
+                        <Icon className="logo-stamp" src="icons/white-logo.svg" width="12rem" height="12rem" />
+                    </div>
+                    <AdvantageListContainer>
+                        {/* <div>asdasd</div>
+                        <div>asdasd</div>
+                        <div>asdasd</div> */}
+                        <AdvantageList
+                            itemLayout="horizontal"
+                            bordered={false}
+                            dataSource={productProps}
+                            renderItem={(text: any, index: any) => (
+                            <List.Item>
+                                <List.Item.Meta
+                                avatar={<><Icon src="icons/star2.svg" width="32px" height="32px" /></>}
+                                title={text}                               
+                                />
+                            </List.Item>
+                            )}
+                        />
+                    </AdvantageListContainer>                    
+                </FAQComparisionContent>
+            </FAQComparision>
                 <ShopNowContainer>
                     <Button icon={<><Icon color={"#164CA4"} src={"icons/stars.svg"} width="24px" height="24px" /></>} onClick={openModal}>Shop Now</Button>
                 </ShopNowContainer>
@@ -549,8 +603,9 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                         } */}
                 {/* <div style={{overflow: 'hidden'}}> */}
                 {/* gutter={16} */}
+                {/* xs={12} sm={10} md={8} lg={8} xl={8} xxl={4} */}
                     <FAQTitleSection gutter={32} justify={"center"}>
-                        <AntdCol xs={20} sm={20} md={12} lg={12}>
+                        <AntdCol xs={20} sm={24} md={24} lg={24} xl={17} xxl={16}>
                             <>
                                 <FAQList>
                                     <FAQListItem className="faq-list-item-header" id="faq">
@@ -572,37 +627,9 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                             </>                    
                         </AntdCol>
                     </FAQTitleSection>
-                    <FAQGrid gutter={32} justify={"center"}>
-                        <Col xs={20} sm={20} md={8} lg={6} className="first">                        
-                            {/* <FAQList>
-                                <FAQListItem className="faq-list-item-header" id="faq">
-                                    <div>
-                                        <Icon src="icons/moon.svg" width="21px" height="21px" />
-                                    </div>
-                                    <div>
-                                        <Typography fontSize="16px" lineheight="24px" $type="Bold" letterSpacing="4.8px">SLEEP MASK</Typography>
-                                    </div>
-                                </FAQListItem>
-                                <FAQListItem style={{borderBlockEnd: 'none'}}>                                
-                                    <FAQTitle>
-                                        Frequently <br/>
-                                        Asked <br/>
-                                        Questions.
-                                    </FAQTitle>                               
-                                </FAQListItem>
-                                {
-                                    FAQTexts.slice(0,5).map((value,index) => (
-                                        <FAQListItem key={index}>
-                                            <div>
-                                                <div><Typography fontSize="32px">{index < 10 ? String(index + 1).padStart(2,'0') : index + 1}</Typography></div>
-                                                <div><FAQListLink href="#">{value}</FAQListLink></div>
-                                                <div>+</div>
-                                            </div>
-                                        </FAQListItem>
-                                    ))
-                                }
-                            </FAQList> */}                        
-                            <Collapse
+                    <FAQGrid gutter={6} justify={"center"}>
+                        <Col className="first" xs={20} sm={20} md={12} lg={12} xl={8} xxl={8}>                        
+                          <Collapse
                                 className="leftAccordion"
                                 defaultActiveKey={[]}
                                 ghost
@@ -612,7 +639,7 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
                                 expandIcon={({ isActive }: any) => <Icon src={`icons/${ !isActive ? 'plus-signal' : 'minus-signal' }.svg`} color="rgba(108, 108, 108, 0.60)" width="21px" height="21px" />}
                             />
                         </Col>
-                        <Col  xs={20} sm={20} md={8} lg={6} className="second">
+                        <Col className="second" xs={20} sm={20} md={12} lg={12} xl={8} xxl={8}>
                             {/* <FAQList>
                                 {
                                     FAQTexts.slice(5).map((value,index) => (

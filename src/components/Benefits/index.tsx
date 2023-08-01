@@ -1,6 +1,7 @@
 import { Icon } from "Icons";
 import { Col, Row } from "antd";
 import Block from "components/Block";
+import Typography from "components/Typography";
 import React from "react";
 import styled from "styled-components";
 
@@ -8,17 +9,18 @@ const BenefitsSection = styled(Row)`
     padding-bottom: 115px;
     gap: 30px;
 
-    @media(max-width: 480px){
-      overflow-x: scroll;
-      display: inline-flex;
-      align-items: flex-start;
-      flex-flow: nowrap;
-      padding-bottom: 0px;
+    @media(max-width: 480px), (max-width: 575px){
+      // overflow-x: scroll;
+        display: inline-flex;
+        align-items: flex-start;
+        flex-flow: nowrap;
+        padding-bottom: 0px;
+        padding-left: 0.5rem;
     }
 `
 
 const BenefitsContainer = styled.div`
-  @media(max-width: 480px){
+  @media(max-width: 480px),(max-width: 575px){
     overflow-x: scroll;
     margin-bottom: 115px;
   }
@@ -60,7 +62,7 @@ export default function Benefits(props: React.PropsWithChildren){
                   color={"#164CA4"}
                   strokeWidth={"1"}
                 />
-                <div>{value}</div>
+                <Typography fontSize="1.25rem" lineheight="1.5rem" $textTransform="uppercase" $type="Bold" letterSpacing="0px">{value}</Typography>
               </Block>
             </Col>
           ))}

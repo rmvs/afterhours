@@ -24,6 +24,7 @@ import Reviews from "./Reviews"
 import Testimonies from "./Testimonials"
 import Footer from "components/Footer"
 import Contact from "components/Contact"
+import { Space } from "antd"
 
 
 export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
@@ -113,15 +114,14 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
             </TopFrame>
             <StyledHeader>
                 <Logo />
-                {/* <Nav/> */}
                 <MobileButton items={menuItems} />
-                {/* <div style={{display: 'flex'}}> */}
-                    <Menu
-                        mode="horizontal"
-                        defaultSelectedKeys={['1']}                
-                        items={menuItems}
-                    />
-                {/* </div> */}
+                <Menu
+                    className="menu"
+                    mode="horizontal"
+                    defaultSelectedKeys={['1']}                
+                    items={menuItems}
+                    disabledOverflow={true}
+                />
             </StyledHeader>
             <Content>
                 {/* <ProductDescription />
@@ -139,12 +139,12 @@ export default function Page<T extends React.PropsWithChildren<{}>>(props: T){
                 <ProductIntro openModal={setContactUsOpen} slideContainerRef={slideContainerRef} />
                 <ProductVideo slideContainerRef={slideContainerRef} />
                 <ProductDetails openModal={setContactUsOpen} /> 
-                <BannerAdvertisement paddingTop={"200px"} src="img/banner1.png" />
+                <BannerAdvertisement src="img/banner1.png" />
                 <FAQ openModal={setContactUsOpen} />
                 <Reviews />
                 <Testimonies openModal={setContactUsOpen} />
                 <Contact />
-                <Footer openModal={setContactUsOpen} />           
+                <Footer openModal={setContactUsOpen} />
             </Content>
         </Layout>
     )

@@ -20,6 +20,7 @@ export default function Slide({ children }: React.PropsWithChildren){
     const [ gap, setGap ] = useState(0)
 
     const [width, height] = useWindowSize()
+    const [ actualWidth, setActualWidth ] = useState<number | undefined>(undefined)
     const motionContainerRef = useRef({} as any)
     const speed = 1
 

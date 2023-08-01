@@ -52,12 +52,12 @@ const InnerElement = styled.div`
 `
 
 const MobileMenu = ({ items }: any) => {
-    return <Menu className="mobile-menu" items={items} mode="vertical"  />
+    return <Menu className="mobile-menu" style={{display: 'contents'}} items={items} mode="vertical"  />
 }
 
 
 const MobileButton = <T extends React.PropsWithChildren<{ items: any[] }>>(props: T) =>   (
-<Popover className="pop" placement={'bottomRight'} content={<MobileMenu {...props} />} trigger={'click'}>
+<Popover className="burger-menu" placement={'bottomRight'} content={<MobileMenu {...props} />} trigger={'click'}>
     <Button>
         {
             Array.from({ length: 3 }).map( (value,index) => <NavButtonStripe key={index} src="icons/stripe.svg" />)

@@ -65,22 +65,22 @@ const Menu: typeof AntMenu = styled(AntMenu)`
     display: flex;
     align-items: center;
     gap: 16px;
-    width: 100%;
+    // width: 100%;
 
     @media (min-width: 1025px){
         // padding-left: 573px;
     };
-    @media (max-width: 767px){
-        display: none;
+    // @media (max-width: 767px){
+    //     display: none;
 
-        &.mobile-menu {
-            display: contents !important;
-        }        
-    };
+    //     &.mobile-menu {
+    //         display: contents !important;
+    //     }        
+    // };
 
-    @media(max-width: 820px){
-        gap: 5px !important;
-    }
+    // @media(max-width: 820px){
+    //     gap: 5px !important;
+    // }
 
     .ant-menu-title-content {
         font-size: 16px;

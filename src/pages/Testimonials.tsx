@@ -10,6 +10,9 @@ import { Button } from "components/Button"
 
 const TestimoniesContainer = styled.div`
     padding-top: 100px;
+    @media(max-width: 480px){
+        padding-top: 4.44rem;
+    }
 `
 
 const Row = styled(AntdRow)`
@@ -113,11 +116,12 @@ export default function Testimonies({ openModal }: React.PropsWithChildren<{ ope
             setIndex(prev => prev + 1)
         }
     }
-
+    // xs={24} sm={18} md={18} lg={12} xl={12} xxl={4}
+    // xs={20} sm={12} md={12} lg={6}
     return (
         <TestimoniesContainer>
             <Row justify={"center"}>
-                <Col xs={20} sm={12} md={12} lg={6}>
+                <Col xs={20} sm={18} md={18} lg={12} xl={12} xxl={6}>
                   <OptionsContainer>
                     <SleepMaskLabel>
                         <Icon src="icons/moon.svg" width="21px" height="21px" />
@@ -132,7 +136,7 @@ export default function Testimonies({ openModal }: React.PropsWithChildren<{ ope
                     </Options>                     
                   </OptionsContainer>             
                 </Col>
-                <Col xs={20} sm={12} md={12} lg={6}>
+                <Col xs={20} sm={18} md={18} lg={12} xl={12} xxl={6}>
                     <Box $color="#FFFBF8">
                         <BoxContent>
                             <BoxHeader>

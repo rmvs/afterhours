@@ -162,7 +162,7 @@ const BannerContent = styled.div`
 export default function Footer({ openModal }: React.PropsWithChildren<{openModal: any}>){
     return (
         <>
-            <FooterBanner className="footer-banner">
+            <FooterBanner className="footer-banner" style={{overflow: 'hidden'}}>
                 <BannerContent>
                     <Bars>
                         <InfoBar><Typography className="bar-text" fontSize="2.5rem" letterSpacing="0px" lineheight="3rem" $type="Bold">Stays in place all night,</Typography></InfoBar>

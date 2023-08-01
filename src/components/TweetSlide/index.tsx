@@ -6,6 +6,7 @@ import { motion, AnimatePresence, wrap } from "framer-motion"
 import { Box, BoxContent, BoxContentAvatar, BoxContentUserInfo, BoxHeader, LastReview, ReviewDescription, ReviewInfo, ReviewerTag } from "pages/Reviews"
 import { useState } from "react"
 import SlickList from "components/SlickList"
+import { Col, Row } from "antd"
 
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
@@ -84,37 +85,41 @@ export default function TweetSlide(props: React.PropsWithChildren){
     const cardIndex = wrap(0, cards.length, page);
 
     return (
-        <div className="animation-slide-container">            
-            <div className="inner-container"> 
-                <AnimatePresence initial={false}>
-                    <motion.div dragElastic={1} 
-                    custom={direction} 
-                    exit={"exit"} 
-                    animate={"center"}
-                    initial={"enter"} 
-                    drag={"x"} 
-                    variants={variants}
-                    transition={{
-                        x: { type: "tween", stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.2 }
-                    }}
-                    onDragEnd={(e, { offset, velocity }) => {
-                        const swipe = swipePower(offset.x, velocity.x);            
-                        if (swipe < -swipeConfidenceThreshold) {
-                          paginate(1);
-                        } else if (swipe > swipeConfidenceThreshold) {
-                          paginate(-1);
-                        }
-                    }}
-                    dragConstraints={{ left: 0, right: 0 }}
-                    key={page}>
-                        {cards[cardIndex]}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-            <SlickList length={2} page={ direction >= 0 ? 0 : 1 } setPage={(key: number) => {
-                key === 0 ?  paginate(1) : paginate(-1)
-            } } />
-        </div>
+        <Row justify={"center"}>
+            <Col xs={18} sm={14} md={10} lg={8} xl={8} xxl={6}>
+                <div className="animation-slide-container">            
+                    <div className="inner-container"> 
+                        <AnimatePresence initial={false}>
+                            <motion.div dragElastic={1} 
+                            custom={direction} 
+                            exit={"exit"} 
+                            animate={"center"}
+                            initial={"enter"} 
+                            drag={"x"} 
+                            variants={variants}
+                            transition={{
+                                x: { type: "tween", stiffness: 300, damping: 30 },
+                                opacity: { duration: 0.2 }
+                            }}
+                            onDragEnd={(e, { offset, velocity }) => {
+                                const swipe = swipePower(offset.x, velocity.x);            
+                                if (swipe < -swipeConfidenceThreshold) {
+                                paginate(1);
+                                } else if (swipe > swipeConfidenceThreshold) {
+                                paginate(-1);
+                                }
+                            }}
+                            dragConstraints={{ left: 0, right: 0 }}
+                            key={page}>
+                                {cards[cardIndex]}
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+                    <SlickList length={2} page={ direction >= 0 ? 0 : 1 } setPage={(key: number) => {
+                        key === 0 ?  paginate(1) : paginate(-1)
+                    } } />
+                </div>
+            </Col>
+        </Row>
     )
 }

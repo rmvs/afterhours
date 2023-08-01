@@ -291,7 +291,7 @@ export default function ProductDescription({ children, openModal }: React.PropsW
     const cards = [
         <CarouselThumbnail src={'img/carousel/1.png'} />,
         <CarouselThumbnail src={'img/carousel/2.png'} />,
-        <CarouselThumbnail src={'img/carousel/4.png'} />,
+        <CarouselThumbnail src={'img/carousel/3.png'} />,
     ]
 
 
@@ -348,16 +348,17 @@ export default function ProductDescription({ children, openModal }: React.PropsW
         height: '100%'
     }
     
-
+    // xs={24} sm={18} md={18} lg={12} xl={12} xxl={4}
+    // xs={24} md={8}
     return (
         <Container id="product-description">                 
             {/* 96     */}
             <ProductHero className="product-hero" justify={"center"}>                   
-                <Col xs={24} md={8} flex={"auto"}>
+                <Col xs={18} sm={18} md={18} lg={10} xl={10} xxl={8}>
                     <AfterHoursStamp position="absolute" />                     
                     <Carousel cards={cards} />
                 </Col>
-                <Col style={productIntroductionStyle} xs={24} md={8}>                    
+                <Col style={productIntroductionStyle} xs={18} sm={18} md={18} lg={10} xl={10} xxl={8}>                    
                     {/* <div style={{height: '100%',display: 'flex',flexDirection: 'column'}}> */}
                         <ProductIntroduction className="product-information">
                             <Typography className="product-information-text" fontSize="55px" lineheight="60px" letterSpacing="-1.65px">
@@ -386,7 +387,7 @@ export default function ProductDescription({ children, openModal }: React.PropsW
                         </PriceContainer>
                         <Collapse items={collapseItems} activeKeys={collapseItems.map(({ key }) => key)} />
                         <ShopNowButtonContainer>
-                            <Button type="primary" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />} onClick={openModal}>Try Now</Button>
+                            <Button color="#164CA4" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />} onClick={openModal}>Try Now</Button>
                         </ShopNowButtonContainer>
                     {/* </div> */}
                 </Col>

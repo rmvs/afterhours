@@ -134,8 +134,9 @@ body {
 }
 
 .inner-container {
-  width: 32.8125rem; 
-  height: 18.75rem;
+  /* width: 32.8125rem;  */
+  /* height: 18.75rem; */
+  max-height: 18.75rem;
   overflow: hidden; 
 }
 

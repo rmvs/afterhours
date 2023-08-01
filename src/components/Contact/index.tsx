@@ -23,6 +23,10 @@ const ContactsSectionMobile = styled(ContactSection)`
         display: flex;
     }
     display: none;
+    gap: 1.2rem;
+    justify-content:center;
+    
+    margin-top: 0px;
 
     .contact-shipping {
         font-size: 0.8125rem;
