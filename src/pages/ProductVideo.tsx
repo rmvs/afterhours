@@ -24,7 +24,10 @@ const ProductContainer = styled.div`
 
     @media(max-width: 480px){
       // padding: 73px 19px 0 19px;
-      display: none;
+      // display: none;
+      .motion-section {
+        display: none;
+      }
     }
 
     @media(max-width: 766px) {
@@ -260,8 +263,48 @@ const MotionSection = styled.div`
 
 const BenefitsSlide = styled.div`
     display: none;
+
+    @media(max-width: 480px){
+      display: inherit;
+      .description-section {
+        padding: 0.8rem;
+      }
+
+      .description-section {
+        padding: 0.4rem;
+        gap: 5px;
+      }
+
+      .description-section > div:nth-child(2){
+        grid-gap: 1px;
+      }
+
+      .trivia-title {
+        font-size: 15px;
+        letter-spacing: 0px;
+      }
+      .trivia-text {
+        font-size: 0.8rem;
+        line-height: 1rem;
+      }
+
+      .inner-container {
+        // height: 200px !important;
+        // max-height: 279.8px;
+        max-height: 215.4px;
+        width: 100%;
+      }
+
+      .animation-slide-container {
+        gap: 1rem;
+      }
+    }
+
+    @media(max-width: 575px){
+      display: inherit;
+    }
     
-    @media(max-width: 766px){
+    @media (min-width: 576px) and (max-width: 766px){
       display: inherit;
 
       .description-section {
@@ -283,12 +326,12 @@ const BenefitsSlide = styled.div`
 `
 
 
-const Benefit =  ({ title, text, opacity, id }: any) => {
+const Benefit =  ({ title, text, opacity, id, ref }: any) => {
   // const ref = useRef(null)
   // const { scrollYProgress } = useScroll({ target: ref });
   // const y = useParallax(scrollYProgress, 500);
   return (
-    <VideoDescriptionContainer className="reflect-card" id={id} style={{opacity}}>
+    <VideoDescriptionContainer ref={ref} className="reflect-card" id={id} style={{opacity}}>
       <DescriptionSection className="description-section">
           <VideoDescriptionItem $icon>
             <div>
@@ -538,7 +581,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
               }
             </MotionSection>
             <BenefitsSlide>
-              <GenericSlide xs={20} sm={20} md={20} cards={descriptionsBoxes.map(({ title, text }, index) => <Benefit id={`benefit-${index}`} title={title} text={text}  />)} />
+              <GenericSlide xs={24} sm={24} md={24} cards={descriptionsBoxes.map(({ title, text }, index) => <Benefit id={`benefit-${index}`} title={title} text={text}  />)} />
             </BenefitsSlide>
           </VideoDescription>
         </ProductVideoSection>

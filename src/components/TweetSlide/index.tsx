@@ -4,7 +4,7 @@ import Typography from "components/Typography"
 import { REVIEWS } from "../../constants"
 import { motion, AnimatePresence, wrap } from "framer-motion"
 import { Box, BoxContent, BoxContentAvatar, BoxContentUserInfo, BoxHeader, LastReview, ReviewDescription, ReviewInfo, ReviewerTag } from "pages/Reviews"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import SlickList from "components/SlickList"
 import { Col, Row } from "antd"
 
@@ -38,20 +38,29 @@ const variants = {
 export const GenericSlide  = ({ cards, xs, sm, md }: React.PropsWithChildren<{ cards: any[], xs?: number, sm?: number, md?: number }>) => {
 
     const [[page, direction], setPage] = useState([0, 0]);
+    const [ ref, setRef ] = useState(null)
 
     const paginate = (newDirection: number) => {
         setPage([page + newDirection, newDirection]);
     };
+
+    useEffect(() => {
+        // debugger
+        // console.log((document.querySelector('.inner-container') as any).style.height);
+        // const height = getComputedStyle(cards[page])?.height
+        // console.log(height);
+        // (document.getElementsByClassName('inner-container') as any).style.height = getComputedStyle(cards[page]).height;
+    },[page])
 
 
     const cardIndex = wrap(0, cards.length, page);
 
     return (
         <Row justify={"center"}>
-            <Col xs={xs || 18} sm={sm || 14} md={md || 10} lg={8} xl={8} xxl={6}>
+            <Col xs={xs || 22} sm={sm || 14} md={md || 10} lg={8} xl={8} xxl={6}>
                 <div className="animation-slide-container">            
                     <div className="inner-container"> 
-                        <AnimatePresence initial={false}>
+                        <AnimatePresence initial={false} mode="wait">
                             <motion.div dragElastic={1} 
                             custom={direction} 
                             exit={"exit"} 
@@ -61,14 +70,14 @@ export const GenericSlide  = ({ cards, xs, sm, md }: React.PropsWithChildren<{ c
                             variants={variants}
                             transition={{
                                 x: { type: "tween", stiffness: 300, damping: 30 },
-                                opacity: { duration: 0.2 }
+                                opacity: { duration: 0.2 },
                             }}
                             onDragEnd={(e, { offset, velocity }) => {
                                 const swipe = swipePower(offset.x, velocity.x);            
                                 if (swipe < -swipeConfidenceThreshold) {
-                                paginate(1);
+                                    paginate(1);
                                 } else if (swipe > swipeConfidenceThreshold) {
-                                paginate(-1);
+                                    paginate(-1);
                                 }
                             }}
                             dragConstraints={{ left: 0, right: 0 }}
