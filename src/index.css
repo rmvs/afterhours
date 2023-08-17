@@ -1,0 +1,179 @@
+:root {
+  --light-electric-green: #DAF66E;
+  --main-blue: #164CA4;
+  --light-electric-green: #DAF66E;
+  --cream: #FAF1E8;
+  --gradiant-2: linear-gradient(149deg, #FFFBF8 0%, rgba(210, 240, 242, 0.00) 97.40%);
+  --gradiant-hero: linear-gradient(160.76deg, #FFFBF8 40.44%, rgba(210, 240, 242, 0) 75.47%);
+  --black-90: #1B1B1B;
+  --accent: #fafafa;
+}
+
+@font-face {
+  font-family: 'Laviossa';
+  src: url(/public/fonts/laviossa-medium.otf);
+  /*src: url(/public/fonts/roc_grotesk/rocgrotesk-regular.otf);*/
+}
+
+@font-face {
+  font-family: 'Roc Grotesk';
+  src: url(/public/fonts/roc-grotesk-400.otf);
+  /*src: url(/public/fonts/roc_grotesk/rocgrotesk-regular.otf);*/
+}
+
+@font-face {
+  font-family: 'Roc Grotesk Light';
+  src: url(/public/fonts/rock-grotesk-light.otf);
+}
+
+@font-face {
+  font-family: 'Roc Grotesk Bold';
+  src: url(/public/fonts/roc-grotesc-bold.otf);
+}
+
+
+* {
+  color: var(--main-blue, #164CA4);
+  /* font-family: 'Roc Grotesk', cursive !important; */
+  font-family: -apple-system, BlinkMacSystemFont, 'Roc Grotesk', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: #FFF;
+  font-size: 16px !important;
+  
+}
+/* overflow-x: hidden; */
+html,
+body {
+  /* overscroll-behavior-x: none; */
+  height: 100%;  
+  /* overflow-x: hidden; */
+}
+
+/* body{
+  position: fixed;
+  width: 100%;
+} */
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+
+/* .ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected::after,  
+.ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-item-selected::after,  
+.ant-menu-light.ant-menu-horizontal >.ant-menu-submenu-selected::after,  
+.ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-submenu-selected::after,
+.ant-menu-light.ant-menu-horizontal >.ant-menu-item:hover::after {
+  border-bottom-color: transparent !important;
+} */
+
+/* .ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected,  
+.ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-item-selected,  
+.ant-menu-light.ant-menu-horizontal >.ant-menu-submenu-selected,  
+.ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-submenu-selected {
+  color: black;
+} */
+
+.marquee {
+  cursor: -webkit-grab;
+  display: -webkit-box;
+}
+
+.ant-popover .ant-popover-inner, .ant-popover .ant-popover-arrow:before {
+  background-color: var(--cream);
+}  
+
+
+.slide-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.ant-layout {
+  background: #FFF;
+}
+
+.ant-modal-mask {
+  backdrop-filter: blur(10px);
+  background: transparent;
+}
+
+/* .ant-collapse-content-active {
+  display: block !important;
+  visibility: visible;
+} */
+
+/* .ant-collapse-content-hidden {
+  visibility: hidden;  
+  display: block !important;
+} */
+
+
+.footer-banner::after {
+  /* 767/1920 */
+  padding-top: 40%;      
+  display: block;
+  content: '';  
+} 
+
+.animation-slide-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  overflow: hidden; 
+  flex-direction: column;
+}
+
+.inner-container {
+  /* width: 32.8125rem;  */
+  /* height: 18.75rem; */
+  max-height: 18.75rem;
+  overflow: hidden; 
+}
+
+@-ms-viewport{
+  width: device-width;
+}
+
+.scrollmagic-pin-spacer > video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media(max-width: 480px){
+  .ant-layout {
+    overflow-x: hidden;
+  }
+
+  .footer-banner::after {
+    /* 767/1920 */
+    padding-top: 55%;      
+    display: block;
+    content: '';  
+  } 
+
+  .animation-slide-container {
+    gap: 1.5rem;
+  }
+
+  .inner-container {
+    width: 20.625rem;
+    /* height: 20.0625rem;     */
+  }
+
+  .review {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 1.25rem;
+  }
+}
