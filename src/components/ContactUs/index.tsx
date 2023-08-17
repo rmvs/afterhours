@@ -1,8 +1,8 @@
 import { useWindowSize } from "@react-hook/window-size";
 import { Icon } from "Icons";
-import { Modal as AntdModal, Button, Col, Input as AntdInput, Row, Space } from "antd";
+import { Modal as AntdModal, Button, Col, Input as AntdInput, Row, Space, Alert } from "antd";
 import Typography from "components/Typography";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Modal = styled(AntdModal)`
@@ -35,7 +35,7 @@ const NotifyMe = styled.div`
     flex-direction: column;
     align-items: flex-start;
     gap: 49px;
-    padding: 80px;
+    padding: 40px;
     // padding: 243.14px 102px 217.14px 116px;
 
     .ant-click-animating-node {
@@ -186,7 +186,7 @@ const NotifyButton = styled(Button)`
 
 `
 
-const Input = styled(AntdInput)`
+const Input: typeof AntdInput = styled(AntdInput)`
     border-radius: 10px;
     border-color: var(--main-blue);    
 `
@@ -195,12 +195,32 @@ const Input = styled(AntdInput)`
 export default function ContactUs({ open, close }: React.PropsWithChildren<{ open: boolean, close: any }>){
 
     const [ width, height ] = useWindowSize()
+    const [ userEmail, setUserEmail ] = useState<string | undefined>()
+    const [ hasError, setHasError ] = useState(false)
+    const [ modalWidth, setModalWidth ] = useState("60%")
+
+    const emailRef = useRef()
+
+    const saveEmail = () => {
+        const error = !userEmail || userEmail?.length === 0 && !userEmail?.includes('@')
+        if(!error) {
+            close(true)
+            setUserEmail(undefined)
+        }
+        setHasError(error)        
+    }
+
+    const clearForm = () => {
+        setUserEmail(undefined)
+        setHasError(false);
+        close(false)
+    }
 
     let cols = [
-        <Col key={'image'} className="modal-image" xs={24} sm={12} md={12} lg={12} xl={12} xxl={10}>
+        <Col key={'image'} className="modal-image" xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
             <img src={"img/image-1171276628.png"} alt="woman-with-mask" />                
         </Col>,
-        <Col key={'form'} xs={24} sm={12} md={12} lg={12} xl={12} xxl={10}>
+        <Col key={'form'} xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
             <div style={{height:'100%',display: 'flex', alignItems: 'center'}}>
                 <NotifyMe>
                     <ModalHeadline className="headline">
@@ -215,12 +235,13 @@ export default function ContactUs({ open, close }: React.PropsWithChildren<{ ope
                     </ModalText>
                     <div>
                         <Space.Compact className="default-notify-button" style={{ width: '100%' }}>
-                            <Input placeholder="Your Email" size="large"  />
-                            <NotifyButton onClick={() => close(true)} size="large" icon={<Icon src={"icons/stars.svg"} width="17px" height="17px" />}>Notify Me</NotifyButton>
+                            <Input status={hasError ? "error" : "" } type="email" placeholder="Your Email" size="large" value={userEmail} onChange={(e) => setUserEmail(e.currentTarget.value)}  />
+                            <NotifyButton onClick={saveEmail} size="large" icon={<Icon src={"icons/stars.svg"} width="17px" height="17px" />}>Notify Me</NotifyButton>
                         </Space.Compact>
+                        { hasError && <div style={{color: 'red'}}>Valid email required.</div> }
                         <div className="buttons-mobile">
-                            <Input placeholder="Your Email" size="large" />
-                            <NotifyButton onClick={() => close(true)} icon={<Icon src={"icons/stars.svg"} />}>Notify Me</NotifyButton>
+                            <Input status={hasError ? "error" : "" } placeholder="Your Email" size="large" />
+                            <NotifyButton onClick={saveEmail} icon={<Icon src={"icons/stars.svg"} />}>Notify Me</NotifyButton>
                         </div>
                     </div>                  
                 </NotifyMe>
@@ -232,8 +253,18 @@ export default function ContactUs({ open, close }: React.PropsWithChildren<{ ope
         cols = [ cols[1],cols[0] ]
     }
 
+    useEffect(() => {
+        if(width <= 480){
+            setModalWidth("100%")
+        }else if(width <= 1024){
+            setModalWidth("50%")
+        }else{
+            setModalWidth("60%")
+        }        
+    },[width])
+
     return (
-        <Modal onCancel={() => close(false)} width={'auto'} key={"modal"} footer={null} open={open} centered okButtonProps={{ style: { display: 'none' } }} cancelButtonProps={{ style: { display: 'none' } }}>
+        <Modal width={modalWidth} onCancel={() => clearForm()} key={"modal"} footer={null} open={open} centered okButtonProps={{ style: { display: 'none' } }} cancelButtonProps={{ style: { display: 'none' } }}>
             <Row>
                 {
                     cols.map((col,index) => (

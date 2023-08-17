@@ -2,6 +2,7 @@
   "name": "afterhours",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rmvs.github.io/afterhours",
   "dependencies": {
     "@react-hook/window-size": "^3.1.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -28,7 +29,8 @@
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +52,7 @@
   },
   "devDependencies": {
     "@types/scrollmagic": "^2.0.3",
-    "@types/uuid": "^9.0.2"
+    "@types/uuid": "^9.0.2",
+    "gh-pages": "^6.0.0"
   }
 }

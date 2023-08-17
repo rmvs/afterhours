@@ -34,10 +34,11 @@ const AfterHoursStamp = styled(({ position, inverted, ...props }: any) => <SVG i
     height: 163px;
     z-index: 9;
     @media(max-width: 480px){
-        // width: 68.912px !important;
-        // height: 68.912px !important;
-        width: 34px;
-        height: 34px;
+        width: 68.912px !important;
+        height: 68.912px !important;
+        // width: 34px;
+        // height: 34px;
+        top: 90% !important;
     }
 `
 

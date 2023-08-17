@@ -65,6 +65,9 @@ const Container = styled.div`
 
     .slick-arrow {
         margin-top: 100px;
+        @media (max-width: 480px){
+            margin-top: 0px;
+        }
     }
 `
 

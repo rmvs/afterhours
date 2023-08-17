@@ -52,6 +52,7 @@ const Modal = styled(AntdModal)`
 `
 
 export default function ConfirmModal({ open, close }: any){
+
     return (
         <Modal footer={[
             <Button icon={<><Icon color={"#164CA4"} src={"icons/stars.svg"} /></>} onClick={close} key={"customOk"}>Ok</Button>
