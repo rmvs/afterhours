@@ -76,7 +76,7 @@ const ProductHero = styled(Row)`
         letter-spacing: -1.2px;        
     }
     .product-information-text-description {
-        font-size: 11px;
+        font-size: 13px;
         line-height: 18px;
     }
 
@@ -181,7 +181,6 @@ export const Review = styled.div<{$hover?: boolean}>`
     svg {
         path {
             fill: #ffdf00;
-            stroke: #ffdf00;
         }
     }
 

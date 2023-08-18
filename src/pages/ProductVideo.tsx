@@ -565,7 +565,8 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
                         id="video"
                         muted
                         loop
-                        loaded                     
+                        loaded
+                        playsInline                    
                         src="videos/product-animation.mp4"
                         autoPlay
                     >
@@ -576,7 +577,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
                 `}}>
                 </div>
           </Video>
-          <VideoDescription id="product-cards" xs={18} sm={18} md={10} lg={10} xl={8} xxl={7}>            
+          <VideoDescription id="product-cards" xs={18} sm={18} md={10} lg={10} xl={8} xxl={7}>        
             <MotionSection className="motion-section">
               {
                 descriptionsBoxes.map(({title, text}, index) => (

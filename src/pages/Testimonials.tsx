@@ -13,6 +13,25 @@ const TestimoniesContainer = styled.div`
     @media(max-width: 480px), (max-width: 575px){
         padding-top: 4.44rem;
         padding-bottom: 4.31rem;
+        
+    }
+
+    .reviews-logo {
+        position: absolute;
+        margin-left: calc(85%  - 8rem);
+        margin-top: calc(-4% - 8rem * 0.5);
+        transform: rotate(24.446deg);
+        width: 8rem;
+        height: 8rem;
+
+        @media(max-width: 480px),(max-width: 575px) {
+            top: 0;
+            left: 0;
+            margin-left: 60%;
+            margin-top: -15%;
+            width: 6rem;
+            height: 6rem;
+        }
     }
 `
 
@@ -146,6 +165,7 @@ export default function Testimonies({ openModal }: React.PropsWithChildren<{ ope
                 </Col>
                 <Col xs={20} sm={18} md={18} lg={12} xl={12} xxl={6}>
                     <Box $color="#FFFBF8">
+                        <Icon className="reviews-logo" src={"stamp-inverted.svg"} />
                         <BoxContent>
                             <BoxHeader>
                                 <BoxContentUserInfo>
