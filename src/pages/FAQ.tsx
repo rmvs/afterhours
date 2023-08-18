@@ -499,7 +499,7 @@ const FAQTexts = [
                 <Typography color="black" fontSize="22px" lineheight="25px" letterSpacing="0px">Is the sleep mask suitable for all faces?</Typography>
             </>
         ),
-        children: <Typography fontSize="16px" lineheight="20px" letterSpacing="0px" $type="Light" color="#6C6C6C">Yes, our sleep mask is designed to be one-size-fits-all with its conforming shape and strap-free design allowing it to comfortably fit most faces. Our mask is crafted as 2 separate sleep mask patches which confirm around the eyes to block out light.</Typography>
+        children: <Typography fontSize="16px" lineheight="20px" letterSpacing="0px" $type="Light" color="#6C6C6C">Yes, our sleep mask is designed to be one-size-fits-all with its conforming shape and strap-free design, allowing it to comfortably fit most faces. Our mask is crafted as 2 separate sleep mask patches, which conform around the eyes to block out light.</Typography>
     },
     {
         key: 7,
@@ -536,7 +536,7 @@ const FAQTexts = [
         label: (
             <>
                 <Typography fontSize="32px" $type="Bold">11</Typography>
-                <Typography color="black" fontSize="22px" lineheight="25px" letterSpacing="0px">How do you know when the sleep mask is ready to be replaced?</Typography>
+                <Typography color="black" fontSize="22px" lineheight="25px" letterSpacing="0px">How do you clean the sleep mask?</Typography>
             </>
         ),
         children: <Typography fontSize="16px" lineheight="20px" letterSpacing="0px" $type="Light" color="#6C6C6C">Our sleep mask should be washed with warm water and a gentle facial wash or soap and allowed to dry sticky side up. (Our sleep mask features quick dry material!).</Typography>

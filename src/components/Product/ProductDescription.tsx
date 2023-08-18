@@ -105,7 +105,7 @@ const ProductHero = styled(Row)`
 
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .product-information-text-description {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 18px;
     }
   }
@@ -113,7 +113,14 @@ const ProductHero = styled(Row)`
   /* 1366px*/
   @media only screen and (min-width: 1025px) and (max-width: 1440px) {
     .product-information-text-description {
-        font-size: 20px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+  }
+
+  @media only screen and (min-width: 1441px){
+    .product-information-text-description {
+        font-size: 18px;
         line-height: 18px;
     }
   }
