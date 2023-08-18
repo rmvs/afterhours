@@ -420,7 +420,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
             title: 'FACE CONFORMING',
             text: `
             The unique shape of our sleep mask patches conform to the eye area 
-            for a comfortable fit, out 100% of light without the need for straps, 
+            for a comfortable fit,blocking out 100% of light without the need for straps, 
             which may cause headaches and pressure. Plus, the unique concave shape allows you to sleep 
             easy without disturbing your eye creams and serums underneath.
             `

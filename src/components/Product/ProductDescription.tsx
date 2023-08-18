@@ -368,7 +368,7 @@ export default function ProductDescription({ children, openModal }: React.PropsW
                     </ProductInformationDescription>
                     <ProductInformationDescription>
                     <HighlightText>Our 100% light-blocking sleep mask patches,</HighlightText> crafted with bio-adhesive silicone and soft silk, reawakens what it means to have a good night sleep. 
-                        The unique shape conforms to the contours of the eyes without the need for straps or bands.
+                        The unique shape conforms to the contours of your eyes without the need for straps or bands.
                     </ProductInformationDescription>
                 </>
             )

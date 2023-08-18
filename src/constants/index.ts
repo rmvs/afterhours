@@ -124,7 +124,7 @@ export const FAQTexts = [
     },
     {
         key: 9,
-        label: 'How do you clean the sleep mask?',
+        label: 'How do you know when the sleep mask is ready to be replaced?',
         children: `When the mask loses its stickiness and even washing with light soap and water won’t make it sticky again, then it might be ready to be replaced. But even a light stickiness does the trick so don’t give up your mask too early.`
     },
     {

@@ -151,7 +151,7 @@ export default function Trivia(props: React.PropsWithChildren){
                         </>
                         {/* 24px 35px */}
                         <Typography className="trivia-description" fontSize={'1.5em'} lineheight="35px" letterSpacing="0px">
-                            Light Exposure = a Nightmare for your sleep patterns. Exposure to light in the evenings (natural or artificial) has the potential to impact the natural process of falling asleep. 
+                            Light exposure = a nightmare for your sleep patterns. Exposure to light in the evenings (natural or artificial) has the potential to impact the natural process of falling asleep. 
                             A sleep mask that blocks out light is the answer.
                         </Typography>
                      </TextBlock>
