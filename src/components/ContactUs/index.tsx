@@ -218,7 +218,7 @@ export default function ContactUs({ open, close }: React.PropsWithChildren<{ ope
 
     let cols = [
         <Col key={'image'} className="modal-image" xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
-            <img src={"img/image-1171276628.png"} alt="woman-with-mask" />                
+            <img src={"img/profile-modal.png"} alt="woman-with-mask" />                
         </Col>,
         <Col key={'form'} xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
             <div style={{height:'100%',display: 'flex', alignItems: 'center'}}>
