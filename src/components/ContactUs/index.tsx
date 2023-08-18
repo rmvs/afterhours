@@ -238,7 +238,7 @@ export default function ContactUs({ open, close }: React.PropsWithChildren<{ ope
                             <Input status={hasError ? "error" : "" } type="email" placeholder="Your Email" size="large" value={userEmail} onChange={(e) => setUserEmail(e.currentTarget.value)}  />
                             <NotifyButton onClick={saveEmail} size="large" icon={<Icon src={"icons/stars.svg"} width="17px" height="17px" />}>Notify Me</NotifyButton>
                         </Space.Compact>
-                        { hasError && <div style={{color: 'red'}}>Valid email required.</div> }
+                        { hasError && <div style={{color: 'red'}}>A valid email is required.</div> }
                         <div className="buttons-mobile">
                             <Input status={hasError ? "error" : "" } placeholder="Your Email" size="large" />
                             <NotifyButton onClick={saveEmail} icon={<Icon src={"icons/stars.svg"} />}>Notify Me</NotifyButton>
