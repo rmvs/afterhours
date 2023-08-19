@@ -177,3 +177,7 @@ body {
     line-height: 1.25rem;
   }
 }
+
+.ant-modal-confirm-body .anticon-close-circle svg path {
+  color: red !important; 
+}

@@ -21,7 +21,7 @@ const ConfirmModalContainer = styled.div`
         gap: 5px;
         flex-direction: column;        
         .confirmation-label {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
     }
     

@@ -3,6 +3,7 @@ import { Icon } from "Icons";
 import { Modal as AntdModal, Button, Col, Input as AntdInput, Row, Space, Alert } from "antd";
 import Typography from "components/Typography";
 import React, { useEffect, useRef, useState } from "react";
+import { userService } from "services";
 import styled from "styled-components";
 
 const Modal = styled(AntdModal)`
@@ -198,14 +199,24 @@ export default function ContactUs({ open, close }: React.PropsWithChildren<{ ope
     const [ userEmail, setUserEmail ] = useState<string | undefined>()
     const [ hasError, setHasError ] = useState(false)
     const [ modalWidth, setModalWidth ] = useState("60%")
+    const [ disableButton, setDisabledButton ] = useState(false)
 
     const emailRef = useRef()
 
-    const saveEmail = () => {
-        const error = !userEmail || userEmail?.length === 0 && !userEmail?.includes('@')
+    const saveEmail = async () => {
+        const error = !userEmail || userEmail?.length === 0 || !userEmail?.includes('@')
+        let hasAPIError = false
         if(!error) {
-            close(true)
-            setUserEmail(undefined)
+            try{
+                setDisabledButton(true)
+                await userService.saveUser(userEmail)
+            }catch(ex){
+                hasAPIError = true
+            }finally {
+                close(true, hasAPIError)
+                setUserEmail(undefined)
+                setDisabledButton(false)
+            }                        
         }
         setHasError(error)        
     }
@@ -236,12 +247,12 @@ export default function ContactUs({ open, close }: React.PropsWithChildren<{ ope
                     <div>
                         <Space.Compact className="default-notify-button" style={{ width: '100%' }}>
                             <Input status={hasError ? "error" : "" } type="email" placeholder="Your Email" size="large" value={userEmail} onChange={(e) => setUserEmail(e.currentTarget.value)}  />
-                            <NotifyButton onClick={saveEmail} size="large" icon={<Icon src={"icons/stars.svg"} width="17px" height="17px" />}>Notify Me</NotifyButton>
+                            <NotifyButton disabled={disableButton} onClick={saveEmail} size="large" icon={<Icon src={"icons/stars.svg"} width="17px" height="17px" />}>Notify Me</NotifyButton>
                         </Space.Compact>
                         { hasError && <div style={{color: 'red'}}>A valid email is required.</div> }
                         <div className="buttons-mobile">
                             <Input status={hasError ? "error" : "" } placeholder="Your Email" size="large" />
-                            <NotifyButton onClick={saveEmail} icon={<Icon src={"icons/stars.svg"} />}>Notify Me</NotifyButton>
+                            <NotifyButton disabled={disableButton} onClick={saveEmail} icon={<Icon src={"icons/stars.svg"} />}>Notify Me</NotifyButton>
                         </div>
                     </div>                  
                 </NotifyMe>
