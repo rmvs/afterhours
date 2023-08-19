@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/afterhours/static/css/main.25bf28fc.css",
-    "main.js": "/afterhours/static/js/main.f4fd7374.js",
+    "main.js": "/afterhours/static/js/main.1f1e38a2.js",
     "static/js/787.578a8a30.chunk.js": "/afterhours/static/js/787.578a8a30.chunk.js",
     "static/media/laviossa-medium.otf": "/afterhours/static/media/laviossa-medium.073588a8e42bc9ce85a1.otf",
     "static/media/roc-grotesc-bold.otf": "/afterhours/static/media/roc-grotesc-bold.2fde9191827b5af3655a.otf",
@@ -9,11 +9,11 @@
     "static/media/roc-grotesk-400.otf": "/afterhours/static/media/roc-grotesk-400.6c7a84c606cc216ca4da.otf",
     "index.html": "/afterhours/index.html",
     "main.25bf28fc.css.map": "/afterhours/static/css/main.25bf28fc.css.map",
-    "main.f4fd7374.js.map": "/afterhours/static/js/main.f4fd7374.js.map",
+    "main.1f1e38a2.js.map": "/afterhours/static/js/main.1f1e38a2.js.map",
     "787.578a8a30.chunk.js.map": "/afterhours/static/js/787.578a8a30.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.25bf28fc.css",
-    "static/js/main.f4fd7374.js"
+    "static/js/main.1f1e38a2.js"
   ]
 }
