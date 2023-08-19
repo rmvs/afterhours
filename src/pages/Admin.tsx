@@ -68,14 +68,14 @@ export default function Admin(props: React.PropsWithChildren){
             {contextHolder}
             <div style={{width: '100%'}}>
                 <Row justify={"center"}>
-                    <Col xxl={24}>
+                    <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
                         <LogoContainer>
                             <Icon src={"logo.svg"} />
                         </LogoContainer>
                     </Col>
                     {
                         !auth && (
-                            <Col xxl={4}>
+                            <Col xs={18} sm={10} md={10} lg={8} xl={6} xxl={4}>
                                 <Form layout="vertical">
                                     <Form.Item label={"Secret Key"}>
                                         <Input placeholder={"Type your app secret key"} onChange={(e: any) => setSecretKey(e.target.value)} />
@@ -99,7 +99,7 @@ export default function Admin(props: React.PropsWithChildren){
                     }
                     {
                         auth && (
-                            <Col xxl={24}>
+                            <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
                                 <div style={{textAlign: 'center'}}>
                                     <Button color="#1677ff" type="link" onClick={downloadCSV}>Download the users' CSV file</Button>
                                 </div>                    
