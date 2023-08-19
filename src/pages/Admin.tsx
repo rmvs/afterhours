@@ -28,18 +28,23 @@ export default function Admin(props: React.PropsWithChildren){
     const [ adminPassword, setAdminPassword ] = useState()
     const [ adminPasswordConfirmation, setAdminPasswordConfirmation ] = useState()
     const [ auth, setAuth ] = useState<boolean>()
+    const [ disable, setDisable ] = useState(false)
+    const [ hasError, setHasError ] = useState(false)
     const [ secretKey, setSecretKey ] = useState<string | undefined>()
-    const [alertModal, contextHolder] = Modal.useModal();
+    const [ alertModal, contextHolder ] = Modal.useModal();
     
     const authenticate = () => {
         const secret = process.env.REACT_APP_SECRET_KEY;
         if(secretKey === secret){
             setAuth(true)
+            setHasError(false)
         }
+        setHasError(secretKey !== secret)
     }
 
     const downloadCSV = async() => {
         try{
+            setDisable(true)
             const users = await userService.getUsers()
             const userCSV = ["email",...users.map(v => v.email)]
             const csvContent = "data:text/csv;charset=utf-8," + userCSV.join("\n");
@@ -60,6 +65,8 @@ export default function Admin(props: React.PropsWithChildren){
                 ),
                 okType: 'default'
             })
+        }finally{
+            setDisable(false)
         }
     }
 
@@ -77,8 +84,9 @@ export default function Admin(props: React.PropsWithChildren){
                         !auth && (
                             <Col xs={18} sm={10} md={10} lg={8} xl={6} xxl={4}>
                                 <Form layout="vertical">
-                                    <Form.Item label={"Secret Key"}>
-                                        <Input placeholder={"Type your app secret key"} onChange={(e: any) => setSecretKey(e.target.value)} />
+                                    <Form.Item label={"Secret Key"} validateStatus={hasError ? "error" : undefined} >
+                                        <Input placeholder={"Enter your app secret key"} onChange={(e: any) => setSecretKey(e.target.value)} />
+                                        { hasError && <div style={{color: 'red'}}>Invalid secret key.</div> }
                                     </Form.Item>
                                     {/* <Form.Item label={"Your Admin Password"}>
                                         <Input placeholder={"Type your admin password"} onChange={(e: any) => setAdminPassword(e.target.value)} />
@@ -101,7 +109,7 @@ export default function Admin(props: React.PropsWithChildren){
                         auth && (
                             <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
                                 <div style={{textAlign: 'center'}}>
-                                    <Button color="#1677ff" type="link" onClick={downloadCSV}>Download the users' CSV file</Button>
+                                    <Button color="#1677ff" type="link" disabled={disable} onClick={downloadCSV}>{ !disable ? "Download the users' email CSV file" : 'Wait a moment, please...'  }</Button>
                                 </div>                    
                             </Col>
                         )
