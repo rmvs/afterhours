@@ -477,7 +477,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
     useEffect(() => {
       (document.getElementById('video') as HTMLVideoElement).addEventListener('loadeddata',onVideoLoaded)
 
-      return () => (document.getElementById('video') as HTMLVideoElement).removeEventListener('loadeddata',onVideoLoaded)
+      return () => document.getElementById('video')?.removeEventListener('loadeddata',onVideoLoaded)
     },[])
 
 
@@ -501,7 +501,10 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
         })
         .setPin('#pinned-video')
         .on('progress',(ev: any) => {
-           const cards = Array.from((document.querySelector('.motion-section') as HTMLElement).childNodes);
+          if(!document.querySelector('.motion-section')){
+            return;
+          }
+           const cards = Array.from((document.querySelector('.motion-section') as HTMLElement)?.childNodes);
            const pinned = document.querySelector('#pinned-video') as HTMLElement;
 
            const found = cards.filter((node: ChildNode,index) => isNext(pinned.getBoundingClientRect(),(node as HTMLElement).getBoundingClientRect(),index === 0));
@@ -509,7 +512,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
              (found?.[0] as HTMLElement).style.opacity = '1';
              lastElement.style.opacity = '0'
              lastElement = found[0] as HTMLElement
-           }           
+           }          
 
         })
         .addTo(controller)
