@@ -53,6 +53,8 @@ const StyledCollapse = styled(AntdCollapse)`
         font-style: normal;
         font-weight: 500;
         line-height: 20px;
+
+        gap: 20px;
     }
 `
 
