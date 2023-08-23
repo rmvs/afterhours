@@ -21,12 +21,13 @@ jobs:
       #     node-version: 18
 
       - name: Install and build
-        run: |          
+        run: |
+          sed -i 's#"homepage": "."#"homepage": "https://${{github.actor}}.github.io/${{github.event.repository.name}}"#g' package.json
           npm install
-          npm run build
+          CI=false && npm run build
 
-      # - name: Deploy to GitHub Pages
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     branch: gh-pages
-      #     folder: build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build
