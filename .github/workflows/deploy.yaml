@@ -21,10 +21,7 @@ jobs:
       #     node-version: 18
 
       - name: Install and build
-        run: |
-          sed -i 's#"homepage": "."#"homepage": "https://${{github.actor}}.github.io/${{github.event.repository.name}}"#g' package.json
-          echo "changed homepage to https://${{github.actor}}.github.io/${{github.event.repository.name}}"
-          cat package.json
+        run: |          
           npm install --verbose
           npm run build --verbose
 
