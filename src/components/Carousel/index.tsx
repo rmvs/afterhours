@@ -1,9 +1,6 @@
 import { Carousel as AntdCarousel } from "antd";
 import styled from 'styled-components'
-import SVG from 'react-inlinesvg'
-import { useEffect, useRef, useState } from "react";
-import AfterHoursStamp from "components/Stamp";
-import SlickList from "components/SlickList";
+import { useRef } from "react";
 import React from "react";
 import { Icon } from "Icons";
 
@@ -101,16 +98,6 @@ export const CarouselThumbnail = styled.img`
 //     })}
 // `
 
-
-const Dot = styled(SVG)<{ selected?: boolean }>`
-    width: 11px;
-    height: 11px;
-    cursor: pointer;    
-    circle {
-        fill: ${ props => props.selected ? '#164CA4' : '#FAF1E8' }
-    }
-`
-
 interface CarouselProps {
     cards: any
 }
@@ -119,20 +106,7 @@ const Arrows =  ({currentSlide, slideCount, icon, ...props}: any) => <div {...pr
 
 export default function Carousel({ cards }: React.PropsWithChildren<CarouselProps>){
 
-    const sliderRef: any = useRef()
-    const [ page, setPage ] = useState(0)
-
-    // useEffect(() => {
-    //     if(sliderRef.current){
-    //         sliderRef.current?.goTo(page)
-    //     }
-    // },[ page ])
-    
-    
-    const changePage = (currentSlide: number) => {
-        sliderRef.current?.goTo(currentSlide)
-        setPage(currentSlide)
-    }
+    const sliderRef: any = useRef()  
 
     return (
         <>             
@@ -146,9 +120,6 @@ export default function Carousel({ cards }: React.PropsWithChildren<CarouselProp
                         ))
                     }            
                 </Pages>
-                {/* <SlickList length={cards.length} page={page} changePage={changePage} /> */}
-                    {/* { cards.map((value: any,key: number) => (<Dot key={key} src={"icons/dot.svg"} selected={key === page} onClick={() => setPage(key)}  />)) }
-                </SlickList> */}
             </Container>
         </>
     )

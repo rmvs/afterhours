@@ -1,21 +1,6 @@
 import styled from 'styled-components'
 import { Menu as AntMenu } from "antd";
-import { Logo } from 'components/Logo'
 
-const AntItem = AntMenu.Item;
-
-const Container = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 16px;
-`
-
-const NavLink = styled.div`
-    display: flex;
-    padding: 12px 8px;
-    justify-content: center;
-    align-items: center;
-`
 
 const TopFrame = styled.div`
     display: flex;
@@ -33,7 +18,6 @@ const PaddingContainer = styled("div")`
     padding-left: 40px;
 `
 
-// styled.div
 const TopFrameContainer = styled((( { children, ...props  }: any ) => <PaddingContainer {...props} >{ children }</PaddingContainer>))`
     display: flex;
     align-items: center;
@@ -93,20 +77,3 @@ const Menu: typeof AntMenu = styled(AntMenu)`
 
 
 export { Menu, TopFrame, TopFrameContainer, TopFrameLabel, TopFrameBlock }
-
-// export function Nav(props: any){
-//     return <Menu {...props} />
-//     // return (
-//     //     <Container>
-//     //         <NavLink>
-//     //             Products
-//     //         </NavLink>
-//     //         <NavLink>
-//     //             Did you know?
-//     //         </NavLink> 
-//     //         <NavLink>
-//     //             Contact us
-//     //         </NavLink>          
-//     //     </Container>
-//     // )
-// }

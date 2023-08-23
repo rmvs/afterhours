@@ -25,8 +25,6 @@ const LogoContainer = styled.div`
 
 export default function Admin(props: React.PropsWithChildren){
 
-    const [ adminPassword, setAdminPassword ] = useState()
-    const [ adminPasswordConfirmation, setAdminPasswordConfirmation ] = useState()
     const [ auth, setAuth ] = useState<boolean>()
     const [ disable, setDisable ] = useState(false)
     const [ hasError, setHasError ] = useState(false)
@@ -88,16 +86,6 @@ export default function Admin(props: React.PropsWithChildren){
                                         <Input placeholder={"Enter your app secret key"} onChange={(e: any) => setSecretKey(e.target.value)} />
                                         { hasError && <div style={{color: 'red'}}>Invalid secret key.</div> }
                                     </Form.Item>
-                                    {/* <Form.Item label={"Your Admin Password"}>
-                                        <Input placeholder={"Type your admin password"} onChange={(e: any) => setAdminPassword(e.target.value)} />
-                                    </Form.Item>
-                                    {
-                                        !localStorage.getItem('adminPassword') && (
-                                            <Form.Item label={"Your Admin Password Confirmation"}>
-                                                <Input placeholder={"Type your admin password confirmation"} onChange={(e: any) => setAdminPasswordConfirmation(e.target.value)} />
-                                            </Form.Item>
-                                        )
-                                    } */}
                                     <Form.Item>
                                         <Button type="primary" onClick={authenticate}>Submit</Button>
                                     </Form.Item>

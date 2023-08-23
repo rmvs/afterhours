@@ -1,4 +1,4 @@
-import { Avatar, Col as AntdCol, List, Row, Collapse as AntdCollapse, CollapsePanelProps } from "antd";
+import { Col as AntdCol, List, Row, Collapse as AntdCollapse } from "antd";
 import Typography from "components/Typography";
 import styled from "styled-components";
 import { Icon } from "Icons";
@@ -7,7 +7,6 @@ import { SlideContainer as DefaultSlideContainer } from "components/AfterHoursSl
 import Slide from "components/Slide";
 import AfterHoursStamp from "components/Stamp";
 import { Logo } from "components/Logo";
-import { useWindowSize } from "@react-hook/window-size";
 
 const FAQContainer = styled.div`
     // background: rgb(255,251,248);
@@ -69,8 +68,6 @@ const FAQComparision = styled(Row)`
         align-items: center !important;
     }
 `
-
-// position: 'absolute', right: '-11%',top: '-16%'
 
 const FAQComparisionContent = styled(AntdCol)`
     border-radius: 15.971px;    
@@ -243,15 +240,6 @@ const ShopNowContainer = styled.div`
     justify-content: center;
 `
 
-const MultiColumnList = styled(List)`
-    column-count: 2; /* Set the number of columns you want */
-    column-gap: 29px; /* Adjust the gap between columns as needed */
-    padding-top: 250px;
-    padding-bottom: 250px;
-    padding-left: 298px;
-    padding-right: 298px;
-`
-
 const { Item } = List
 
 const FAQTitle = styled.div`
@@ -373,11 +361,6 @@ const FAQListItem = styled(Item)<{$header?: boolean}>`
         border-block-end: none !important;
     }    
 `
-
-const FAQListLink = styled.a`
-    color: black;
-`
-
 const SlideContainer = styled(DefaultSlideContainer)`
     padding-top: 20px;
     padding-bottom: 20px;
@@ -555,31 +538,11 @@ export default function FAQ({ openModal }: React.PropsWithChildren<{ openModal: 
         'One-size uneven fit'
     ]
 
-    // const FAQTexts = [
-    //     {
-    //         question: 'What is the material of the sleep mask?',
-    //         answer: `Our sleep mask is comfortable, thin (yet effective in blocking out light) and crafted with 100% silicone and 100% soft silk (known for its anti-wrinkle benefits!).`
-    //     },
-    //     'What is the benefit of using silk?',
-    //     'What are the benefits of using silicone?',
-    //     'How does the sleep mask block out light?',
-    //     'How does the sleep mask stay in place?',
-    //     'Can I use the sleep mask if I am a side sleeper?',
-    //     'Is the sleep mask suitable for all faces?',
-    //     'What skin types is the sleep mask suitable for?',
-    //     'How many uses is it good for?',
-    //     'How do you know when the sleep mask is ready to be replaced?',
-    //     'How do you clean the sleep mask?'
-    // ]
-
-    const [width, height] = useWindowSize()
-
     const expandCollapse = (collapseName: string) => {
         (document.querySelector(collapseName) as HTMLElement).style.display = 'block';
         (document.querySelector('.more-link-button') as HTMLElement).style.display = 'none';
     }
-    // xs={24} sm={18} md={18} lg={12} xl={12} xxl={4}
-    // xs={10} sm={12} md={12} lg={4}
+
     return (
         <>
             <FAQContainer>

@@ -1,5 +1,4 @@
-import { Firestore, collection, getDocs, doc, setDoc, addDoc, getDoc } from "firebase/firestore/lite";
-import { v4 as uuidv4 } from 'uuid';
+import { Firestore, collection, getDocs, addDoc} from "firebase/firestore/lite";
 
 export default class UserService {
     constructor(private db: Firestore){

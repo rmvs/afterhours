@@ -1,18 +1,14 @@
-import { Row, Col, Grid } from "antd";
-import { createRef, useEffect, useRef, useState } from "react";
+import { Row, Col } from "antd";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import React from 'react'
 import { Eyelash } from "Icons";
 import Typography from "components/Typography";
-import { motion, useScroll, useSpring } from "framer-motion";
-import useParallax from "utils/parallax";
 
 import ScrollMagic from 'scrollmagic';
 import { useWindowSize } from "@react-hook/window-size";
-import BenefitsParallax from "components/BenefitsParallax";
 import { GenericSlide } from "components/TweetSlide";
 
-const { useBreakpoint } = Grid;
 
 const ProductContainer = styled.div`
     padding-top: 270.77px;
@@ -356,45 +352,11 @@ const Benefit =  ({ title, text, opacity, id, ref }: any) => {
   )  
 }
 
-const VideoContainer = styled.div`
-    position: absolute;
-    // width: 100%;
-    // backface-visibility: hidden;
-    // z-index: 100;
-    // display: flex;
-    // width: 844px;
-    // height: 475px;
-    top: 0;
-    left:0;
-    margin: 0;
-
-    video {
-      max-width: 100%;
-      max-height: 100%;
-    }
-`
-
-
-const VideoRollContainer = styled.div`
-  position: relative;
-  height: 100%;
-  display: block;
-`
-
-const VideoAbsolute = styled.div`
-  position: absolute;
-  width: 100%;
-  top:0;
-  left: 0;
-`
-
-
 export default function ProductVideo({ children, slideContainerRef}: React.PropsWithChildren<{ slideContainerRef?: React.RefObject<HTMLDivElement>}>){
 
-    const videoRef = useRef<HTMLVideoElement>(null)
+
     const containerRef = useRef<HTMLDivElement>(null)
     const btnVideo = useRef<HTMLButtonElement>(null)  
-    const descriptionContainer = useRef<HTMLDivElement>(null)
     const [play, setPlay] = useState(false)
     const controller = new ScrollMagic.Controller();
     const [ scene, setScene ] = useState<ScrollMagic.Scene | undefined>()
@@ -434,14 +396,10 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
             `
         }
     ]
+    
 
-    // const { scrollYProgress } = useScroll({ target: descriptionContainer })
-    // const y = useParallax(scrollYProgress, 500)
-
-    const [ box, setBox ] = useState(0)
 
     const [ width, height ] = useWindowSize();
-    const screens = useBreakpoint();
     
     
     useEffect(() => {
@@ -466,13 +424,6 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
       pinVideo()
       setVideoLoaded(true)      
     }
-
-
-    // useEffect(() => {
-    //   videoRef.current?.addEventListener('loadeddata',onVideoLoaded)
-
-    //   return () => videoRef.current?.removeEventListener('loadeddata',onVideoLoaded)
-    // },[videoRef])
 
     useEffect(() => {
       (document.getElementById('video') as HTMLVideoElement).addEventListener('loadeddata',onVideoLoaded)
@@ -519,45 +470,7 @@ export default function ProductVideo({ children, slideContainerRef}: React.Props
         setScene(prev => _scene)
       }
     }
-
-    // useEffect(() => {
-    //   if(scene){
-    //     debugger
-    //     scene.update(true);
-    //   }
-    // },[width,height])
-
-    // useEffect(() => {
-    //   // if(Object.keys(screens).length > 0){
-    //   //   const isSmall = (!!screens.sm || !!screens.xs) && (Object.entries(screens).filter(value => !['xs','sm'].includes(value[0])).every(value => !!value[1] === false));
-    //   //   if(isSmall){
-    //   //     scene?.removePin()
-    //   //     setScene(undefined)
-    //   //   }else if(!isSmall){
-    //   //     if(!scene){
-    //   //       debugger
-    //   //       pinVideo()
-    //   //     }
-    //   //   }
-    //   // }
-    //   if(Object.keys(screens).length > 0 && scene){
-    //     scene?.removePin()
-    //     setScene(undefined)
-    //   }
-    // },[screens])
-
-    // const scaleX = useSpring(scrollYProgress, {
-    //     stiffness: 100,
-    //     damping: 30,
-    //     restDelta: 0.001
-    //   });
-
-    // width={"844px"}
-    //                   height={"475px"}
-    // xs={24} sm={18} md={18} lg={12} xl={12} xxl={4}
-    // xs={24} lg={10}
-    // xs={24} lg={7}
-    // onLoadedData={pinVideo}
+    
     return (
       <ProductContainer id={"product-container"} ref={containerRef}>
         <div id="trigger-section" style={{height: '1px'}}></div>

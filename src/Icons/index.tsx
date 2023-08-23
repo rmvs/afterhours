@@ -1,29 +1,6 @@
 import styled from 'styled-components'
 import SVG from 'react-inlinesvg'
 
-const EyelashSVG = styled(SVG)`
-    width: 26.729px;
-    height: 26.897px;
-    display: flex;    
-`
-
-const StarSVG = styled(SVG)`
-    width: 20.818px;
-    height: 21.764px;
-    flex-shrink: 0;
-`
-
-const MoonSVG = styled(SVG)`
-    width: 21px;
-    height: 21px;
-    flex-shrink: 0;
-`
-
-const ArrowSVG = styled(SVG)`
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-`
 
 interface IconProps {
     src: string,

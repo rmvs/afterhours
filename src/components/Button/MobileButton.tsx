@@ -8,23 +8,6 @@ const NavButtonStripe = styled(SVG)`
     stroke: var(--main-blue, #164CA4);
 `
 
-// const Button = styled.div`
-//     display: inline-flex;
-//     padding: 10px;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     gap: 5px;
-//     cursor: -webkit-grab;
-//     display: none;
-
-//     @media(max-width: 480px){
-//         display: inherit;
-//         position: absolute;
-//         left: 0;
-//     }
-// `
-
-
 
 const Button = styled(AntdButton)`
     display: inline-flex;
@@ -45,10 +28,6 @@ const Button = styled(AntdButton)`
         /*right: 10px;*/
         margin-left: 50%;
     }
-`
-// whitespace: nowrap;
-const InnerElement = styled.div`
-   background: var(--cream);
 `
 
 const MobileMenu = ({ items }: any) => {

@@ -4,7 +4,7 @@ import Typography from "components/Typography"
 import { REVIEWS } from "../../constants"
 import { motion, AnimatePresence, wrap } from "framer-motion"
 import { Box, BoxContent, BoxContentAvatar, BoxContentUserInfo, BoxHeader, LastReview, ReviewDescription, ReviewInfo, ReviewerTag } from "pages/Reviews"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import SlickList from "components/SlickList"
 import { Col, Row } from "antd"
 
@@ -38,20 +38,10 @@ const variants = {
 export const GenericSlide  = ({ cards, xs, sm, md }: React.PropsWithChildren<{ cards: any[], xs?: number, sm?: number, md?: number }>) => {
 
     const [[page, direction], setPage] = useState([0, 0]);
-    const [ ref, setRef ] = useState(null)
 
     const paginate = (newDirection: number) => {
         setPage([page + newDirection, newDirection]);
     };
-
-    useEffect(() => {
-        // debugger
-        // console.log((document.querySelector('.inner-container') as any).style.height);
-        // const height = getComputedStyle(cards[page])?.height
-        // console.log(height);
-        // (document.getElementsByClassName('inner-container') as any).style.height = getComputedStyle(cards[page]).height;
-    },[page])
-
 
     const cardIndex = wrap(0, cards.length, page);
 
@@ -95,16 +85,8 @@ export const GenericSlide  = ({ cards, xs, sm, md }: React.PropsWithChildren<{ c
     )
 }
 
-export default function TweetSlide(props: React.PropsWithChildren){    
+export default function TweetSlide(props: React.PropsWithChildren){
 
-    // const [[page, direction], setPage] = useState([0, 0]);
-
-    // const paginate = (newDirection: number) => {
-    //     setPage([page + newDirection, newDirection]);
-    // };
-
-
-    // style={{maxWidth: '32.8125rem'}}
     const cards = REVIEWS.map(({ name, age, social, isVerified, avatar, stars, date, review },index: number) => (
         <Box key={index} $color={index % 2 === 0 ? '#D2EEF9' :'#FAF1E8'} style={{padding: '1.88rem'}}>
             <BoxContent>
@@ -144,46 +126,4 @@ export default function TweetSlide(props: React.PropsWithChildren){
     ))
 
     return <GenericSlide cards={cards} />
-
-
-    // const cardIndex = wrap(0, cards.length, page);
-
-    // return (
-    //     <Row justify={"center"}>
-    //         <Col xs={18} sm={14} md={10} lg={8} xl={8} xxl={6}>
-    //             <div className="animation-slide-container">            
-    //                 <div className="inner-container"> 
-    //                     <AnimatePresence initial={false}>
-    //                         <motion.div dragElastic={1} 
-    //                         custom={direction} 
-    //                         exit={"exit"} 
-    //                         animate={"center"}
-    //                         initial={"enter"} 
-    //                         drag={"x"} 
-    //                         variants={variants}
-    //                         transition={{
-    //                             x: { type: "tween", stiffness: 300, damping: 30 },
-    //                             opacity: { duration: 0.2 }
-    //                         }}
-    //                         onDragEnd={(e, { offset, velocity }) => {
-    //                             const swipe = swipePower(offset.x, velocity.x);            
-    //                             if (swipe < -swipeConfidenceThreshold) {
-    //                             paginate(1);
-    //                             } else if (swipe > swipeConfidenceThreshold) {
-    //                             paginate(-1);
-    //                             }
-    //                         }}
-    //                         dragConstraints={{ left: 0, right: 0 }}
-    //                         key={page}>
-    //                             {cards[cardIndex]}
-    //                         </motion.div>
-    //                     </AnimatePresence>
-    //                 </div>
-    //                 <SlickList length={2} page={ direction >= 0 ? 0 : 1 } setPage={(key: number) => {
-    //                     key === 0 ?  paginate(1) : paginate(-1)
-    //                 } } />
-    //             </div>
-    //         </Col>
-    //     </Row>
-    // )
 }
