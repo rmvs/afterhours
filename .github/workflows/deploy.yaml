@@ -22,8 +22,8 @@ jobs:
 
       - name: Install and build
         run: |
-          sed -i 's#"homepage": "."#"homepage": "https://${GITHUB_ACTOR}.github.io/${{github.event.repository.name}}"#g' package.json
-          echo "changed homepage to https://${GITHUB_ACTOR}.github.io/${{github.event.repository.name}}"
+          sed -i 's#"homepage": "."#"homepage": "https://${{github.actor}}.github.io/${{github.event.repository.name}}"#g' package.json
+          echo "changed homepage to https://${{github.actor}}.github.io/${{github.event.repository.name}}"
           cat package.json
           npm ci
           npm run build
