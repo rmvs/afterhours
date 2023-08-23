@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -20,9 +20,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
           sed -i 's#"homepage": "."#"homepage": "https://${GITHUB_REPOSITORY}.github.io/${GITHUB_REF_NAME}"#g' package.json
           echo "changed homepage to https://${GITHUB_REPOSITORY}.github.io/${GITHUB_REF_NAME}"
+          npm install          
 
       - name: Build
         run: npm run build
