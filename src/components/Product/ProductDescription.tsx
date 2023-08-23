@@ -7,7 +7,6 @@ import Button from 'components/Button/Button';
 import Benefits from 'components/Benefits';
 import AfterHoursStamp from 'components/Stamp';
 import Typography from 'components/Typography';
-import { ConfigProvider } from 'antd';
 
 const Container = styled.div`
     /*background-image: linear-gradient(160.76deg, #FFFBF8 40.44%, rgba(210, 240, 242, 0) 75.47%),
@@ -151,28 +150,6 @@ const ProductIntroduction = styled.div`
     
 `
 
-// const Typography = styled.div`
-//     color: var(--main-blue);
-//     font-family: Roc Grotesk;
-//     font-size: 55px;
-//     font-style: normal;
-//     font-weight: lighter;
-//     line-height: 60px;
-//     letter-spacing: -1.65px;
-//     @media(max-width: 480px){
-//         font-size: 20px;
-//     }
-// `
-
-const ProductHighlight = styled.span`
-    border-radius: 50px;
-    border: 1px solid #164CA4;
-    width: 300px;
-    height: auto;
-    flex-shrink: 0;
-    // font-weight: bold;
-    padding: 5px 10px;
-`
 
 const BolderText = styled.span` 
     font-family: Roc Grotesk Bold;
@@ -246,31 +223,6 @@ const Price = styled( ({ bigger, strike, ...props }:any) => <PriceDiv {...props}
     text-decoration-color: ${ props => !!props.strike ? 'red' : 'none' };
 `
 
-const Quantity = styled.div`
-    color: black;
-    font-size: 32px;
-    margin-left: 9%;
-`
-
-const ProductInformationHeader = styled.div`
-    display: flex;
-    /*width: 260px;
-    height: 24px;*/
-    padding: 35.5px 0px;
-    align-items: flex-start;
-    gap: 17px;
-    flex-shrink: 0;
-    border-bottom: solid 1px #164CA4;
-`
-
-const ProductInformationLabel = styled.div`
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: 4.8px;
-    text-transform: uppercase;
-`
 
 const ProductInformationDescription = styled.div`
     color: var(--grey, #6C6C6C);
@@ -290,62 +242,7 @@ const HighlightText = styled.span`
     font-weight: 900;
 `
 
-const TryNowButton = styled.button`
-    display: flex;
-    padding: 16px 32px 16px 16px;
-    align-items: center;
-    gap: 16px;
-    border-radius: 16px;
-    background: var(--main-blue, #164CA4);
-    box-shadow: 4px 4px 0px 0px #D2F0F2;
-    cursor: pointer;
-`
-
-const TryNowButtonInnerText = styled.div`
-    color: var(--cream);
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 32px;
-`
-
-const ShopNowButtonContainer = styled.div`
-    // position: absolute;
-    // top: 65%;
-
-    // @media(max-width: 500px){
-    //     top: 100%;
-    // }
-
-    // @media(max-width: 480px){
-    //     top: 100%;
-    // }
-    display: flex;
-    align-items: baseline;
-    height: 100%;
-
-    @media (max-height: 1200px){
-        align-items: end;
-    }
-`
-
-
 export default function ProductDescription({ children, openModal }: React.PropsWithChildren<{openModal: any}>){
-
-    // const cards = [
-    //     {
-    //         src: 'img/carousel/1.png',
-    //         href: '#'
-    //     },
-    //     {
-    //         src: 'img/carousel/2.png',
-    //         href: '#'
-    //     }
-    //     ,{
-    //         src: 'img/carousel/4.png',
-    //         href: '#'
-    //     }
-    // ]
 
     const cards = [
         <CarouselThumbnail src={'img/carousel/1.png'} />,
@@ -366,10 +263,6 @@ export default function ProductDescription({ children, openModal }: React.PropsW
             ),
             children: (
                 <>
-                    {/* <ProductInformationDescription>
-                        <HighlightText>We all deserve a peaceful sleep.</HighlightText> When light intrudes your sleep –  a sleep mask works to block out light 
-                        – but it can also obstruct your comfort.
-                    </ProductInformationDescription> */}
                     <ProductInformationDescription>
                         <HighlightText>Say goodbye to uncomfortable sleep masks</HighlightText> with scratchy fabric, odd shapes, and tight straps that restrict, leave you with a headache, and place pressure where it isn’t needed.                         
                     </ProductInformationDescription>
@@ -403,10 +296,6 @@ export default function ProductDescription({ children, openModal }: React.PropsW
         display: 'flex',
         flexDirection: 'column',
         gap: '1px'
-    }
-
-    const collapseStyle: any = {
-        height: '100%'
     }
     
     // xs={24} sm={18} md={18} lg={12} xl={12} xxl={4}
@@ -452,10 +341,6 @@ export default function ProductDescription({ children, openModal }: React.PropsW
                                 <Button color="#164CA4" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />} onClick={openModal}>Try Now</Button>
                             </Col>
                         </Row>
-                        {/* <ShopNowButtonContainer>
-                            <Button color="#164CA4" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />} onClick={openModal}>Try Now</Button>
-                        </ShopNowButtonContainer> */}
-                    {/* </div> */}
                 </Col>
                 <Col className="button-try-now-mobile" xs={20} sm={20}>
                     <Button color="#164CA4" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />} onClick={openModal}>Try Now</Button>                    

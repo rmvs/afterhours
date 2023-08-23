@@ -1,4 +1,3 @@
-import { Row, Col } from "antd";
 import { Logo } from "components/Logo";
 import AfterHoursStamp from "components/Stamp";
 import styled from "styled-components";

@@ -1,19 +1,11 @@
 // import { Menu } from "antd";
 import { Eyelash } from "Icons"
-import AfterHoursBar, { AfterHoursSlideStrapContainer, SlideContainer } from "components/AfterHoursSlideStrap"
-import Benefits from "components/Benefits"
 import { MobileButton } from "components/Button"
 import { Layout, StyledHeader, Content } from "components/Header"
 import {Logo} from 'components/Logo'
 import Marquee from "components/Marquee"
 import { Menu, TopFrame, TopFrameBlock, TopFrameContainer, TopFrameLabel } from "components/Nav"
-import { ProductDescription } from "components/Product"
-import AfterHoursStamp from "components/Stamp"
-import Trivia from "components/Trivia"
-import React, { createRef, useEffect, useRef, useState } from "react"
-
-import { useWindowSize } from "@react-hook/window-size";
-import Slide from "components/Slide"
+import React, { useRef, useState } from "react"
 import ProductVideo from "./ProductVideo"
 import ProductIntro from "./ProductIntro"
 import ProductDetails from "./ProductDetails"
@@ -24,7 +16,7 @@ import Reviews from "./Reviews"
 import Testimonies from "./Testimonials"
 import Footer from "components/Footer"
 import Contact from "components/Contact"
-import { Modal, Space } from "antd"
+import { Modal } from "antd"
 import ConfirmModal from "components/ConfirmDialog"
 
 
@@ -39,12 +31,6 @@ export default function Home<T extends React.PropsWithChildren<{}>>(props: T){
 
     const scrollToView = (elementId: string) => {
         document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' })
-        // setTimeout(() => {
-        //     window.scrollTo({
-        //         top: window.scrollY - 1,
-        //         behavior: 'smooth'
-        //     })
-        // },300)
     }
 
     const menuItems = [
@@ -58,11 +44,6 @@ export default function Home<T extends React.PropsWithChildren<{}>>(props: T){
             label: 'Did you know?',
             onClick: (ev: any) => scrollToView('did-you-know')
         },
-        // {
-        //     key: 3,
-        //     label: 'Contact Us',
-        //     onClick: (ev: any) => setContactUsOpen(prev => !prev)
-        // },
         {
             key: 3,
             label: 'Benefits',
@@ -84,15 +65,6 @@ export default function Home<T extends React.PropsWithChildren<{}>>(props: T){
             onClick: (ev: any) => scrollToView('review')
         },                        
     ];
-
-    const [ width, height ] = useWindowSize()
-
-    const SlideUnitSection = (
-        <div ref={createRef()} style={{width:'100%'}}>
-            <AfterHoursStamp ref={createRef()} strokeWidth="1" color="#D2EEF9" position="relative" inverted />
-            <Logo ref={createRef()} inverted width={'109.13px'} height={'52.86px'} />
-        </div>
-    )
 
     const slideContainerRef = useRef<HTMLDivElement>(null)
 
@@ -155,18 +127,6 @@ export default function Home<T extends React.PropsWithChildren<{}>>(props: T){
                 />
             </StyledHeader>
             <Content>
-                {/* <ProductDescription />
-                <Trivia />
-                <AfterHoursSlideStrapContainer>
-                <SlideContainer id="slide-container">
-                    <Slide>
-                        <>
-                            <AfterHoursStamp strokeWidth="1" color="#D2EEF9" position="relative" inverted />
-                            <Logo inverted width={'109.13px'} height={'52.86px'} />
-                        </>
-                    </Slide>
-                </SlideContainer> 
-                </AfterHoursSlideStrapContainer> */}
                 <ProductIntro openModal={setContactUsOpen} slideContainerRef={slideContainerRef} />
                 <ProductVideo slideContainerRef={slideContainerRef} />
                 <ProductDetails openModal={setContactUsOpen} /> 

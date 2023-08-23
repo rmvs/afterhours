@@ -1,7 +1,6 @@
 import { Icon } from "Icons"
 import { Col, Row } from "antd"
 import { Button } from "components/Button"
-import Typography from "components/Typography"
 import styled from "styled-components"
 
 
@@ -116,36 +115,9 @@ const ProductBannerMobile = styled.img`
 export default function ProductDetails({ openModal }: React.PropsWithChildren<{openModal: any}>){
     return (
         <ProductDetailsContainer className="product-details-section">
-            {/* <ProductType>
-                <div>
-                    <Icon src="icons/moon.svg" width="21px" height="21px" />
-                </div>
-                <Typography fontSize="16px" color="#164CA4" fontWeight="24px" letterSpacing="4.8px" $textTransform="uppercase" $type="Bold">
-                    SLEEP MASK
-                </Typography>
-            </ProductType>
-            <ProductTitle>
-                <Typography fontSize="55px" lineheight="55px" letter-spacing="-1.65px">
-                    afterhours
-                </Typography>
-            </ProductTitle> */}
-            {/* <img id="bust" src="img/product-anatomy.png" alt="bust" /> */}
-            {/* <ProductBanner>
-                <ShopNowButton onClick={openModal} className="shop-button" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>                
-            </ProductBanner>
-            <div className="shop-now-container">
-                <ShopNowButton onClick={openModal} className="shop-button-mobile" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton> 
-            </div>  */}
             <Row justify={"center"}>
-                <Col xs={20} sm={12} md={22} lg={22} xl={18} xxl={18}>
-                    {/* <ProductBanner>
-                        <ShopNowButton onClick={openModal} className="shop-button" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton>                
-                    </ProductBanner> */}
-                        {/* <img src="img/product-banner.png" alt="Product Afterhours" style={{ width: '100%', height: 'auto' }} />                     */}
-                        {/* <ProductBannerDesktop src="img/product-banner.png" alt="Product Afterhours" /> */}
-                        {/* img/product-banner.png */}
-                        <ProductBanner src="img/group-106-4x.png" alt="Product Afterhours" />
-                        {/* img/product-anatomy-mobile.png */}                        
+                <Col xs={20} sm={12} md={22} lg={22} xl={18} xxl={18}>                    
+                        <ProductBanner src="img/group-106-4x.png" alt="Product Afterhours" />               
                         <ProductBannerMobile src="img/group-116.png" alt="Product Afterhours" />
                 </Col>
             </Row>
@@ -156,14 +128,6 @@ export default function ProductDetails({ openModal }: React.PropsWithChildren<{o
                     </div>
                 </Col>
             </Row>
-            {/* shop-now-container */}
-            {/* <Row justify={"center"}>
-                <Col>
-                    <div className="shop-now-container">
-                        <ShopNowButton onClick={openModal} className="shop-button-mobile" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Shop Now</ShopNowButton> 
-                    </div>
-                </Col>
-            </Row> */}
         </ProductDetailsContainer>
     )
 }
