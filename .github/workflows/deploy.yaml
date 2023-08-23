@@ -25,7 +25,7 @@ jobs:
           sed -i 's#"homepage": "."#"homepage": "https://${{github.actor}}.github.io/${{github.event.repository.name}}"#g' package.json
           echo "changed homepage to https://${{github.actor}}.github.io/${{github.event.repository.name}}"
           cat package.json
-          npm ci
+          npm i
           npm run build
 
       - name: Deploy to GitHub Pages
