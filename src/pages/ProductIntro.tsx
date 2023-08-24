@@ -1,4 +1,4 @@
-import { AfterHoursSlideStrapContainer, SlideContainer as DefaultSlideContainer } from "components/AfterHoursSlideStrap";
+import { SlideContainer as DefaultSlideContainer } from "components/AfterHoursSlideStrap";
 import { ProductDescription } from "components/Product";
 import Trivia from "components/Trivia";
 import Slide from "components/Slide"
@@ -38,9 +38,6 @@ export default function ProductIntro({ children, slideContainerRef, openModal }:
         <>
             <ProductDescription openModal={openModal}  />
             <Trivia />
-            {/* <AfterHoursSlideStrapContainer> */}
-            {/* $rotate="0.277" */}
-            {/* -0.277deg */}
                 <SlideContainer className="default-logo-slide"  ref={slideContainerRef} id="slide-container">                
                     <ProductSlideSection ref={slideContainerRef}>
                         <SlideContainer className="default-logo-slide">

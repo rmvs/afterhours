@@ -131,20 +131,11 @@ export default function Testimonies({ openModal }: React.PropsWithChildren<{ ope
     const reviewPredicate = (review: any) => review.name.startsWith('Ryan')
     const [ index, setIndex ] = useState(REVIEWS.findIndex(reviewPredicate))
 
-    const now = new Date()
-
     const changeReview = (type: 'prev' | 'next') => {
-        const i = REVIEWS.length;
-        // if(type === 'prev' && (index - 1 > 0)){
-        //     setIndex(prev => prev - 1)
-        // }else if(type === 'next' && (index + 1  < REVIEWS.length)){
-        //     setIndex(prev => prev + 1)
-        // }
         const idx = type === 'prev' ? (index - 1 < 0 ? REVIEWS.length - 1 : index - 1) : index + 1  >= REVIEWS.length ? 0 : index + 1;
         setIndex(prev => idx)
     }
-    // xs={24} sm={18} md={18} lg={12} xl={12} xxl={4}
-    // xs={20} sm={12} md={12} lg={6}
+
     return (
         <TestimoniesContainer>
             <Row justify={"center"}>

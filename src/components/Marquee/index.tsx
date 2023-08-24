@@ -1,5 +1,5 @@
-import { motion, useTransform } from "framer-motion";
-import { cloneElement, useEffect, useRef, useState, Fragment, createRef } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState, Fragment, createRef } from "react";
 import { useRafLoop } from "react-use";
 import { useWindowSize } from "@react-hook/window-size";
 import { v4 as uuidv4 } from 'uuid';
@@ -11,8 +11,6 @@ export default function Marquee({ children, padding }: any){
     // const rect: any = useRef({})
     const [ childrenMarquee, setChildrenMarquee ] = useState<any[]>([])
     const [ createMarquees, setCreatedMarquees ] = useState(false)
-    const [ removeChildrenQueue, setRemoveChildrenQueue ] = useState<any[]>([])
-    const [ needMoreElements, setNeedMoreElements ] = useState<boolean>(false)
     const [ elementsQueue, setElementsQueue ] = useState<any[]>([])
     const [speed,setSpeed] = useState(1)
 
@@ -22,14 +20,10 @@ export default function Marquee({ children, padding }: any){
 
     const [width, height] = useWindowSize()
 
-    const [ threshold, setThreshold ] = useState<number>()
-
     useEffect(() => {
         if(childrenMarquee.length > 0 && childrenMarquee[childrenMarquee.length - 1].ref && childrenMarquee.length < Math.ceil(width/childrenMarquee[childrenMarquee.length - 1].ref.current.getBoundingClientRect().width) + 1){
             const _threshold = Math.ceil(width/childrenMarquee[childrenMarquee.length - 1].ref.current.getBoundingClientRect().width)
-            //setThreshold(_threshold)
             createNewMarquee(_threshold)
-            //setThreshold(undefined)
         }
     },[width, childrenMarquee])
 
@@ -44,8 +38,6 @@ export default function Marquee({ children, padding }: any){
     },[children])
 
     const createNewMarquee = (n: number, ref?: any)  => {
-        // !ref ? 0 : Number(getComputedStyle(ref.current).transform.split(',')[4].trim())        
-        // [id]: 0
         const newElements:any[] = []
         const newXCoords: any = []
         for(let i = 0;i < n; i++){
@@ -61,33 +53,6 @@ export default function Marquee({ children, padding }: any){
         ])
         setCreatedMarquees(true)
     }
-   
-
-    // useEffect(() => {
-    //     x.current = 0
-    // },[width, height])
-
-    // useEffect(() => {
-    //     if(removeChildrenQueue.length > 0){            
-    //         const ids: any[] = removeChildrenQueue.map(({ ref: { current : { id = undefined}  } }) => id).filter(id => id !== undefined)
-    //         if(ids.length === 0) return;
-    //         const newChildrenMarquee = childrenMarquee.filter((s: any) => !ids.includes(s.ref.current.id))
-    //         setChildrenMarquee(value => ([ ...newChildrenMarquee ]))
-    //         if(newChildrenMarquee.length !== 0) {
-    //             const temp = Object.keys(xCoords).filter(s => !ids.includes(s))
-    //             const newXCoords = temp.reduce((prev,curr) => {
-    //                 return ({ ...prev, [curr]: curr === newChildrenMarquee[0].ref.current.id ? createRef() : xCoords[curr]})
-    //             },{})
-    //             setXCoords(value => ({...newXCoords}))
-    //         } 
-    //         setRemoveChildrenQueue([])            
-    //         // removeChildrenQueue.forEach(s => {
-    //         //     document.getElementById(s.ref.current.id)?.remove()
-    //         // }) 
-    //         //setIsRemovingChildren(false)
-    //     }
-    // },[removeChildrenQueue, childrenMarquee, xCoords])
-    
 
     const setX = () => {
         const q: any[] = [];

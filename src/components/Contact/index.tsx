@@ -1,4 +1,4 @@
-import { Eyelash, Icon } from "Icons"
+import { Icon } from "Icons"
 import { SlideContainer } from "components/AfterHoursSlideStrap"
 import Slide from "components/Slide"
 import Typography from "components/Typography"
@@ -63,46 +63,11 @@ const ContactSection = styled.div`
     }
 `
 
-const ContactsSectionMobile = styled(ContactSection)`
-    @media(max-width: 480px){
-        display: flex;
-    }
-    max-height: 65px;
-    display: none;
-    gap: 1.2rem;
-    justify-content:center;
-    
-    margin-top: 0px;
-
-    .contact-shipping {
-        font-size: 0.8125rem;
-        line-height: 1.01563rem;
-    }
-`
 /* eslint-disable jsx-a11y/no-distracting-elements */
 export default function Contact(props: React.PropsWithChildren){
 
-    const nodes = Array.from({ length: 3 }).map((value,index) => (
-        <React.Fragment key={index}>
-            <Typography className="contacts" fontSize="16px" lineheight="20px" letterSpacing="0px" $textTransform="uppercase">Free shipping on 2+ mask (USA only)</Typography>            
-            <Icon src="icons/eyelash-blue.svg"  />
-        </React.Fragment>
-    ))
-
     return (
-        <>
-            {/* <ContactSection>
-                    {
-                        Array.from({ length: 3 }).map((value,index) => (
-                            <React.Fragment key={index}>
-                                <Typography className="contacts" fontSize="16px" lineheight="20px" letterSpacing="0px" $textTransform="uppercase">Free shipping on 2+ mask (USA only)</Typography>            
-                                <Icon src="icons/eyelash-blue.svg"  />
-                            </React.Fragment>
-                        ))
-                    }
-            </ContactSection> */}
-
-            
+        <>            
             <ContactSection>
                 <SlideContainer>
                     <Slide>
@@ -113,12 +78,6 @@ export default function Contact(props: React.PropsWithChildren){
                     </Slide>
                 </SlideContainer>
             </ContactSection>
-
-
-            {/* <ContactsSectionMobile> 
-                    <Typography className="contact-shipping" fontSize="16px" lineheight="20px" letterSpacing="0px" $textTransform="uppercase">Free shipping on 2+ mask (USA only)</Typography>            
-                    <Icon src="icons/eyelash-blue.svg"  />               
-            </ContactsSectionMobile> */}
         </>
     )
 }

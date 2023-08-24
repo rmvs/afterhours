@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { Typography as DefaultTypography } from "antd";
-
 
 const Typography = styled.div<{ 
     fontSize?: string, 

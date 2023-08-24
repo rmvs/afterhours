@@ -1,6 +1,5 @@
-import { useWindowSize } from "@react-hook/window-size"
 import { motion } from "framer-motion";
-import React, { createRef, forwardRef, useEffect, useLayoutEffect, useRef, useState } from "react"
+import React, { createRef, useEffect, useRef, useState } from "react"
 import { useRafLoop } from "react-use";
 import { styled } from "styled-components";
 import { v4 as uuidv4 } from 'uuid';
@@ -172,101 +171,7 @@ export default function Slide({ children }: React.PropsWithChildren){
         }
     }
 
-
     useRafLoop(setX,true);
-
-    const resetSlide = () => {
-        setStart(false)
-        setChildrenSlide([])
-        setXCoords([])        
-    }
-
-    // useEffect(() => {
-    //     window.addEventListener('resize',resetSlide)
-    //     return () => window.removeEventListener('resize', resetSlide)
-    // },[])
-
-
-    // setTimeout(() =>{
-    //     fitContent()
-    // },500)
-
-    // useEffect(() => {
-    //     if(motionContainerRef.current.hasChildNodes()){
-    //         debugger
-    //     }
-    // },[])
-    
-
-    // useEffect(() => {
-    //     if(childrenSlide.length > 0){
-    //         console.log(childrenSlide[0].ref.current.getBoundingClientRect())
-    //     }
-    // },[childrenSlide])
-
-    // useEffect(() => {
-    //     if(childrenSlide.length > 0){
-    //         const { ref } = childrenSlide[0]
-    //         if(true){
-    //             debugger
-    //             const { props: { children: child } } = childrenSlide[0]
-    //             const { ref: _ref, children: c } = child[0]
-    //             console.log(child[0],_ref)
-    //             // React.Children.forEach(childrenSlide[0], (element) => {
-    //             //     const { ref: innerRef } = element
-    //             //     console.log(innerRef.current.getOffsetWidth)
-    //             // })
-    //         }
-    //     }
-    // },[childrenSlide, width, element])
-
-    // useLayoutEffect(() => {
-    //     const { ref } = children as any
-    //     if(ref.current){
-    //         debugger
-    //         console.log(ref.current.getBoundingClientRect())
-    //     }
-    // },[])
-
-    // useEffect(() => {
-    //     if(childrenSlide.length > 0) {
-    //         debugger
-    //         const { ref } = childrenSlide[0]
-    //         console.log(ref.current.getBoundingClientRect())
-    //     }
-    // },[childrenSlide])
-
-    // useEffect(() => {
-    //     if(childrenSlide.length === 0){
-    //         debugger
-    //         // const newChildren = React.createElement("div",{ ref: mainRef, children: (children as any[]).map((value: any,index: any) => React.cloneElement(value,{ ref: createRef() })) })
-    //         const newChildren = React.createElement(React.Fragment, { key: 'children-0', children:  (children as any[]).map((value: any,index: any) => React.cloneElement(value,{ ref: createRef() })) })
-    //         setChildrenSlide([newChildren])
-    //     }
-    // },[children])
-
-    // useEffect(() => {
-    //     if(children){                    
-    //         if(childrenSlide.length === 0){
-    //             debugger
-    //             const ref = createRef()
-    //             const id = uuidv4()   
-    //             const { props: { children: child, } } = element as any
-    //             const _children: any[] = []
-    //             React.Children.forEach(child, (element) => {
-    //                 let _ref = createRef()
-    //                 const __e = React.cloneElement(element,{ ref: _ref })
-    //                 _children.push(__e)
-    //             })
-    //             const parent = React.cloneElement(element as any,{ ref })
-    //             // const newChild = forwardRef((props,ref) => <div>{ React.cloneElement(children as any,{ ref }) }</div>)
-    //             setChildrenSlide([parent]) 
-    //         }
-    //         // const elm = React.forwardRef((props, ref) => React.cloneElement(children as any,{ ref: ref , id }))
-            
-    //     }       
-    // },[children])   
-
 
     return (<motion.div className="slide-container"  dragElastic={0.000001}>
         <div className="motion-container" ref={motionContainerRef as any} > 

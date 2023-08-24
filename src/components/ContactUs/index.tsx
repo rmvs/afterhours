@@ -1,6 +1,6 @@
 import { useWindowSize } from "@react-hook/window-size";
 import { Icon } from "Icons";
-import { Modal as AntdModal, Button, Col, Input as AntdInput, Row, Space, Alert } from "antd";
+import { Modal as AntdModal, Button, Col, Input as AntdInput, Row, Space } from "antd";
 import Typography from "components/Typography";
 import React, { useEffect, useRef, useState } from "react";
 import { userService } from "services";
@@ -191,8 +191,7 @@ const Input: typeof AntdInput = styled(AntdInput)`
     border-radius: 10px;
     border-color: var(--main-blue);    
 `
-{/* <NotifyButton size="large" type="primary">Notify Me</NotifyButton> */}
-{/* <Button type="primary" icon={<Icon src={"icons/stars.svg"} width="24px" height="24px" />}>Try Now</Button> */}
+
 export default function ContactUs({ open, close }: React.PropsWithChildren<{ open: boolean, close: any }>){
 
     const [ width, height ] = useWindowSize()
@@ -200,8 +199,6 @@ export default function ContactUs({ open, close }: React.PropsWithChildren<{ ope
     const [ hasError, setHasError ] = useState(false)
     const [ modalWidth, setModalWidth ] = useState("60%")
     const [ disableButton, setDisabledButton ] = useState(false)
-
-    const emailRef = useRef()
 
     const saveEmail = async () => {
         const error = !userEmail || userEmail?.length === 0 || !userEmail?.includes('@')
@@ -235,7 +232,6 @@ export default function ContactUs({ open, close }: React.PropsWithChildren<{ ope
             <div style={{height:'100%',display: 'flex', alignItems: 'center'}}>
                 <NotifyMe>
                     <ModalHeadline className="headline">
-                        {/* <Typography fontSize="24px" $type="Bold" lineheight="32px" letterSpacing="0px">Dear Client,</Typography> */}
                         <Typography className="catchphrase" fontSize="24px" lineheight="35px" $type="Bold" letterSpacing="0px">GET INTO BED WITH US. <Icon src="icons/eyelash-circle.svg" width="81px" height="51px" /> </Typography>
                     </ModalHeadline>
                     <ModalText>
